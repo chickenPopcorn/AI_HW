@@ -42,5 +42,17 @@ class MyTest(unittest.TestCase):
         self.assertEqual(down.parent.parent.child.child, down)
         self.assertEqual(left.parent.parent.child.child.returnState(), left.returnState())
 
+    def test_isGoalState(self):
+        a = state(3)
+        current = a
+        self.assertEqual(current.isGoalState(), True)
+        current = current.moveDirect("LEFT")
+        self.assertEqual(current.isGoalState(), False)
+
+    def test_shuffle(self):
+        a = state(3)
+        a.shuffle()
+        self.assertEqual(a.isGoalState(), False)
+
 if __name__ == "__main__":
     unittest.main(exit = False)

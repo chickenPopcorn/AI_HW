@@ -1,4 +1,5 @@
-import copy 
+import copy
+import random
 
 class state:
     def __init__(self, n, parent=None, child=None):
@@ -49,10 +50,18 @@ class state:
             self.child.list[blank_pos], self.child.list[blank_pos-self.n]
         return self.child
 
+    def isGoalState(self):
+        if self.list == range(0, self.full_size):
+            return True
+        else:
+            return False
+
+    def shuffle(self):
+        while self.isGoalState():
+            random.shuffle(self.list)
+
 if __name__ == "__main__":
     a = state(3)
-    print a
     a.printState()
-    current = a
-    current = current.moveDirect("LEFT")
-    current.printState()
+    a.shuffle()
+    a.printState()
