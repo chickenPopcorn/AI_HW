@@ -24,22 +24,22 @@ class MyTest(unittest.TestCase):
         self.assertEqual(current.returnState(), [[0, 1, 2], [3, 4, 5], [6, 7, 8]])
         current = current.moveDirect("RIGHT")
         self.assertEqual(current, None)
-        # moving down
-        current = right.moveDirect("DOWN")
-        self.assertEqual(current.returnState(), [[3, 1, 2], [0, 4, 5], [6, 7, 8]])
-        current = current.moveDirect("DOWN")
-        down = current
-        self.assertEqual(current.returnState(), [[3, 1, 2], [6, 4, 5], [0, 7, 8]])
-        current = current.moveDirect("DOWN")
-        self.assertEqual(current, None)
         # moving up
-        current = down.moveDirect("UP")
+        current = right.moveDirect("UP")
         self.assertEqual(current.returnState(), [[3, 1, 2], [0, 4, 5], [6, 7, 8]])
         current = current.moveDirect("UP")
-        self.assertEqual(current.returnState(), [[0, 1, 2], [3, 4, 5], [6, 7, 8]])
+        self.assertEqual(current.returnState(), [[3, 1, 2], [6, 4, 5], [0, 7, 8]])
+        up = current
         current = current.moveDirect("UP")
         self.assertEqual(current, None)
-        self.assertEqual(down.parent.parent.child.child, down)
+        # moving down
+        current = up.moveDirect("DOWN")
+        self.assertEqual(current.returnState(), [[3, 1, 2], [0, 4, 5], [6, 7, 8]])
+        current = current.moveDirect("DOWN")
+        self.assertEqual(current.returnState(), [[0, 1, 2], [3, 4, 5], [6, 7, 8]])
+        current = current.moveDirect("DOWN")
+        self.assertEqual(current, None)
+        self.assertEqual(up.parent.parent.child.child, up)
         self.assertEqual(left.parent.parent.child.child.returnState(), left.returnState())
 
     def test_isGoalState(self):
