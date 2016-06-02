@@ -56,8 +56,13 @@ class State:
             return "illegal move"
 
     def cloneSelf(self):
-        self.child.append(copy.deepcopy(self))
-        self.child[-1].parent = self
+
+        a = State(self.n)
+        a.takeList(self.list)
+        a.parent = self
+        a.move = self.move
+        #self.child.append(copy.deepcopy(self))
+        self.child.append(a)
 
 
     def moveDirect(self, direct):
@@ -95,6 +100,7 @@ class State:
             random.choice(DIRECTION)
 
     def dfs(self):
+        visitedStates= []
         stack = []
         maxSize = 1
         current = self
@@ -103,6 +109,7 @@ class State:
         while not current.isGoalState() and len(stack) != 0:
             current = stack.pop()
             nodeExpand += 1
+            visitedStates.append(current.list)
             '''
             if current != None:
                 current.printState()
@@ -114,16 +121,17 @@ class State:
             '''
             for direct in DIRECTION:
                 childNode = current.moveDirect(direct)
-                if childNode is not None and DIRECT_DICT[childNode.move] != current.move :
-                    stack.append(childNode)
+                if childNode != None and childNode.list not in visitedStates:
+                   stack.append(childNode)
             maxSize = max(len(stack),maxSize)
-            print "stakc has size "+ str(len(stack))
+
         if current is not None:
             return current, maxSize, nodeExpand
         else:
             return "Not Found", maxSize, nodeExpand
 
     def bfs(self):
+        visitedStates = []
         maxSize = 1
         que = Queue.Queue()
         nodeExpand = 0
@@ -132,6 +140,7 @@ class State:
         while not current.isGoalState() and not que.empty():
             current = que.get()
             nodeExpand += 1
+            visitedStates.append(current.list)
             '''
             if current != None:
                 current.printState()
@@ -143,10 +152,13 @@ class State:
             '''
             for direct in DIRECTION:
                 childNode = current.moveDirect(direct)
-                if childNode is not None and DIRECT_DICT[childNode.move] != current.move:
+                if childNode !=  None and childNode.list not in visitedStates:
+                    print 123
                     que.put(childNode)
+            print current.list
+            print que.empty()
+            print current.isGoalState()
             maxSize = max(que.qsize(),maxSize)
-            print "que has size "+ str(que.qsize())
         if current is not None:
             return current, maxSize, nodeExpand
         else:
@@ -214,7 +226,7 @@ if __name__ == "__main__":
     print
     a = State(3)
     print "initializing fro DFS"
-    a.takeList([1,2,5,3,4,0,6,7,8])
+    a.takeList([1,2,5,3,0,4,6,7,8])
     print a
     a.solving('dfs')
     del a
