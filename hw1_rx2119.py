@@ -6,8 +6,8 @@ import signal
 import sys
 from collections import deque
 from sets import Set
-import Queue
 import argparse
+import heapq
 
 def Exit_gracefully(signal, frame):
     print
@@ -33,13 +33,17 @@ class State:
         self.child = []
 
     def __str__(self):
-        board = ""
+        board = " "
         for i in range(0, self.n):
             row = []
             for l in range(0, self.n):
-                row.append(self.list[l+i*self.n])
-            board+=str(row)+"\n"
-        return board[:-1]
+                num = self.list[l+i*self.n]
+                if num != 0:
+                    board += str(num)+" "
+                else :
+                    board += "  "
+            board+="\n "
+        return board[:-2]
 
     def __eq__(self, other):
         return self.list == other.list
@@ -168,19 +172,22 @@ class State:
         else:
             return "Not Found", maxSize, nodeExpand
 
-        '''
-        if i != 0:
-                result += math.fabs(self.list.index(i)% self.n - i%self.n)
-                result += math.fabs(self.list.index(i)/ self.n - i/self.n)
-        '''
+
+    def gFun(self):
+        count = 0
+        current = self
+        while current != None:
+            current = current.parent
+            count += 1
+        return count
 
     # calculate total manhattan distance for the config as heuristic value
     def hFun(self):
         result = 0
         for i in self.list:
             if i != 0:
-                result += math.fabs(self.list.index(i)% self.n - i%self.n)
-                result += math.fabs(self.list.index(i)/ self.n - i/self.n)
+                result += abs(self.list.index(i)% self.n - i%self.n)
+                result += abs(self.list.index(i)/ self.n - i/self.n)
 
         # print "h function is for this move "+str(result)
         return result
@@ -192,20 +199,21 @@ class State:
     def astar(self):
         visitedStates = Set()
         maxSize = 1
-        que = Queue.PriorityQueue()
+        heap = []
         nodeExpand = 0
         current = self
-        que.put((self.hFun(), self))
-        while not current.isGoalState() and que.qsize() > 0:
-            current = que.get()[1]
+        f = self.hFun()+self.gFun()
+        heapq.heappush(heap, (f, self))
+        while not current.isGoalState() and len(heap) > 0:
+            current = heapq.heappop(heap)[1]
             nodeExpand += 1
             visitedStates.add(tuple(current.list))
             for direct in DIRECTION:
                 childNode = current.simulateMove(direct)
                 if childNode !=  None:
                     if not tuple(childNode.list) in visitedStates:
-                        que.put((childNode.hFun(), childNode))
-            maxSize = max(que.qsize(), maxSize)
+                       heapq.heappush(heap, (childNode.hFun()+childNode.gFun(), childNode))
+            maxSize = max(len(heap), maxSize)
         if current is not None:
             return current, maxSize, nodeExpand
         else:
@@ -293,7 +301,7 @@ def Main():
         bfsPath =[]
         testCases = [(math.sqrt(len(args.t)), map(int, args.t))]
         for case in testCases:
-            for method in ["BFS", "DFS","ASTAR","ASTAR"]:
+            for method in METHODS:
                 a = State(int(case[0]), case[1])
                 print "initializing for "+method.upper()
                 print a
