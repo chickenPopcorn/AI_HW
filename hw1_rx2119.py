@@ -57,6 +57,7 @@ class State:
             result.append(row)
         return result
 
+    # testing the direction trying to move is legal or not
     def legalMove(self, direct, pos):
         if (direct == "RIGHT" and pos %self.n !=self.n-1) or \
            (direct == "LEFT" and pos %self.n != 0) or \
@@ -66,6 +67,7 @@ class State:
         else:
             return "illegal move"
 
+    # simulate a move from an original node as a tree
     def simulateMove(self, direct):
         blank_pos = self.list.index(0)
         move = self.legalMove(direct, blank_pos)
@@ -88,6 +90,7 @@ class State:
         else:
             return None
 
+    # making an actual make from an original node
     def makeMove(self, direct):
         blank_pos = self.list.index(0)
         move = self.legalMove(direct, blank_pos)
@@ -105,6 +108,7 @@ class State:
                 self.list[blank_pos-self.n], self.list[blank_pos] = \
                 self.list[blank_pos], self.list[blank_pos-self.n]
 
+    # testing whether a state reached goal state or not
     def isGoalState(self):
         if self.list == range(0, self.full_size):
             return True
@@ -113,13 +117,12 @@ class State:
 
     # randomly shuffle board for a move for 100 times
     def shuffle(self):
-        moves = random.random()*100
+        moves = random.random()*1000
         for i in range (int(moves)):
             self.makeMove(random.sample(DIRECTION.difference(self.move), 1)[0])
 
-    # do bfs search on current instance using queue
-    # returns triple tuple of goalstate,
-    # max size of queue, and num of nodes expanded
+    # do bfs search on current instance using a list implemented as a stack
+    # returns triple tuple of goal state, max size of queue, and num of nodes expanded
     def dfs(self):
         visitedStates= Set()
         stack = []
@@ -143,9 +146,8 @@ class State:
         else:
             return "Not Found", maxSize, nodeExpand
 
-    # do bfs search on current instance using queue
-    # returns triple tuple of goalstate,
-    # max size of queue, and num of nodes expanded
+    # do bfs search on current instance using deque
+    # returns triple tuple of goal state, max size of queue, and num of nodes expanded
     def bfs(self):
         # record visited configuration
         visitedStates = Set()
@@ -172,7 +174,7 @@ class State:
         else:
             return "Not Found", maxSize, nodeExpand
 
-
+    # moves made from original state to current state
     def gFun(self):
         count = 0
         current = self
@@ -182,6 +184,7 @@ class State:
         return count
 
     # calculate total manhattan distance for the config as heuristic value
+    # min moves need to make to reach goal state from current state
     def hFun(self):
         result = 0
         for i in self.list:
@@ -192,10 +195,9 @@ class State:
         # print "h function is for this move "+str(result)
         return result
 
-    # do A* search on current instance using priority queue
-    # and hFun as heuristic function
-    # returns triple tuple of goalstate,
-    # max size of queue, and num of nodes expanded
+    # do A* search on current instance using list implemented as a heap
+    # and hFun as heuristic function and gFun as previous cost function
+    # returns triple tuple of goal state, max size of queue, and num of nodes expanded
     def astar(self):
         visitedStates = Set()
         maxSize = 1
@@ -264,14 +266,14 @@ class State:
         else:
             return False
 
-
+# main function
 def Main():
-    parser = argparse.ArgumentParser(description="Choose how test n-puzzle")
+    parser = argparse.ArgumentParser(description="Choose how to test n-puzzle solver")
     group = parser.add_mutually_exclusive_group(required=True)
-    group.add_argument("-r", "-random",type=int, help="random trials for N-Puzzle")
-    group.add_argument("-t", "-test", type=list, help="test specific"+
-                       "configuration")
+    group.add_argument("-r", type=int, help="R number of random trials for N-Puzzle solver")
+    group.add_argument("-t", type=list, help="The specific configuration T for N-Puzzle solver")
     args = parser.parse_args()
+    # random trials
     if args.r:
         intR = int(args.r)
         if intR < 1:
@@ -292,11 +294,12 @@ def Main():
                     print "the solution is valid\n"
                 else:
                     print "invalided solution!\n"
-
+                # asserting A* is optimal
                 if method == "BFS":
-                    bfsPath = path
+                    bfsPath = len(path)
                 elif method == "ASTAR":
-                    print "ASTAR is optimun "+ str(bfsPath == path)
+                    assert bfsPath == len(path)
+    # controlled tests
     elif args.t:
         bfsPath =[]
         testCases = [(math.sqrt(len(args.t)), map(int, args.t))]
@@ -308,16 +311,14 @@ def Main():
                 path = a.solving(method)
                 for i in path:
                     a.makeMove(i)
-
+                # asserting A* is optimal
                 if method == "BFS":
-                    bfsPath = path
+                    bfsPath = len(path)
                 elif method == "ASTAR":
-                    print "ASTAR is optimun "+ str(bfsPath == path)
+                    assert bfsPath == len(path)
 
                 print "the solution is "+ str(a.isGoalState()) +"\n"
                 del a
-
-
 
 if __name__ == "__main__":
     signal.signal(signal.SIGINT, Exit_gracefully)
