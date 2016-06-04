@@ -6,12 +6,15 @@ import signal
 import sys
 from collections import deque
 from sets import Set
+import Queue
+import argparse
 
 def Exit_gracefully(signal, frame):
     print
     sys.exit(0)
 
-DIRECTION = ["UP", "RIGHT", "DOWN", "LEFT"]
+DIRECTION = Set(("UP", "RIGHT", "DOWN", "LEFT"))
+METHODS = ["BFS", "DFS","ASTAR"]
 
 class State:
     def __init__(self, n, original=None, parent=None, move=None):
@@ -36,7 +39,7 @@ class State:
             for l in range(0, self.n):
                 row.append(self.list[l+i*self.n])
             board+=str(row)+"\n"
-        return board
+        return board[:-1]
 
     def __eq__(self, other):
         return self.list == other.list
@@ -104,11 +107,15 @@ class State:
         else:
             return False
 
+    # randomly shuffle board for a move for 100 times
     def shuffle(self):
-        moves = random.random()*32
+        moves = random.random()*100
         for i in range (int(moves)):
-            self.makeMove(random.choice(DIRECTION))
+            self.makeMove(random.sample(DIRECTION.difference(self.move), 1)[0])
 
+    # do bfs search on current instance using queue
+    # returns triple tuple of goalstate,
+    # max size of queue, and num of nodes expanded
     def dfs(self):
         visitedStates= Set()
         stack = []
@@ -126,14 +133,19 @@ class State:
                     if not tuple(childNode.list) in visitedStates:
                         stack.append(childNode)
             maxSize = max(len(stack),maxSize)
-
+        del visitedStates
         if current is not None:
             return current, maxSize, nodeExpand
         else:
             return "Not Found", maxSize, nodeExpand
 
+    # do bfs search on current instance using queue
+    # returns triple tuple of goalstate,
+    # max size of queue, and num of nodes expanded
     def bfs(self):
-        visitedStates = []
+        # record visited configuration
+        visitedStates = Set()
+        # max size of the stack/queue
         maxSize = 1
         que = deque()
         nodeExpand = 0
@@ -142,19 +154,64 @@ class State:
         while not current.isGoalState() and len(que) != 0:
             current = que.popleft()
             nodeExpand += 1
-            if current.list not in visitedStates:
-                visitedStates.append(copy.deepcopy(current.list))
+            visitedStates.add(tuple(current.list))
             for direct in DIRECTION:
                 childNode = current.simulateMove(direct)
                 if childNode !=  None:
-                    if not childNode.list in visitedStates:
+                    # added to the queue only if current config is not visited
+                    if not tuple(childNode.list) in visitedStates:
                         que.append(childNode)
+            # compare for max size of the queue
             maxSize = max(len(que),maxSize)
         if current is not None:
             return current, maxSize, nodeExpand
         else:
             return "Not Found", maxSize, nodeExpand
 
+        '''
+        if i != 0:
+                result += math.fabs(self.list.index(i)% self.n - i%self.n)
+                result += math.fabs(self.list.index(i)/ self.n - i/self.n)
+        '''
+
+    # calculate total manhattan distance for the config as heuristic value
+    def hFun(self):
+        result = 0
+        for i in self.list:
+            if i != 0:
+                result += math.fabs(self.list.index(i)% self.n - i%self.n)
+                result += math.fabs(self.list.index(i)/ self.n - i/self.n)
+
+        # print "h function is for this move "+str(result)
+        return result
+
+    # do A* search on current instance using priority queue
+    # and hFun as heuristic function
+    # returns triple tuple of goalstate,
+    # max size of queue, and num of nodes expanded
+    def astar(self):
+        visitedStates = Set()
+        maxSize = 1
+        que = Queue.PriorityQueue()
+        nodeExpand = 0
+        current = self
+        que.put((self.hFun(), self))
+        while not current.isGoalState() and que.qsize() > 0:
+            current = que.get()[1]
+            nodeExpand += 1
+            visitedStates.add(tuple(current.list))
+            for direct in DIRECTION:
+                childNode = current.simulateMove(direct)
+                if childNode !=  None:
+                    if not tuple(childNode.list) in visitedStates:
+                        que.put((childNode.hFun(), childNode))
+            maxSize = max(que.qsize(), maxSize)
+        if current is not None:
+            return current, maxSize, nodeExpand
+        else:
+            return "Not Found", maxSize, nodeExpand
+
+    # return path from goalState to origin state as a list
     def getPath(Node):
         path = []
         while Node.parent != None:
@@ -163,61 +220,98 @@ class State:
         path.reverse()
         return path
 
+    # solving N-puzzle using BFS, DFS, or ASTAR
+    # and return the stats for the method specified
     def solving(self, method):
         startTime =time.time()
         current = None
         if method.upper() == "BFS":
-           current, size, nodeExpand = self.bfs()
+            current, size, nodeExpand = self.bfs()
         elif method.upper() == "DFS":
             current, size, nodeExpand = self.dfs()
+        elif method.upper() == "ASTAR":
+            current, size, nodeExpand = self.astar()
         else:
             return
         print ("--- %s milliseconds --" % ((time.time() - startTime)*1000))
         if current != "Not Found":
             print "n = "+ str(self.n)
             path = State.getPath(current)
+            if len(path)< 50:
+                print "path to solution is " + str(path)
             print "Cost of path = " + str(len(path))
             print "nodes expanded = "+ str(nodeExpand)
             print "max stack/queue size = "+str(size)
-            # print "path to solution:" + str(path)
         else:
             print "Solution not found"
         return path
 
-if __name__ == "__main__":
-    signal.signal(signal.SIGINT, Exit_gracefully)
-    testCases = [
-        (2, [2,0,3,1]),
-        (3, [1,2,5,3,0,4,6,7,8]),
-    ]
+    # validates the solution produced
+    def validateSolution(a, path):
+        solution = State(a.n, list(a.list))
+        for i in path:
+            solution.makeMove(i)
+        if solution.isGoalState():
+            return True
+        else:
+            return False
 
-    methods = [
-        "bfs", "dfs"
-    ]
-    '''
-    for case in testCases:
-        for method in methods:
-            a = State(case[0], case[1])
-            print "initializing for BFS"
-            print a
-            path = a.solving(method)
-            for i in path:
-                a.makeMove(i)
-            print "the solution is "+ str(a.isGoalState()) +"\n"
-            del a
-    '''
-    n = 0
-    for i in range(5):
-        n += 1
-        print "test case "+str(n)
-        for method in methods:
+
+def Main():
+    parser = argparse.ArgumentParser(description="Choose how test n-puzzle")
+    group = parser.add_mutually_exclusive_group(required=True)
+    group.add_argument("-r", "-random",type=int, help="random trials for N-Puzzle")
+    group.add_argument("-t", "-test", type=list, help="test specific"+
+                       "configuration")
+    args = parser.parse_args()
+    if args.r:
+        intR = int(args.r)
+        if intR < 1:
+            raise argparse.ArgumentError(None, "invalid input")
+        n = 0
+        for i in range(args.r):
+            n += 1
+            bfsPath = []
+            print "TEST CASE "+str(n)
             a = State(3)
             a.shuffle()
-            print "initializing for "+method.upper()
             print a
-            path = a.solving(method)
-            for i in path:
-                a.makeMove(i)
-            print "the solution is "+ str(a.isGoalState()) +"\n"
-            del a
+            print
+            for method in METHODS:
+                print method.upper()+" search"
+                path = a.solving(method)
+                if State.validateSolution(a, path):
+                    print "the solution is valid\n"
+                else:
+                    print "invalided solution!\n"
+
+                if method == "BFS":
+                    bfsPath = path
+                elif method == "ASTAR":
+                    print "ASTAR is optimun "+ str(bfsPath == path)
+    elif args.t:
+        bfsPath =[]
+        testCases = [(math.sqrt(len(args.t)), map(int, args.t))]
+        for case in testCases:
+            for method in ["BFS", "DFS","ASTAR","ASTAR"]:
+                a = State(int(case[0]), case[1])
+                print "initializing for "+method.upper()
+                print a
+                path = a.solving(method)
+                for i in path:
+                    a.makeMove(i)
+
+                if method == "BFS":
+                    bfsPath = path
+                elif method == "ASTAR":
+                    print "ASTAR is optimun "+ str(bfsPath == path)
+
+                print "the solution is "+ str(a.isGoalState()) +"\n"
+                del a
+
+
+
+if __name__ == "__main__":
+    signal.signal(signal.SIGINT, Exit_gracefully)
+    Main()
 
