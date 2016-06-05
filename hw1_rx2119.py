@@ -14,7 +14,7 @@ def Exit_gracefully(signal, frame):
     sys.exit(0)
 
 DIRECTION = Set(("UP", "RIGHT", "DOWN", "LEFT"))
-METHODS = ["BFS", "DFS","ASTAR"]
+METHODS = ["BFS", "DFS","ASTAR"] #, "IDASTAR"]
 
 class State:
     def __init__(self, n, original=None, parent=None, move=None):
@@ -26,7 +26,7 @@ class State:
             assert self.full_size == len(original)
             self.list = list(original)
         if move != None:
-            self.move = ''.join(move)
+            self.move = move
         else:
             self.move = None
         self.parent = parent
@@ -48,65 +48,53 @@ class State:
     def __eq__(self, other):
         return self.list == other.list
 
-    def returnState(self):
-        result = []
-        for i in range(0, self.n):
-            row = []
-            for l in range(0, self.n):
-                row.append(self.list[l+i*self.n])
-            result.append(row)
-        return result
 
-    # testing the direction trying to move is legal or not
-    def legalMove(self, direct, pos):
+
+    def simulateMove(self, direct):
+        tempList = list(self.list)
+        pos = tempList.index(0)
         if (direct == "RIGHT" and pos %self.n !=self.n-1) or \
            (direct == "LEFT" and pos %self.n != 0) or \
            (direct == "DOWN" and pos <= (self.n-1)*self.n-1) or \
             direct == "UP" and pos >= self.n:
-                return direct
-        else:
-            return "illegal move"
-
-    # simulate a move from an original node as a tree
-    def simulateMove(self, direct):
-        blank_pos = self.list.index(0)
-        move = self.legalMove(direct, blank_pos)
-        if move != "illegal move":
-            self.child.append(State(self.n, self.list, self))
-            self.child[-1].move = move
-            if move == "RIGHT":
-                self.child[-1].list[blank_pos], self.child[-1].list[blank_pos+1] = \
-                self.child[-1].list[blank_pos+1], self.child[-1].list[blank_pos]
-            elif move == "LEFT":
-                self.child[-1].list[blank_pos-1], self.child[-1].list[blank_pos] = \
-                self.child[-1].list[blank_pos], self.child[-1].list[blank_pos-1]
+            if direct == "RIGHT":
+                tempList[pos], tempList[pos+1] = \
+                tempList[pos+1], tempList[pos]
+            elif direct == "LEFT":
+                tempList[pos-1], tempList[pos] = \
+                tempList[pos], tempList[pos-1]
             elif direct == "DOWN":
-                self.child[-1].list[blank_pos+self.n], self.child[-1].list[blank_pos] = \
-                self.child[-1].list[blank_pos], self.child[-1].list[blank_pos+self.n]
+                tempList[pos+self.n], tempList[pos] = \
+                tempList[pos], tempList[pos+self.n]
             else:
-                self.child[-1].list[blank_pos-self.n], self.child[-1].list[blank_pos] = \
-                self.child[-1].list[blank_pos], self.child[-1].list[blank_pos-self.n]
-            return self.child[-1]
+                tempList[pos-self.n], tempList[pos] = \
+                tempList[pos], tempList[pos-self.n]
+            return tempList
         else:
             return None
 
+
+
+
     # making an actual make from an original node
     def makeMove(self, direct):
-        blank_pos = self.list.index(0)
-        move = self.legalMove(direct, blank_pos)
-        if move != "illegal move":
-            if move == "RIGHT":
-                self.list[blank_pos], self.list[blank_pos+1] = \
-                self.list[blank_pos+1], self.list[blank_pos]
-            elif move == "LEFT":
-                self.list[blank_pos-1], self.list[blank_pos] = \
-                self.list[blank_pos], self.list[blank_pos-1]
+        pos = self.list.index(0)
+        if (direct == "RIGHT" and pos %self.n !=self.n-1) or \
+           (direct == "LEFT" and pos %self.n != 0) or \
+           (direct == "DOWN" and pos <= (self.n-1)*self.n-1) or \
+            direct == "UP" and pos >= self.n:
+            if direct == "RIGHT":
+                self.list[pos], self.list[pos+1] = \
+                self.list[pos+1], self.list[pos]
+            elif direct == "LEFT":
+                self.list[pos-1], self.list[pos] = \
+                self.list[pos], self.list[pos-1]
             elif direct == "DOWN":
-                self.list[blank_pos+self.n], self.list[blank_pos] = \
-                self.list[blank_pos], self.list[blank_pos+self.n]
+                self.list[pos+self.n], self.list[pos] = \
+                self.list[pos], self.list[pos+self.n]
             else:
-                self.list[blank_pos-self.n], self.list[blank_pos] = \
-                self.list[blank_pos], self.list[blank_pos-self.n]
+                self.list[pos-self.n], self.list[pos] = \
+                self.list[pos], self.list[pos-self.n]
 
     # testing whether a state reached goal state or not
     def isGoalState(self):
@@ -117,34 +105,10 @@ class State:
 
     # randomly shuffle board for a move for 100 times
     def shuffle(self):
-        moves = random.random()*1000
+        moves = random.random()*500
         for i in range (int(moves)):
             self.makeMove(random.sample(DIRECTION.difference(self.move), 1)[0])
 
-    # do bfs search on current instance using a list implemented as a stack
-    # returns triple tuple of goal state, max size of queue, and num of nodes expanded
-    def dfs(self):
-        visitedStates= Set()
-        stack = []
-        maxSize = 1
-        current = self
-        stack.append(self)
-        nodeExpand = 0
-        while not current.isGoalState() and len(stack) != 0:
-            current = stack.pop()
-            nodeExpand += 1
-            visitedStates.add(tuple(current.list))
-            for direct in DIRECTION:
-                childNode = current.simulateMove(direct)
-                if childNode != None:
-                    if not tuple(childNode.list) in visitedStates:
-                        stack.append(childNode)
-            maxSize = max(len(stack),maxSize)
-        del visitedStates
-        if current is not None:
-            return current, maxSize, nodeExpand
-        else:
-            return "Not Found", maxSize, nodeExpand
 
     # do bfs search on current instance using deque
     # returns triple tuple of goal state, max size of queue, and num of nodes expanded
@@ -157,22 +121,69 @@ class State:
         nodeExpand = 0
         current = self
         que.append(self)
-        while not current.isGoalState() and len(que) != 0:
+        foundGoal = False
+
+        if current.isGoalState():
+            return True, current, maxSize, nodeExpand
+
+        while len(que) != 0:
             current = que.popleft()
             nodeExpand += 1
-            visitedStates.add(tuple(current.list))
             for direct in DIRECTION:
-                childNode = current.simulateMove(direct)
-                if childNode !=  None:
+                childList = current.simulateMove(direct)
+                if childList !=  None:
                     # added to the queue only if current config is not visited
-                    if not tuple(childNode.list) in visitedStates:
-                        que.append(childNode)
+                    if tuple(childList) not in visitedStates:
+                        current.child.append(State(self.n, childList, current, direct))
+                        que.append(current.child[-1])
+                        visitedStates.add(tuple(current.child[-1].list))
+                        maxSize = max(len(que),maxSize)
+                        if current.child[-1].isGoalState():
+                            current = current.child[-1]
+                            foundGoal = True
+                            break
             # compare for max size of the queue
-            maxSize = max(len(que),maxSize)
-        if current is not None:
-            return current, maxSize, nodeExpand
-        else:
-            return "Not Found", maxSize, nodeExpand
+            if foundGoal:
+                break
+
+        return foundGoal, current, maxSize, nodeExpand
+
+
+    # do bfs search on current instance using a list implemented as a stack
+    # returns triple tuple of goal state, max size of queue, and num of nodes expanded
+    def dfs(self):
+        visitedStates= Set()
+        stack = []
+        maxSize = 1
+        current = self
+        stack.append(self)
+        nodeExpand = 1
+        foundGoal = False
+
+        if current.isGoalState():
+            return True, current, maxSize, nodeExpand
+
+        while len(stack) != 0:
+            current = stack.pop()
+            nodeExpand += 1
+            for direct in DIRECTION:
+                childList = current.simulateMove(direct)
+                if childList != None:
+                   if tuple(childList) not in visitedStates:
+                        current.child.append(State(self.n, childList, current, direct))
+                        stack.append(current.child[-1])
+                        visitedStates.add(tuple(current.child[-1].list))
+                        maxSize = max(len(stack),maxSize)
+                        if current.child[-1].isGoalState():
+                            current = current.child[-1]
+                            foundGoal = True
+                            break
+            # compare for max size of the queue
+            if foundGoal:
+                break
+
+        return foundGoal, current, maxSize, nodeExpand
+
 
     # moves made from original state to current state
     def gFun(self):
@@ -182,6 +193,7 @@ class State:
             current = current.parent
             count += 1
         return count
+
 
     # calculate total manhattan distance for the config as heuristic value
     # min moves need to make to reach goal state from current state
@@ -204,22 +216,34 @@ class State:
         heap = []
         nodeExpand = 0
         current = self
+        foundGoal = False
+
+        if current.isGoalState():
+            return True, current, maxSize, nodeExpand
+
         f = self.hFun()+self.gFun()
         heapq.heappush(heap, (f, self))
-        while not current.isGoalState() and len(heap) > 0:
+        while len(heap) > 0:
             current = heapq.heappop(heap)[1]
             nodeExpand += 1
-            visitedStates.add(tuple(current.list))
             for direct in DIRECTION:
-                childNode = current.simulateMove(direct)
-                if childNode !=  None:
-                    if not tuple(childNode.list) in visitedStates:
-                       heapq.heappush(heap, (childNode.hFun()+childNode.gFun(), childNode))
-            maxSize = max(len(heap), maxSize)
-        if current is not None:
-            return current, maxSize, nodeExpand
-        else:
-            return "Not Found", maxSize, nodeExpand
+                childList = current.simulateMove(direct)
+                if childList !=  None:
+                    if tuple(childList) not in visitedStates:
+                        current.child.append(State(self.n, childList, current, direct))
+                        heapq.heappush(heap, (current.child[-1].hFun() + current.child[-1].gFun(), current.child[-1]))
+                        visitedStates.add(tuple(current.list))
+                        if current.child[-1].isGoalState():
+                            current = current.child[-1]
+                            foundGoal = True
+                            break
+            # compare for max size of the queue
+            if foundGoal:
+                break
+
+        return foundGoal, current, maxSize, nodeExpand
+
+
 
     # return path from goalState to origin state as a list
     def getPath(Node):
@@ -230,21 +254,76 @@ class State:
         path.reverse()
         return path
 
+    def countDepth(self):
+        count = 0
+        while self.parent != None:
+            count += 1
+        return count
+
+    # do A* search on current instance using list implemented as a heap
+    # and hFun as heuristic function and gFun as previous cost function
+    # returns triple tuple of goal state, max size of queue, and num of nodes expanded
+
+    def idastar(self):
+        found = False
+        count = 0
+        while not found:
+            current, size, expand = self.dastar(count)
+            count += 1
+            if current == "Not Found":
+                continue
+            else:
+                found = True
+        return current, size, expand
+
+    def dastar(self, depth):
+        visitedStates = Set()
+        maxSize = 1
+        heap = []
+        nodeExpand = 0
+        current = self
+        f = self.hFun()+self.gFun()
+        heapq.heappush(heap, (f, self))
+        print "current "+ str(depth)
+        while not current.isGoalState() and len(heap) > 0:
+            current = heapq.heappop(heap)[1]
+            nodeExpand += 1
+            visitedStates.add(tuple(current.list))
+            for direct in DIRECTION:
+                print "     direct is "+ direct
+                childNode = current.simulateMove(direct)
+                if childNode !=  None:
+                    if not tuple(childNode.list) in visitedStates:
+                       heapq.heappush(heap, (childNode.hFun()+childNode.gFun(), childNode))
+            maxSize = max(len(heap), maxSize)
+            print "      node depth is "+ str(current.countDepth())
+            if current.countDepth() >= depth:
+                break
+        if current is not None and current.isGoalState():
+            print "returned a node"
+            return current, maxSize, nodeExpand
+        else:
+            print "returned not found"
+            return "Not Found", maxSize, nodeExpand
+
+
     # solving N-puzzle using BFS, DFS, or ASTAR
     # and return the stats for the method specified
     def solving(self, method):
         startTime =time.time()
-        current = None
         if method.upper() == "BFS":
-            current, size, nodeExpand = self.bfs()
+            found, current, size, nodeExpand = self.bfs()
         elif method.upper() == "DFS":
-            current, size, nodeExpand = self.dfs()
+            found, current, size, nodeExpand = self.dfs()
         elif method.upper() == "ASTAR":
-            current, size, nodeExpand = self.astar()
+            found, current, size, nodeExpand = self.astar()
+        elif method.upper() == "IDASTAR":
+            found, current, size, nodeExpand = self.idastar()
         else:
             return
+
         print ("--- %s milliseconds --" % ((time.time() - startTime)*1000))
-        if current != "Not Found":
+        if found:
             print "n = "+ str(self.n)
             path = State.getPath(current)
             if len(path)< 50:
@@ -282,23 +361,27 @@ def Main():
         for i in range(args.r):
             n += 1
             bfsPath = []
-            print "TEST CASE "+str(n)
+            print "\nTEST CASE "+str(n)
             a = State(3)
             a.shuffle()
             print a
             print
             for method in METHODS:
                 print method.upper()+" search"
-                path = a.solving(method)
-                if State.validateSolution(a, path):
-                    print "the solution is valid\n"
-                else:
-                    print "invalided solution!\n"
-                # asserting A* is optimal
+                current = State(a.n, a.list)
+                path = current.solving(method)
+                print
+                for i in path:
+                    current.makeMove(i)
+                # asserting A* solution has the same cost as BFS
                 if method == "BFS":
                     bfsPath = len(path)
                 elif method == "ASTAR":
                     assert bfsPath == len(path)
+                # validate solution through the game
+                assert current.isGoalState() == True
+                del current
+
     # controlled tests
     elif args.t:
         bfsPath =[]
@@ -306,18 +389,18 @@ def Main():
         for case in testCases:
             for method in METHODS:
                 a = State(int(case[0]), case[1])
-                print "initializing for "+method.upper()
+                print "\ninitializing for "+method.upper()
                 print a
                 path = a.solving(method)
                 for i in path:
                     a.makeMove(i)
-                # asserting A* is optimal
+                # asserting A* solution has the same cost as BFS
                 if method == "BFS":
                     bfsPath = len(path)
                 elif method == "ASTAR":
                     assert bfsPath == len(path)
-
-                print "the solution is "+ str(a.isGoalState()) +"\n"
+                # validate solution through the game
+                assert a.isGoalState() == True
                 del a
 
 if __name__ == "__main__":
