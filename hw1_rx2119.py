@@ -6,15 +6,16 @@ import signal
 import sys
 from collections import deque
 from sets import Set
-import argparse
 import heapq
+import resource
+# from memory_profiler import profile, memory_usage
 
 def Exit_gracefully(signal, frame):
     print
     sys.exit(0)
 
-DIRECTION = Set(("UP", "RIGHT", "DOWN", "LEFT"))
-METHODS = ["BFS", "DFS","ASTAR"] #, "IDASTAR"]
+DIRECTION = Set(("UP", "DOWN", "LEFT", "RIGHT"))
+METHODS = ["BFS", "DFS","ASTAR", "IDASTAR"]
 
 class State:
     def __init__(self, n, original=None, parent=None, move=None):
@@ -23,7 +24,11 @@ class State:
         if original == None:
             self.list = range(0,self.full_size)
         else:
-            assert self.full_size == len(original)
+            try:
+                assert self.full_size == len(original)
+            except AssertionError:
+                print "the input list size is incorrect"
+                sys.exit(0)
             self.list = list(original)
         if move != None:
             self.move = move
@@ -31,6 +36,7 @@ class State:
             self.move = None
         self.parent = parent
         self.child = []
+
 
     def __str__(self):
         board = " "
@@ -47,7 +53,6 @@ class State:
 
     def __eq__(self, other):
         return self.list == other.list
-
 
 
     def simulateMove(self, direct):
@@ -72,8 +77,6 @@ class State:
             return tempList
         else:
             return None
-
-
 
 
     # making an actual make from an original node
@@ -145,7 +148,7 @@ class State:
             # compare for max size of the queue
             if foundGoal:
                 break
-
+        print (resource.getrusage(resource.RUSAGE_SELF).ru_maxrss/8000000)
         return foundGoal, current, maxSize, nodeExpand
 
 
@@ -233,6 +236,7 @@ class State:
                         current.child.append(State(self.n, childList, current, direct))
                         heapq.heappush(heap, (current.child[-1].hFun() + current.child[-1].gFun(), current.child[-1]))
                         visitedStates.add(tuple(current.list))
+                        maxSize = max(len(heap),maxSize)
                         if current.child[-1].isGoalState():
                             current = current.child[-1]
                             foundGoal = True
@@ -254,10 +258,11 @@ class State:
         path.reverse()
         return path
 
-    def countDepth(self):
+    def countDepth(Node):
         count = 0
-        while self.parent != None:
+        while Node.parent != None:
             count += 1
+            Node = Node.parent
         return count
 
     # do A* search on current instance using list implemented as a heap
@@ -265,46 +270,46 @@ class State:
     # returns triple tuple of goal state, max size of queue, and num of nodes expanded
 
     def idastar(self):
+        depth = 0
         found = False
-        count = 0
+        expand = 0
         while not found:
-            current, size, expand = self.dastar(count)
-            count += 1
-            if current == "Not Found":
-                continue
-            else:
-                found = True
-        return current, size, expand
+            current = State(self.n, self.list)
+            found, current, size, expand = current.dastar(depth, expand)
+            depth += 1
+            if found:
+                return True, current, size, expand
 
-    def dastar(self, depth):
+    def dastar(self, depth, nodeExpand):
         visitedStates = Set()
         maxSize = 1
-        heap = []
-        nodeExpand = 0
+        stack = []
         current = self
-        f = self.hFun()+self.gFun()
-        heapq.heappush(heap, (f, self))
-        print "current "+ str(depth)
-        while not current.isGoalState() and len(heap) > 0:
-            current = heapq.heappop(heap)[1]
+        foundGoal = False
+
+        if current.isGoalState():
+            return True, current, maxSize, nodeExpand
+
+        stack.append(current)
+        while len(stack) > 0:
+            current = stack.pop()
             nodeExpand += 1
-            visitedStates.add(tuple(current.list))
             for direct in DIRECTION:
-                print "     direct is "+ direct
-                childNode = current.simulateMove(direct)
-                if childNode !=  None:
-                    if not tuple(childNode.list) in visitedStates:
-                       heapq.heappush(heap, (childNode.hFun()+childNode.gFun(), childNode))
-            maxSize = max(len(heap), maxSize)
-            print "      node depth is "+ str(current.countDepth())
-            if current.countDepth() >= depth:
+                childList = current.simulateMove(direct)
+                if childList !=  None:
+                    if tuple(childList) not in visitedStates and current.countDepth()+current.hFun() < depth:
+                        current.child.append(State(self.n, childList, current, direct))
+                        stack.append(current.child[-1])
+                        visitedStates.add(tuple(current.list))
+                        maxSize = max(len(stack),maxSize)
+                        if current.child[-1].isGoalState():
+                            current = current.child[-1]
+                            foundGoal = True
+                            break
+            if foundGoal:
                 break
-        if current is not None and current.isGoalState():
-            print "returned a node"
-            return current, maxSize, nodeExpand
-        else:
-            print "returned not found"
-            return "Not Found", maxSize, nodeExpand
+
+        return foundGoal, current, maxSize, nodeExpand
 
 
     # solving N-puzzle using BFS, DFS, or ASTAR
@@ -333,7 +338,8 @@ class State:
             print "max stack/queue size = "+str(size)
         else:
             print "Solution not found"
-        return path
+            sys.exit(0)
+        return found, size, nodeExpand, path,
 
     # validates the solution produced
     def validateSolution(a, path):
@@ -346,64 +352,100 @@ class State:
             return False
 
 # main function
-def Main():
-    parser = argparse.ArgumentParser(description="Choose how to test n-puzzle solver")
-    group = parser.add_mutually_exclusive_group(required=True)
-    group.add_argument("-r", type=int, help="R number of random trials for N-Puzzle solver")
-    group.add_argument("-t", type=list, help="The specific configuration T for N-Puzzle solver")
-    args = parser.parse_args()
+def main():
+    arguments = {}
+    random = False
+    test = True
+    if len(sys.argv) == 2 and sys.argv[1] in  ["-help", "-h"]:
+        print "This is help for N-puzzle solver"
+        print "Optional Options"
+        print "-help: print this help prompt"
+        print "Required "
+    elif len(sys.argv) == 4:
+        # random option
+        if sys.argv[1] in [ "-random", "-r"]:
+            try:
+                n = int(sys.argv[2])
+                r = int(sys.argv[3])
+                assert r > 0 and n > 0
+                random = True
+                arguments["random"] = (n, r)
+            except:
+                print "argument for random is invalid"
+                sys.exit(0)
+        # testing option
+        elif sys.argv[1] in ["-test", "-t"] and (sys.argv[2].upper()[1:] in METHODS or sys.argv[2] == "-a"):
+            test = True
+            try:
+                temp = map(int, sys.argv[3].split(","))
+                n = int(math.sqrt(len(temp)))
+                assert n**2 == len(temp)
+                temp.sort()
+                assert range(n**2) == temp
+                arguments["test"] = (sys.argv[2][1:], map(int, sys.argv[3].split(",")))
+            except:
+                print "invalid input list "+ sys.argv[3]
+                sys.exit(0)
+        else:
+            print "invalid input"
+            sys.exit(0)
+    else:
+        print "usage: python hw1_rx2119.py [-help] [-random N-size R-num | -test -method LIST]"
+        sys.exit(0)
+
     # random trials
-    if args.r:
-        intR = int(args.r)
-        if intR < 1:
-            raise argparse.ArgumentError(None, "invalid input")
-        n = 0
-        for i in range(args.r):
-            n += 1
-            bfsPath = []
-            print "\nTEST CASE "+str(n)
-            a = State(3)
+    if random:
+        n = arguments["random"][0]
+        r = arguments["random"][1]
+        print r
+        for i in range(r):
+            stats = {}
+            print "\nTEST CASE "+str(i+1)
+            a = State(n)
             a.shuffle()
             print a
             print
             for method in METHODS:
                 print method.upper()+" search"
                 current = State(a.n, a.list)
-                path = current.solving(method)
+                found, size, nodeExpand, path = a.solving(method)
                 print
-                for i in path:
-                    current.makeMove(i)
-                # asserting A* solution has the same cost as BFS
-                if method == "BFS":
-                    bfsPath = len(path)
-                elif method == "ASTAR":
-                    assert bfsPath == len(path)
-                # validate solution through the game
-                assert current.isGoalState() == True
-                del current
-
+                if found:
+                    for i in path:
+                        current.makeMove(i)
+                    # validate solution through the game
+                    assert current.isGoalState() == True
+                    stats[method] = (len(path), size, nodeExpand)
+                    del current
+            # asserting A* solution has the same cost as BFS
+            assert stats["BFS"][0] <= stats["DFS"][0]
+            assert stats["BFS"][0] == stats["ASTAR"][0]
+            assert stats["IDASTAR"][0] == stats["BFS"][0]
+            assert stats["ASTAR"][1] >= stats["IDASTAR"][1]
+            assert stats["IDASTAR"][2] >= stats["ASTAR"][2]
+            del a
     # controlled tests
-    elif args.t:
-        bfsPath =[]
-        testCases = [(math.sqrt(len(args.t)), map(int, args.t))]
-        for case in testCases:
-            for method in METHODS:
-                a = State(int(case[0]), case[1])
-                print "\ninitializing for "+method.upper()
-                print a
-                path = a.solving(method)
+    elif test:
+        stats = {}
+        runWith = []
+        if arguments["test"][0] == "a":
+            runWith = METHODS
+        else:
+            runWith.append(arguments["test"][0])
+        for method in runWith:
+            a = State(int(math.sqrt(len(arguments["test"][1]))) ,map(int, arguments["test"][1]) )
+            print "\ninitializing for "+method.upper()
+            print a
+            found, size, nodeExpand, path = a.solving(method)
+            if found:
                 for i in path:
                     a.makeMove(i)
-                # asserting A* solution has the same cost as BFS
-                if method == "BFS":
-                    bfsPath = len(path)
-                elif method == "ASTAR":
-                    assert bfsPath == len(path)
                 # validate solution through the game
                 assert a.isGoalState() == True
-                del a
+
+# memory_usage((main, [], {}))
 
 if __name__ == "__main__":
     signal.signal(signal.SIGINT, Exit_gracefully)
-    Main()
+    main()
 
