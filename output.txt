@@ -1,0 +1,4511 @@
+
+TEST CASE 1
+ 3   1 
+ 6 5 4 
+ 7 8 2 
+
+BFS search
+--- 33.7841510773 milliseconds --
+n = 3
+path to solution is ['DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'DOWN', 'LEFT', 'UP', 'UP']
+Cost of path = 13
+Memory Usage: 13 KB
+nodes expanded = 1439
+max stack/queue size = 853
+max depth of the stack/ queue 14
+
+DFS search
+--- 2494.67897415 milliseconds --
+n = 3
+Cost of path = 65041
+Memory Usage: 221 KB
+nodes expanded = 86178
+max stack/queue size = 42134
+max depth of the stack/ queue 65042
+
+ASTAR search
+--- 2.8030872345 milliseconds --
+n = 3
+path to solution is ['DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'DOWN', 'LEFT', 'UP', 'UP']
+Cost of path = 13
+Memory Usage: 221 KB
+nodes expanded = 39
+max stack/queue size = 31
+max depth of the stack/ queue 14
+
+IDASTAR search
+--- 2.94089317322 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'DOWN', 'DOWN', 'LEFT', 'LEFT', 'UP', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT']
+Cost of path = 13
+Memory Usage: 221 KB
+nodes expanded = 62
+max stack/queue size = 5
+max depth of the stack/ queue 14
+
+
+TEST CASE 2
+ 1 4 2 
+ 7 6 5 
+ 3   8 
+
+BFS search
+--- 1.96194648743 milliseconds --
+n = 3
+path to solution is ['UP', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT']
+Cost of path = 7
+Memory Usage: 221 KB
+nodes expanded = 90
+max stack/queue size = 68
+max depth of the stack/ queue 8
+
+DFS search
+--- 1535.71295738 milliseconds --
+n = 3
+Cost of path = 42245
+Memory Usage: 235 KB
+nodes expanded = 46078
+max stack/queue size = 29773
+max depth of the stack/ queue 42246
+
+ASTAR search
+--- 0.685930252075 milliseconds --
+n = 3
+path to solution is ['UP', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT']
+Cost of path = 7
+Memory Usage: 235 KB
+nodes expanded = 9
+max stack/queue size = 11
+max depth of the stack/ queue 8
+
+IDASTAR search
+--- 0.393867492676 milliseconds --
+n = 3
+path to solution is ['UP', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT']
+Cost of path = 7
+Memory Usage: 235 KB
+nodes expanded = 7
+max stack/queue size = 2
+max depth of the stack/ queue 8
+
+
+TEST CASE 3
+ 1   2 
+ 6 8 5 
+ 4 3 7 
+
+BFS search
+--- 42.5870418549 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'DOWN', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'LEFT']
+Cost of path = 13
+Memory Usage: 235 KB
+nodes expanded = 1772
+max stack/queue size = 1140
+max depth of the stack/ queue 14
+
+DFS search
+--- 2673.9821434 milliseconds --
+n = 3
+Cost of path = 64935
+Memory Usage: 235 KB
+nodes expanded = 85855
+max stack/queue size = 42081
+max depth of the stack/ queue 64936
+
+ASTAR search
+--- 4.58407402039 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'DOWN', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'LEFT']
+Cost of path = 13
+Memory Usage: 235 KB
+nodes expanded = 64
+max stack/queue size = 45
+max depth of the stack/ queue 14
+
+IDASTAR search
+--- 4.22310829163 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'DOWN', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'LEFT']
+Cost of path = 13
+Memory Usage: 235 KB
+nodes expanded = 88
+max stack/queue size = 7
+max depth of the stack/ queue 14
+
+
+TEST CASE 4
+ 1 2 7 
+ 3 4   
+ 6 8 5 
+
+BFS search
+--- 4.93288040161 milliseconds --
+n = 3
+path to solution is ['UP', 'LEFT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'UP', 'LEFT']
+Cost of path = 9
+Memory Usage: 235 KB
+nodes expanded = 224
+max stack/queue size = 141
+max depth of the stack/ queue 10
+
+DFS search
+--- 2646.85797691 milliseconds --
+n = 3
+Cost of path = 63533
+Memory Usage: 235 KB
+nodes expanded = 81262
+max stack/queue size = 41341
+max depth of the stack/ queue 63534
+
+ASTAR search
+--- 1.08790397644 milliseconds --
+n = 3
+path to solution is ['UP', 'LEFT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'UP', 'LEFT']
+Cost of path = 9
+Memory Usage: 235 KB
+nodes expanded = 15
+max stack/queue size = 16
+max depth of the stack/ queue 10
+
+IDASTAR search
+--- 1.1100769043 milliseconds --
+n = 3
+path to solution is ['UP', 'LEFT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'UP', 'LEFT']
+Cost of path = 9
+Memory Usage: 235 KB
+nodes expanded = 24
+max stack/queue size = 3
+max depth of the stack/ queue 10
+
+
+TEST CASE 5
+   6 3 
+ 7 4 2 
+ 5 8 1 
+
+BFS search
+--- 2087.67986298 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'UP']
+Cost of path = 22
+Memory Usage: 238 KB
+nodes expanded = 66590
+max stack/queue size = 22397
+max depth of the stack/ queue 23
+
+DFS search
+--- 2419.82698441 milliseconds --
+n = 3
+Cost of path = 62742
+Memory Usage: 332 KB
+nodes expanded = 78959
+max stack/queue size = 41205
+max depth of the stack/ queue 62743
+
+ASTAR search
+--- 42.708158493 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'UP']
+Cost of path = 22
+Memory Usage: 332 KB
+nodes expanded = 447
+max stack/queue size = 304
+max depth of the stack/ queue 23
+
+IDASTAR search
+--- 32.8528881073 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'UP']
+Cost of path = 22
+Memory Usage: 332 KB
+nodes expanded = 605
+max stack/queue size = 11
+max depth of the stack/ queue 23
+
+
+TEST CASE 6
+ 3 1 2 
+ 5 7 6 
+ 4   8 
+
+BFS search
+--- 35.9041690826 milliseconds --
+n = 3
+path to solution is ['UP', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'UP']
+Cost of path = 13
+Memory Usage: 332 KB
+nodes expanded = 1506
+max stack/queue size = 914
+max depth of the stack/ queue 14
+
+DFS search
+--- 1670.20201683 milliseconds --
+n = 3
+Cost of path = 43263
+Memory Usage: 332 KB
+nodes expanded = 47364
+max stack/queue size = 30393
+max depth of the stack/ queue 43264
+
+ASTAR search
+--- 2.79402732849 milliseconds --
+n = 3
+path to solution is ['UP', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'UP']
+Cost of path = 13
+Memory Usage: 332 KB
+nodes expanded = 39
+max stack/queue size = 33
+max depth of the stack/ queue 14
+
+IDASTAR search
+--- 5.43093681335 milliseconds --
+n = 3
+path to solution is ['UP', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'UP']
+Cost of path = 13
+Memory Usage: 332 KB
+nodes expanded = 93
+max stack/queue size = 6
+max depth of the stack/ queue 14
+
+
+TEST CASE 7
+ 1   2 
+ 6 8 5 
+ 4 3 7 
+
+BFS search
+--- 175.359964371 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'DOWN', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'LEFT']
+Cost of path = 13
+Memory Usage: 332 KB
+nodes expanded = 1772
+max stack/queue size = 1140
+max depth of the stack/ queue 14
+
+DFS search
+--- 2598.92416 milliseconds --
+n = 3
+Cost of path = 64935
+Memory Usage: 332 KB
+nodes expanded = 85855
+max stack/queue size = 42081
+max depth of the stack/ queue 64936
+
+ASTAR search
+--- 4.9409866333 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'DOWN', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'LEFT']
+Cost of path = 13
+Memory Usage: 332 KB
+nodes expanded = 70
+max stack/queue size = 51
+max depth of the stack/ queue 14
+
+IDASTAR search
+--- 5.48219680786 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'DOWN', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'LEFT']
+Cost of path = 13
+Memory Usage: 332 KB
+nodes expanded = 88
+max stack/queue size = 7
+max depth of the stack/ queue 14
+
+
+TEST CASE 8
+   4 3 
+ 2 5 8 
+ 6 7 1 
+
+BFS search
+--- 1082.8640461 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'DOWN', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'DOWN', 'LEFT', 'UP', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'UP']
+Cost of path = 20
+Memory Usage: 332 KB
+nodes expanded = 35621
+max stack/queue size = 15914
+max depth of the stack/ queue 21
+
+DFS search
+--- 256.505966187 milliseconds --
+n = 3
+Cost of path = 7208
+Memory Usage: 332 KB
+nodes expanded = 7532
+max stack/queue size = 5712
+max depth of the stack/ queue 7209
+
+ASTAR search
+--- 32.93800354 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'UP']
+Cost of path = 20
+Memory Usage: 332 KB
+nodes expanded = 338
+max stack/queue size = 216
+max depth of the stack/ queue 21
+
+IDASTAR search
+--- 25.5379676819 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'UP']
+Cost of path = 20
+Memory Usage: 332 KB
+nodes expanded = 479
+max stack/queue size = 11
+max depth of the stack/ queue 21
+
+
+TEST CASE 9
+ 1   5 
+ 3 2 4 
+ 6 7 8 
+
+BFS search
+--- 0.723123550415 milliseconds --
+n = 3
+path to solution is ['DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT']
+Cost of path = 5
+Memory Usage: 332 KB
+nodes expanded = 24
+max stack/queue size = 18
+max depth of the stack/ queue 6
+
+DFS search
+--- 2422.43885994 milliseconds --
+n = 3
+Cost of path = 61575
+Memory Usage: 332 KB
+nodes expanded = 76418
+max stack/queue size = 40562
+max depth of the stack/ queue 61576
+
+ASTAR search
+--- 0.456094741821 milliseconds --
+n = 3
+path to solution is ['DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT']
+Cost of path = 5
+Memory Usage: 332 KB
+nodes expanded = 6
+max stack/queue size = 7
+max depth of the stack/ queue 6
+
+IDASTAR search
+--- 0.34499168396 milliseconds --
+n = 3
+path to solution is ['DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT']
+Cost of path = 5
+Memory Usage: 332 KB
+nodes expanded = 6
+max stack/queue size = 2
+max depth of the stack/ queue 6
+
+
+TEST CASE 10
+   3 6 
+ 4 1 2 
+ 5 7 8 
+
+BFS search
+--- 1075.77085495 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'DOWN', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'UP']
+Cost of path = 20
+Memory Usage: 332 KB
+nodes expanded = 36015
+max stack/queue size = 16098
+max depth of the stack/ queue 21
+
+DFS search
+--- 1446.18606567 milliseconds --
+n = 3
+Cost of path = 38348
+Memory Usage: 332 KB
+nodes expanded = 41382
+max stack/queue size = 27854
+max depth of the stack/ queue 38349
+
+ASTAR search
+--- 33.252954483 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'DOWN', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'UP']
+Cost of path = 20
+Memory Usage: 332 KB
+nodes expanded = 389
+max stack/queue size = 252
+max depth of the stack/ queue 21
+
+IDASTAR search
+--- 48.4888553619 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'DOWN', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'UP']
+Cost of path = 20
+Memory Usage: 332 KB
+nodes expanded = 920
+max stack/queue size = 12
+max depth of the stack/ queue 21
+
+
+TEST CASE 11
+ 2 5 8 
+ 3   4 
+ 6 1 7 
+
+BFS search
+--- 72.1139907837 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP']
+Cost of path = 14
+Memory Usage: 332 KB
+nodes expanded = 3038
+max stack/queue size = 1833
+max depth of the stack/ queue 15
+
+DFS search
+--- 732.960939407 milliseconds --
+n = 3
+Cost of path = 19222
+Memory Usage: 332 KB
+nodes expanded = 20085
+max stack/queue size = 14626
+max depth of the stack/ queue 19223
+
+ASTAR search
+--- 5.15103340149 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP']
+Cost of path = 14
+Memory Usage: 332 KB
+nodes expanded = 69
+max stack/queue size = 53
+max depth of the stack/ queue 15
+
+IDASTAR search
+--- 4.71782684326 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP']
+Cost of path = 14
+Memory Usage: 332 KB
+nodes expanded = 103
+max stack/queue size = 6
+max depth of the stack/ queue 15
+
+
+TEST CASE 12
+ 7 3 6 
+   2 1 
+ 5 4 8 
+
+BFS search
+--- 1514.35089111 milliseconds --
+n = 3
+path to solution is ['UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'UP']
+Cost of path = 21
+Memory Usage: 332 KB
+nodes expanded = 55581
+max stack/queue size = 21019
+max depth of the stack/ queue 22
+
+DFS search
+--- 460.003137589 milliseconds --
+n = 3
+Cost of path = 13409
+Memory Usage: 332 KB
+nodes expanded = 13984
+max stack/queue size = 10321
+max depth of the stack/ queue 13410
+
+ASTAR search
+--- 30.0891399384 milliseconds --
+n = 3
+path to solution is ['UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'UP']
+Cost of path = 21
+Memory Usage: 332 KB
+nodes expanded = 352
+max stack/queue size = 208
+max depth of the stack/ queue 22
+
+IDASTAR search
+--- 29.5698642731 milliseconds --
+n = 3
+path to solution is ['UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'UP']
+Cost of path = 21
+Memory Usage: 332 KB
+nodes expanded = 529
+max stack/queue size = 16
+max depth of the stack/ queue 22
+
+
+TEST CASE 13
+ 3   2 
+ 4 1 7 
+ 6 8 5 
+
+BFS search
+--- 1.69587135315 milliseconds --
+n = 3
+path to solution is ['DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'UP']
+Cost of path = 7
+Memory Usage: 332 KB
+nodes expanded = 73
+max stack/queue size = 52
+max depth of the stack/ queue 8
+
+DFS search
+--- 1401.06797218 milliseconds --
+n = 3
+Cost of path = 39785
+Memory Usage: 332 KB
+nodes expanded = 43141
+max stack/queue size = 28510
+max depth of the stack/ queue 39786
+
+ASTAR search
+--- 0.565052032471 milliseconds --
+n = 3
+path to solution is ['DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'UP']
+Cost of path = 7
+Memory Usage: 332 KB
+nodes expanded = 7
+max stack/queue size = 10
+max depth of the stack/ queue 8
+
+IDASTAR search
+--- 0.46706199646 milliseconds --
+n = 3
+path to solution is ['DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'UP']
+Cost of path = 7
+Memory Usage: 332 KB
+nodes expanded = 9
+max stack/queue size = 2
+max depth of the stack/ queue 8
+
+
+TEST CASE 14
+ 3   2 
+ 6 1 4 
+ 7 8 5 
+
+BFS search
+--- 1.63412094116 milliseconds --
+n = 3
+path to solution is ['DOWN', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'UP']
+Cost of path = 7
+Memory Usage: 332 KB
+nodes expanded = 74
+max stack/queue size = 53
+max depth of the stack/ queue 8
+
+DFS search
+--- 1204.11992073 milliseconds --
+n = 3
+Cost of path = 35029
+Memory Usage: 332 KB
+nodes expanded = 37413
+max stack/queue size = 25531
+max depth of the stack/ queue 35030
+
+ASTAR search
+--- 0.502109527588 milliseconds --
+n = 3
+path to solution is ['DOWN', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'UP']
+Cost of path = 7
+Memory Usage: 332 KB
+nodes expanded = 7
+max stack/queue size = 8
+max depth of the stack/ queue 8
+
+IDASTAR search
+--- 0.349044799805 milliseconds --
+n = 3
+path to solution is ['DOWN', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'UP']
+Cost of path = 7
+Memory Usage: 332 KB
+nodes expanded = 7
+max stack/queue size = 1
+max depth of the stack/ queue 8
+
+
+TEST CASE 15
+   3 1 
+ 4 5 7 
+ 6 8 2 
+
+BFS search
+--- 21.448135376 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP']
+Cost of path = 12
+Memory Usage: 332 KB
+nodes expanded = 966
+max stack/queue size = 626
+max depth of the stack/ queue 13
+
+DFS search
+--- 442.485809326 milliseconds --
+n = 3
+Cost of path = 12494
+Memory Usage: 332 KB
+nodes expanded = 13087
+max stack/queue size = 9831
+max depth of the stack/ queue 12495
+
+ASTAR search
+--- 1.72996520996 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP']
+Cost of path = 12
+Memory Usage: 332 KB
+nodes expanded = 24
+max stack/queue size = 22
+max depth of the stack/ queue 13
+
+IDASTAR search
+--- 1.37400627136 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP']
+Cost of path = 12
+Memory Usage: 332 KB
+nodes expanded = 29
+max stack/queue size = 4
+max depth of the stack/ queue 13
+
+
+TEST CASE 16
+ 4 3 2 
+ 6 1 5 
+   7 8 
+
+BFS search
+--- 1.48582458496 milliseconds --
+n = 3
+path to solution is ['UP', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'UP']
+Cost of path = 6
+Memory Usage: 332 KB
+nodes expanded = 51
+max stack/queue size = 38
+max depth of the stack/ queue 7
+
+DFS search
+--- 3584.15293694 milliseconds --
+n = 3
+Cost of path = 53350
+Memory Usage: 332 KB
+nodes expanded = 131718
+max stack/queue size = 42683
+max depth of the stack/ queue 53351
+
+ASTAR search
+--- 0.421047210693 milliseconds --
+n = 3
+path to solution is ['UP', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'UP']
+Cost of path = 6
+Memory Usage: 332 KB
+nodes expanded = 6
+max stack/queue size = 7
+max depth of the stack/ queue 7
+
+IDASTAR search
+--- 0.303983688354 milliseconds --
+n = 3
+path to solution is ['UP', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'UP']
+Cost of path = 6
+Memory Usage: 332 KB
+nodes expanded = 6
+max stack/queue size = 1
+max depth of the stack/ queue 7
+
+
+TEST CASE 17
+ 3 1 2 
+ 6 4 5 
+   7 8 
+
+BFS search
+--- 0.0870227813721 milliseconds --
+n = 3
+path to solution is ['UP', 'UP']
+Cost of path = 2
+Memory Usage: 332 KB
+nodes expanded = 3
+max stack/queue size = 5
+max depth of the stack/ queue 3
+
+DFS search
+--- 0.0579357147217 milliseconds --
+n = 3
+path to solution is ['UP', 'UP']
+Cost of path = 2
+Memory Usage: 332 KB
+nodes expanded = 3
+max stack/queue size = 4
+max depth of the stack/ queue 3
+
+ASTAR search
+--- 0.125885009766 milliseconds --
+n = 3
+path to solution is ['UP', 'UP']
+Cost of path = 2
+Memory Usage: 332 KB
+nodes expanded = 2
+max stack/queue size = 3
+max depth of the stack/ queue 3
+
+IDASTAR search
+--- 0.106811523438 milliseconds --
+n = 3
+path to solution is ['UP', 'UP']
+Cost of path = 2
+Memory Usage: 332 KB
+nodes expanded = 2
+max stack/queue size = 1
+max depth of the stack/ queue 3
+
+
+TEST CASE 18
+ 2 6 5 
+ 4   7 
+ 1 3 8 
+
+BFS search
+--- 460.302114487 milliseconds --
+n = 3
+path to solution is ['UP', 'LEFT', 'DOWN', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT']
+Cost of path = 16
+Memory Usage: 332 KB
+nodes expanded = 8187
+max stack/queue size = 4774
+max depth of the stack/ queue 17
+
+DFS search
+--- 10.1361274719 milliseconds --
+n = 3
+Cost of path = 374
+Memory Usage: 332 KB
+nodes expanded = 393
+max stack/queue size = 309
+max depth of the stack/ queue 375
+
+ASTAR search
+--- 4.53209877014 milliseconds --
+n = 3
+path to solution is ['UP', 'LEFT', 'DOWN', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT']
+Cost of path = 16
+Memory Usage: 332 KB
+nodes expanded = 62
+max stack/queue size = 45
+max depth of the stack/ queue 17
+
+IDASTAR search
+--- 3.82304191589 milliseconds --
+n = 3
+path to solution is ['UP', 'LEFT', 'DOWN', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT']
+Cost of path = 16
+Memory Usage: 332 KB
+nodes expanded = 78
+max stack/queue size = 8
+max depth of the stack/ queue 17
+
+
+TEST CASE 19
+ 2 5 8 
+ 3 4 7 
+ 6   1 
+
+BFS search
+--- 80.7859897614 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'UP', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP']
+Cost of path = 15
+Memory Usage: 332 KB
+nodes expanded = 3522
+max stack/queue size = 1935
+max depth of the stack/ queue 16
+
+DFS search
+--- 217.63420105 milliseconds --
+n = 3
+Cost of path = 7213
+Memory Usage: 332 KB
+nodes expanded = 7487
+max stack/queue size = 5637
+max depth of the stack/ queue 7214
+
+ASTAR search
+--- 4.75811958313 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'UP', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP']
+Cost of path = 15
+Memory Usage: 332 KB
+nodes expanded = 62
+max stack/queue size = 50
+max depth of the stack/ queue 16
+
+IDASTAR search
+--- 5.68199157715 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'UP', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP']
+Cost of path = 15
+Memory Usage: 332 KB
+nodes expanded = 122
+max stack/queue size = 4
+max depth of the stack/ queue 16
+
+
+TEST CASE 20
+ 4 6 5 
+ 3 1 2 
+ 7 8   
+
+BFS search
+--- 836.565971375 milliseconds --
+n = 3
+path to solution is ['UP', 'LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'DOWN', 'LEFT', 'UP', 'UP']
+Cost of path = 20
+Memory Usage: 332 KB
+nodes expanded = 31641
+max stack/queue size = 13812
+max depth of the stack/ queue 21
+
+DFS search
+--- 360.88180542 milliseconds --
+n = 3
+Cost of path = 11652
+Memory Usage: 332 KB
+nodes expanded = 12111
+max stack/queue size = 9013
+max depth of the stack/ queue 11653
+
+ASTAR search
+--- 47.8239059448 milliseconds --
+n = 3
+path to solution is ['UP', 'LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'DOWN', 'LEFT', 'UP', 'UP']
+Cost of path = 20
+Memory Usage: 332 KB
+nodes expanded = 519
+max stack/queue size = 339
+max depth of the stack/ queue 21
+
+IDASTAR search
+--- 87.8779888153 milliseconds --
+n = 3
+path to solution is ['LEFT', 'LEFT', 'UP', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'UP', 'LEFT', 'DOWN', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'UP', 'LEFT']
+Cost of path = 20
+Memory Usage: 332 KB
+nodes expanded = 1527
+max stack/queue size = 13
+max depth of the stack/ queue 21
+
+
+TEST CASE 21
+ 4   2 
+ 1 3 5 
+ 6 7 8 
+
+BFS search
+--- 0.887870788574 milliseconds --
+n = 3
+path to solution is ['LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT']
+Cost of path = 5
+Memory Usage: 332 KB
+nodes expanded = 34
+max stack/queue size = 28
+max depth of the stack/ queue 6
+
+DFS search
+--- 0.169992446899 milliseconds --
+n = 3
+path to solution is ['LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT']
+Cost of path = 5
+Memory Usage: 332 KB
+nodes expanded = 7
+max stack/queue size = 7
+max depth of the stack/ queue 6
+
+ASTAR search
+--- 0.432014465332 milliseconds --
+n = 3
+path to solution is ['LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT']
+Cost of path = 5
+Memory Usage: 332 KB
+nodes expanded = 5
+max stack/queue size = 7
+max depth of the stack/ queue 6
+
+IDASTAR search
+--- 0.320911407471 milliseconds --
+n = 3
+path to solution is ['LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT']
+Cost of path = 5
+Memory Usage: 332 KB
+nodes expanded = 5
+max stack/queue size = 1
+max depth of the stack/ queue 6
+
+
+TEST CASE 22
+ 1 2   
+ 3 4 5 
+ 6 7 8 
+
+BFS search
+--- 0.0839233398438 milliseconds --
+n = 3
+path to solution is ['LEFT', 'LEFT']
+Cost of path = 2
+Memory Usage: 332 KB
+nodes expanded = 3
+max stack/queue size = 5
+max depth of the stack/ queue 3
+
+DFS search
+--- 0.0579357147217 milliseconds --
+n = 3
+path to solution is ['LEFT', 'LEFT']
+Cost of path = 2
+Memory Usage: 332 KB
+nodes expanded = 3
+max stack/queue size = 4
+max depth of the stack/ queue 3
+
+ASTAR search
+--- 0.130891799927 milliseconds --
+n = 3
+path to solution is ['LEFT', 'LEFT']
+Cost of path = 2
+Memory Usage: 332 KB
+nodes expanded = 2
+max stack/queue size = 3
+max depth of the stack/ queue 3
+
+IDASTAR search
+--- 0.108003616333 milliseconds --
+n = 3
+path to solution is ['LEFT', 'LEFT']
+Cost of path = 2
+Memory Usage: 332 KB
+nodes expanded = 2
+max stack/queue size = 1
+max depth of the stack/ queue 3
+
+
+TEST CASE 23
+ 6 3 1 
+ 7 4   
+ 8 5 2 
+
+BFS search
+--- 160.816907883 milliseconds --
+n = 3
+path to solution is ['DOWN', 'LEFT', 'LEFT', 'UP', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'LEFT', 'UP', 'UP']
+Cost of path = 13
+Memory Usage: 332 KB
+nodes expanded = 1483
+max stack/queue size = 892
+max depth of the stack/ queue 14
+
+DFS search
+--- 2698.70114326 milliseconds --
+n = 3
+Cost of path = 66359
+Memory Usage: 332 KB
+nodes expanded = 92739
+max stack/queue size = 42560
+max depth of the stack/ queue 66360
+
+ASTAR search
+--- 0.849962234497 milliseconds --
+n = 3
+path to solution is ['DOWN', 'LEFT', 'LEFT', 'UP', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'LEFT', 'UP', 'UP']
+Cost of path = 13
+Memory Usage: 332 KB
+nodes expanded = 13
+max stack/queue size = 9
+max depth of the stack/ queue 14
+
+IDASTAR search
+--- 0.607013702393 milliseconds --
+n = 3
+path to solution is ['DOWN', 'LEFT', 'LEFT', 'UP', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'LEFT', 'UP', 'UP']
+Cost of path = 13
+Memory Usage: 332 KB
+nodes expanded = 13
+max stack/queue size = 1
+max depth of the stack/ queue 14
+
+
+TEST CASE 24
+ 3   2 
+ 4 1 5 
+ 6 7 8 
+
+BFS search
+--- 0.192880630493 milliseconds --
+n = 3
+path to solution is ['DOWN', 'LEFT', 'UP']
+Cost of path = 3
+Memory Usage: 332 KB
+nodes expanded = 8
+max stack/queue size = 8
+max depth of the stack/ queue 4
+
+DFS search
+--- 0.241041183472 milliseconds --
+n = 3
+path to solution is ['LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT']
+Cost of path = 9
+Memory Usage: 332 KB
+nodes expanded = 11
+max stack/queue size = 11
+max depth of the stack/ queue 10
+
+ASTAR search
+--- 0.245094299316 milliseconds --
+n = 3
+path to solution is ['DOWN', 'LEFT', 'UP']
+Cost of path = 3
+Memory Usage: 332 KB
+nodes expanded = 3
+max stack/queue size = 6
+max depth of the stack/ queue 4
+
+IDASTAR search
+--- 0.18310546875 milliseconds --
+n = 3
+path to solution is ['DOWN', 'LEFT', 'UP']
+Cost of path = 3
+Memory Usage: 332 KB
+nodes expanded = 3
+max stack/queue size = 1
+max depth of the stack/ queue 4
+
+
+TEST CASE 25
+ 1 2   
+ 3 7 5 
+ 6 8 4 
+
+BFS search
+--- 2.43902206421 milliseconds --
+n = 3
+path to solution is ['DOWN', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'UP', 'LEFT', 'LEFT']
+Cost of path = 8
+Memory Usage: 332 KB
+nodes expanded = 93
+max stack/queue size = 63
+max depth of the stack/ queue 9
+
+DFS search
+--- 1414.61205482 milliseconds --
+n = 3
+Cost of path = 38836
+Memory Usage: 332 KB
+nodes expanded = 41953
+max stack/queue size = 27929
+max depth of the stack/ queue 38837
+
+ASTAR search
+--- 0.850915908813 milliseconds --
+n = 3
+path to solution is ['DOWN', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'UP', 'LEFT', 'LEFT']
+Cost of path = 8
+Memory Usage: 332 KB
+nodes expanded = 12
+max stack/queue size = 12
+max depth of the stack/ queue 9
+
+IDASTAR search
+--- 0.964879989624 milliseconds --
+n = 3
+path to solution is ['DOWN', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'UP', 'LEFT', 'LEFT']
+Cost of path = 8
+Memory Usage: 332 KB
+nodes expanded = 18
+max stack/queue size = 3
+max depth of the stack/ queue 9
+
+
+TEST CASE 26
+ 1 8 2 
+ 4 7 5 
+ 6   3 
+
+BFS search
+--- 627.722978592 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'UP']
+Cost of path = 19
+Memory Usage: 332 KB
+nodes expanded = 21298
+max stack/queue size = 9417
+max depth of the stack/ queue 20
+
+DFS search
+--- 3093.63985062 milliseconds --
+n = 3
+Cost of path = 66327
+Memory Usage: 332 KB
+nodes expanded = 106170
+max stack/queue size = 42684
+max depth of the stack/ queue 66328
+
+ASTAR search
+--- 30.5271148682 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'UP']
+Cost of path = 19
+Memory Usage: 332 KB
+nodes expanded = 362
+max stack/queue size = 239
+max depth of the stack/ queue 20
+
+IDASTAR search
+--- 58.0770969391 milliseconds --
+n = 3
+path to solution is ['UP', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'LEFT']
+Cost of path = 19
+Memory Usage: 332 KB
+nodes expanded = 1146
+max stack/queue size = 11
+max depth of the stack/ queue 20
+
+
+TEST CASE 27
+   3 2 
+ 4 1 5 
+ 6 7 8 
+
+BFS search
+--- 0.441074371338 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'DOWN', 'LEFT', 'UP']
+Cost of path = 4
+Memory Usage: 332 KB
+nodes expanded = 15
+max stack/queue size = 15
+max depth of the stack/ queue 5
+
+DFS search
+--- 0.77486038208 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT']
+Cost of path = 34
+Memory Usage: 332 KB
+nodes expanded = 36
+max stack/queue size = 30
+max depth of the stack/ queue 35
+
+ASTAR search
+--- 0.288009643555 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'DOWN', 'LEFT', 'UP']
+Cost of path = 4
+Memory Usage: 332 KB
+nodes expanded = 4
+max stack/queue size = 6
+max depth of the stack/ queue 5
+
+IDASTAR search
+--- 0.218868255615 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'DOWN', 'LEFT', 'UP']
+Cost of path = 4
+Memory Usage: 332 KB
+nodes expanded = 4
+max stack/queue size = 1
+max depth of the stack/ queue 5
+
+
+TEST CASE 28
+ 7 3   
+ 2 1 4 
+ 8 6 5 
+
+BFS search
+--- 1130.20014763 milliseconds --
+n = 3
+path to solution is ['DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'UP']
+Cost of path = 20
+Memory Usage: 332 KB
+nodes expanded = 32409
+max stack/queue size = 14264
+max depth of the stack/ queue 21
+
+DFS search
+--- 1324.67985153 milliseconds --
+n = 3
+Cost of path = 39362
+Memory Usage: 332 KB
+nodes expanded = 42600
+max stack/queue size = 28246
+max depth of the stack/ queue 39363
+
+ASTAR search
+--- 25.1469612122 milliseconds --
+n = 3
+path to solution is ['DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'UP']
+Cost of path = 20
+Memory Usage: 332 KB
+nodes expanded = 288
+max stack/queue size = 171
+max depth of the stack/ queue 21
+
+IDASTAR search
+--- 18.7928676605 milliseconds --
+n = 3
+path to solution is ['DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'LEFT', 'UP', 'UP']
+Cost of path = 20
+Memory Usage: 332 KB
+nodes expanded = 386
+max stack/queue size = 10
+max depth of the stack/ queue 21
+
+
+TEST CASE 29
+ 7 2   
+ 1 3 5 
+ 6 8 4 
+
+BFS search
+--- 268.644094467 milliseconds --
+n = 3
+path to solution is ['LEFT', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'UP', 'LEFT', 'LEFT']
+Cost of path = 14
+Memory Usage: 332 KB
+nodes expanded = 2857
+max stack/queue size = 1877
+max depth of the stack/ queue 15
+
+DFS search
+--- 781.740903854 milliseconds --
+n = 3
+Cost of path = 27974
+Memory Usage: 332 KB
+nodes expanded = 29502
+max stack/queue size = 20896
+max depth of the stack/ queue 27975
+
+ASTAR search
+--- 3.83400917053 milliseconds --
+n = 3
+path to solution is ['LEFT', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'UP', 'LEFT', 'LEFT']
+Cost of path = 14
+Memory Usage: 332 KB
+nodes expanded = 53
+max stack/queue size = 38
+max depth of the stack/ queue 15
+
+IDASTAR search
+--- 3.98898124695 milliseconds --
+n = 3
+path to solution is ['LEFT', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'UP', 'LEFT', 'LEFT']
+Cost of path = 14
+Memory Usage: 332 KB
+nodes expanded = 82
+max stack/queue size = 8
+max depth of the stack/ queue 15
+
+
+TEST CASE 30
+ 1 4 2 
+ 3 5   
+ 6 7 8 
+
+BFS search
+--- 0.21505355835 milliseconds --
+n = 3
+path to solution is ['LEFT', 'UP', 'LEFT']
+Cost of path = 3
+Memory Usage: 332 KB
+nodes expanded = 9
+max stack/queue size = 9
+max depth of the stack/ queue 4
+
+DFS search
+--- 2159.5351696 milliseconds --
+n = 3
+Cost of path = 59295
+Memory Usage: 332 KB
+nodes expanded = 71606
+max stack/queue size = 39394
+max depth of the stack/ queue 59296
+
+ASTAR search
+--- 0.281095504761 milliseconds --
+n = 3
+path to solution is ['LEFT', 'UP', 'LEFT']
+Cost of path = 3
+Memory Usage: 332 KB
+nodes expanded = 3
+max stack/queue size = 6
+max depth of the stack/ queue 4
+
+IDASTAR search
+--- 0.194072723389 milliseconds --
+n = 3
+path to solution is ['LEFT', 'UP', 'LEFT']
+Cost of path = 3
+Memory Usage: 332 KB
+nodes expanded = 3
+max stack/queue size = 1
+max depth of the stack/ queue 4
+
+
+TEST CASE 31
+ 1 3 7 
+ 8 2 5 
+   4 6 
+
+BFS search
+--- 2134.13190842 milliseconds --
+n = 3
+path to solution is ['UP', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'UP']
+Cost of path = 22
+Memory Usage: 332 KB
+nodes expanded = 70936
+max stack/queue size = 23714
+max depth of the stack/ queue 23
+
+DFS search
+--- 2358.25490952 milliseconds --
+n = 3
+Cost of path = 62608
+Memory Usage: 339 KB
+nodes expanded = 78730
+max stack/queue size = 40779
+max depth of the stack/ queue 62609
+
+ASTAR search
+--- 68.1068897247 milliseconds --
+n = 3
+path to solution is ['UP', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'UP']
+Cost of path = 22
+Memory Usage: 339 KB
+nodes expanded = 708
+max stack/queue size = 441
+max depth of the stack/ queue 23
+
+IDASTAR search
+--- 49.9291419983 milliseconds --
+n = 3
+path to solution is ['UP', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'UP']
+Cost of path = 22
+Memory Usage: 339 KB
+nodes expanded = 941
+max stack/queue size = 10
+max depth of the stack/ queue 23
+
+
+TEST CASE 32
+ 1 6 8 
+ 3   7 
+ 2 5 4 
+
+BFS search
+--- 2570.07908821 milliseconds --
+n = 3
+path to solution is ['UP', 'LEFT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'LEFT']
+Cost of path = 22
+Memory Usage: 339 KB
+nodes expanded = 77888
+max stack/queue size = 24147
+max depth of the stack/ queue 23
+
+DFS search
+--- 2234.61103439 milliseconds --
+n = 3
+Cost of path = 55872
+Memory Usage: 339 KB
+nodes expanded = 65329
+max stack/queue size = 37625
+max depth of the stack/ queue 55873
+
+ASTAR search
+--- 57.3968887329 milliseconds --
+n = 3
+path to solution is ['UP', 'LEFT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'LEFT']
+Cost of path = 22
+Memory Usage: 339 KB
+nodes expanded = 638
+max stack/queue size = 381
+max depth of the stack/ queue 23
+
+IDASTAR search
+--- 60.6091022491 milliseconds --
+n = 3
+path to solution is ['UP', 'LEFT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'LEFT']
+Cost of path = 22
+Memory Usage: 339 KB
+nodes expanded = 1123
+max stack/queue size = 10
+max depth of the stack/ queue 23
+
+
+TEST CASE 33
+ 4   1 
+ 2 5 7 
+ 6 8 3 
+
+BFS search
+--- 498.545885086 milliseconds --
+n = 3
+path to solution is ['DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP']
+Cost of path = 19
+Memory Usage: 361 KB
+nodes expanded = 21786
+max stack/queue size = 9793
+max depth of the stack/ queue 20
+
+DFS search
+--- 1088.42921257 milliseconds --
+n = 3
+Cost of path = 20477
+Memory Usage: 369 KB
+nodes expanded = 21444
+max stack/queue size = 15594
+max depth of the stack/ queue 20478
+
+ASTAR search
+--- 24.1689682007 milliseconds --
+n = 3
+path to solution is ['DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP']
+Cost of path = 19
+Memory Usage: 369 KB
+nodes expanded = 256
+max stack/queue size = 161
+max depth of the stack/ queue 20
+
+IDASTAR search
+--- 45.2039241791 milliseconds --
+n = 3
+path to solution is ['DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP']
+Cost of path = 19
+Memory Usage: 369 KB
+nodes expanded = 788
+max stack/queue size = 9
+max depth of the stack/ queue 20
+
+
+TEST CASE 34
+ 5 1 4 
+ 6 8   
+ 3 2 7 
+
+BFS search
+--- 1527.09698677 milliseconds --
+n = 3
+path to solution is ['LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'UP', 'LEFT']
+Cost of path = 21
+Memory Usage: 369 KB
+nodes expanded = 52477
+max stack/queue size = 19572
+max depth of the stack/ queue 22
+
+DFS search
+--- 447.762966156 milliseconds --
+n = 3
+Cost of path = 13367
+Memory Usage: 369 KB
+nodes expanded = 13918
+max stack/queue size = 10344
+max depth of the stack/ queue 13368
+
+ASTAR search
+--- 63.6007785797 milliseconds --
+n = 3
+path to solution is ['LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'UP', 'LEFT']
+Cost of path = 21
+Memory Usage: 369 KB
+nodes expanded = 603
+max stack/queue size = 389
+max depth of the stack/ queue 22
+
+IDASTAR search
+--- 91.4881229401 milliseconds --
+n = 3
+path to solution is ['LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'LEFT']
+Cost of path = 21
+Memory Usage: 369 KB
+nodes expanded = 1496
+max stack/queue size = 12
+max depth of the stack/ queue 22
+
+
+TEST CASE 35
+ 8 3 1 
+   7 2 
+ 4 6 5 
+
+BFS search
+--- 341.646909714 milliseconds --
+n = 3
+path to solution is ['UP', 'RIGHT', 'DOWN', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'LEFT', 'UP']
+Cost of path = 15
+Memory Usage: 369 KB
+nodes expanded = 5002
+max stack/queue size = 3146
+max depth of the stack/ queue 16
+
+DFS search
+--- 770.629167557 milliseconds --
+n = 3
+Cost of path = 23189
+Memory Usage: 369 KB
+nodes expanded = 24287
+max stack/queue size = 17306
+max depth of the stack/ queue 23190
+
+ASTAR search
+--- 7.42411613464 milliseconds --
+n = 3
+path to solution is ['UP', 'RIGHT', 'DOWN', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'LEFT', 'UP']
+Cost of path = 15
+Memory Usage: 369 KB
+nodes expanded = 78
+max stack/queue size = 59
+max depth of the stack/ queue 16
+
+IDASTAR search
+--- 3.66377830505 milliseconds --
+n = 3
+path to solution is ['UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'UP']
+Cost of path = 15
+Memory Usage: 369 KB
+nodes expanded = 58
+max stack/queue size = 6
+max depth of the stack/ queue 16
+
+
+TEST CASE 36
+ 5 2   
+ 4 1 8 
+ 3 6 7 
+
+BFS search
+--- 75.7701396942 milliseconds --
+n = 3
+path to solution is ['LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'UP', 'LEFT']
+Cost of path = 14
+Memory Usage: 369 KB
+nodes expanded = 2678
+max stack/queue size = 1728
+max depth of the stack/ queue 15
+
+DFS search
+--- 3326.5581131 milliseconds --
+n = 3
+Cost of path = 63738
+Memory Usage: 369 KB
+nodes expanded = 113720
+max stack/queue size = 42871
+max depth of the stack/ queue 63739
+
+ASTAR search
+--- 2.7289390564 milliseconds --
+n = 3
+path to solution is ['LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'UP', 'LEFT']
+Cost of path = 14
+Memory Usage: 369 KB
+nodes expanded = 38
+max stack/queue size = 32
+max depth of the stack/ queue 15
+
+IDASTAR search
+--- 3.97396087646 milliseconds --
+n = 3
+path to solution is ['LEFT', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'UP', 'LEFT']
+Cost of path = 14
+Memory Usage: 369 KB
+nodes expanded = 82
+max stack/queue size = 4
+max depth of the stack/ queue 15
+
+
+TEST CASE 37
+ 4   8 
+ 5 2 3 
+ 7 1 6 
+
+BFS search
+--- 1542.55104065 milliseconds --
+n = 3
+path to solution is ['DOWN', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT']
+Cost of path = 21
+Memory Usage: 369 KB
+nodes expanded = 47764
+max stack/queue size = 17388
+max depth of the stack/ queue 22
+
+DFS search
+--- 29.364824295 milliseconds --
+n = 3
+Cost of path = 1161
+Memory Usage: 369 KB
+nodes expanded = 1214
+max stack/queue size = 941
+max depth of the stack/ queue 1162
+
+ASTAR search
+--- 35.129070282 milliseconds --
+n = 3
+path to solution is ['DOWN', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT']
+Cost of path = 21
+Memory Usage: 369 KB
+nodes expanded = 389
+max stack/queue size = 247
+max depth of the stack/ queue 22
+
+IDASTAR search
+--- 37.134885788 milliseconds --
+n = 3
+path to solution is ['DOWN', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'UP']
+Cost of path = 21
+Memory Usage: 369 KB
+nodes expanded = 729
+max stack/queue size = 10
+max depth of the stack/ queue 22
+
+
+TEST CASE 38
+ 1 4 2 
+ 6 3 5 
+   7 8 
+
+BFS search
+--- 0.427007675171 milliseconds --
+n = 3
+path to solution is ['UP', 'RIGHT', 'UP', 'LEFT']
+Cost of path = 4
+Memory Usage: 369 KB
+nodes expanded = 15
+max stack/queue size = 15
+max depth of the stack/ queue 5
+
+DFS search
+--- 279.513120651 milliseconds --
+n = 3
+Cost of path = 5540
+Memory Usage: 369 KB
+nodes expanded = 5770
+max stack/queue size = 4394
+max depth of the stack/ queue 5541
+
+ASTAR search
+--- 0.304937362671 milliseconds --
+n = 3
+path to solution is ['UP', 'RIGHT', 'UP', 'LEFT']
+Cost of path = 4
+Memory Usage: 369 KB
+nodes expanded = 4
+max stack/queue size = 6
+max depth of the stack/ queue 5
+
+IDASTAR search
+--- 0.223159790039 milliseconds --
+n = 3
+path to solution is ['UP', 'RIGHT', 'UP', 'LEFT']
+Cost of path = 4
+Memory Usage: 369 KB
+nodes expanded = 4
+max stack/queue size = 1
+max depth of the stack/ queue 5
+
+
+TEST CASE 39
+ 6 2   
+ 1 3 5 
+ 7 4 8 
+
+BFS search
+--- 8.87107849121 milliseconds --
+n = 3
+path to solution is ['LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'UP']
+Cost of path = 10
+Memory Usage: 369 KB
+nodes expanded = 387
+max stack/queue size = 256
+max depth of the stack/ queue 11
+
+DFS search
+--- 670.439004898 milliseconds --
+n = 3
+Cost of path = 22060
+Memory Usage: 369 KB
+nodes expanded = 23132
+max stack/queue size = 16762
+max depth of the stack/ queue 22061
+
+ASTAR search
+--- 1.65605545044 milliseconds --
+n = 3
+path to solution is ['LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'UP']
+Cost of path = 10
+Memory Usage: 369 KB
+nodes expanded = 20
+max stack/queue size = 18
+max depth of the stack/ queue 11
+
+IDASTAR search
+--- 1.19686126709 milliseconds --
+n = 3
+path to solution is ['LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'UP']
+Cost of path = 10
+Memory Usage: 369 KB
+nodes expanded = 21
+max stack/queue size = 4
+max depth of the stack/ queue 11
+
+
+TEST CASE 40
+   3 2 
+ 4 1 8 
+ 5 7 6 
+
+BFS search
+--- 156.419038773 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'UP']
+Cost of path = 16
+Memory Usage: 369 KB
+nodes expanded = 6251
+max stack/queue size = 3705
+max depth of the stack/ queue 17
+
+DFS search
+--- 1020.80893517 milliseconds --
+n = 3
+Cost of path = 30960
+Memory Usage: 369 KB
+nodes expanded = 32916
+max stack/queue size = 23039
+max depth of the stack/ queue 30961
+
+ASTAR search
+--- 9.36412811279 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'UP']
+Cost of path = 16
+Memory Usage: 369 KB
+nodes expanded = 117
+max stack/queue size = 83
+max depth of the stack/ queue 17
+
+IDASTAR search
+--- 10.4811191559 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'UP']
+Cost of path = 16
+Memory Usage: 369 KB
+nodes expanded = 221
+max stack/queue size = 8
+max depth of the stack/ queue 17
+
+
+TEST CASE 41
+ 1   2 
+ 3 4 8 
+ 6 5 7 
+
+BFS search
+--- 1.39808654785 milliseconds --
+n = 3
+path to solution is ['DOWN', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'UP', 'LEFT']
+Cost of path = 7
+Memory Usage: 369 KB
+nodes expanded = 65
+max stack/queue size = 45
+max depth of the stack/ queue 8
+
+DFS search
+--- 1748.82507324 milliseconds --
+n = 3
+Cost of path = 50939
+Memory Usage: 369 KB
+nodes expanded = 57824
+max stack/queue size = 35080
+max depth of the stack/ queue 50940
+
+ASTAR search
+--- 0.728130340576 milliseconds --
+n = 3
+path to solution is ['DOWN', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'UP', 'LEFT']
+Cost of path = 7
+Memory Usage: 369 KB
+nodes expanded = 10
+max stack/queue size = 11
+max depth of the stack/ queue 8
+
+IDASTAR search
+--- 0.661134719849 milliseconds --
+n = 3
+path to solution is ['DOWN', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'UP', 'LEFT']
+Cost of path = 7
+Memory Usage: 369 KB
+nodes expanded = 14
+max stack/queue size = 3
+max depth of the stack/ queue 8
+
+
+TEST CASE 42
+ 4 2 8 
+ 6 5 7 
+ 1 3   
+
+BFS search
+--- 449.928045273 milliseconds --
+n = 3
+path to solution is ['UP', 'UP', 'LEFT', 'DOWN', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'UP', 'LEFT']
+Cost of path = 18
+Memory Usage: 369 KB
+nodes expanded = 12349
+max stack/queue size = 6081
+max depth of the stack/ queue 19
+
+DFS search
+--- 1718.24407578 milliseconds --
+n = 3
+Cost of path = 48096
+Memory Usage: 369 KB
+nodes expanded = 53776
+max stack/queue size = 33231
+max depth of the stack/ queue 48097
+
+ASTAR search
+--- 12.3009681702 milliseconds --
+n = 3
+path to solution is ['UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'UP', 'LEFT']
+Cost of path = 18
+Memory Usage: 369 KB
+nodes expanded = 148
+max stack/queue size = 102
+max depth of the stack/ queue 19
+
+IDASTAR search
+--- 12.2468471527 milliseconds --
+n = 3
+path to solution is ['UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'UP', 'LEFT']
+Cost of path = 18
+Memory Usage: 369 KB
+nodes expanded = 252
+max stack/queue size = 8
+max depth of the stack/ queue 19
+
+
+TEST CASE 43
+ 4 3 2 
+   1 7 
+ 6 8 5 
+
+BFS search
+--- 6.11281394958 milliseconds --
+n = 3
+path to solution is ['UP', 'RIGHT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'UP']
+Cost of path = 9
+Memory Usage: 369 KB
+nodes expanded = 274
+max stack/queue size = 186
+max depth of the stack/ queue 10
+
+DFS search
+--- 2952.98480988 milliseconds --
+n = 3
+Cost of path = 67237
+Memory Usage: 369 KB
+nodes expanded = 99454
+max stack/queue size = 42814
+max depth of the stack/ queue 67238
+
+ASTAR search
+--- 0.818014144897 milliseconds --
+n = 3
+path to solution is ['UP', 'RIGHT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'UP']
+Cost of path = 9
+Memory Usage: 369 KB
+nodes expanded = 11
+max stack/queue size = 12
+max depth of the stack/ queue 10
+
+IDASTAR search
+--- 0.577211380005 milliseconds --
+n = 3
+path to solution is ['UP', 'RIGHT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'UP']
+Cost of path = 9
+Memory Usage: 369 KB
+nodes expanded = 11
+max stack/queue size = 2
+max depth of the stack/ queue 10
+
+
+TEST CASE 44
+ 3 1 5 
+ 7 8 4 
+ 6 2   
+
+BFS search
+--- 391.829013824 milliseconds --
+n = 3
+path to solution is ['LEFT', 'UP', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT']
+Cost of path = 16
+Memory Usage: 369 KB
+nodes expanded = 6822
+max stack/queue size = 4142
+max depth of the stack/ queue 17
+
+DFS search
+--- 4031.10790253 milliseconds --
+n = 3
+Cost of path = 33954
+Memory Usage: 369 KB
+nodes expanded = 153452
+max stack/queue size = 42684
+max depth of the stack/ queue 33955
+
+ASTAR search
+--- 13.6229991913 milliseconds --
+n = 3
+path to solution is ['LEFT', 'UP', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT']
+Cost of path = 16
+Memory Usage: 369 KB
+nodes expanded = 170
+max stack/queue size = 114
+max depth of the stack/ queue 17
+
+IDASTAR search
+--- 14.3468379974 milliseconds --
+n = 3
+path to solution is ['LEFT', 'UP', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT']
+Cost of path = 16
+Memory Usage: 369 KB
+nodes expanded = 300
+max stack/queue size = 7
+max depth of the stack/ queue 17
+
+
+TEST CASE 45
+   3 2 
+ 4 6 7 
+ 8 1 5 
+
+BFS search
+--- 48.5310554504 milliseconds --
+n = 3
+path to solution is ['DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'UP']
+Cost of path = 14
+Memory Usage: 369 KB
+nodes expanded = 2139
+max stack/queue size = 1267
+max depth of the stack/ queue 15
+
+DFS search
+--- 1046.53596878 milliseconds --
+n = 3
+Cost of path = 25576
+Memory Usage: 369 KB
+nodes expanded = 26953
+max stack/queue size = 19420
+max depth of the stack/ queue 25577
+
+ASTAR search
+--- 2.17700004578 milliseconds --
+n = 3
+path to solution is ['DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'UP']
+Cost of path = 14
+Memory Usage: 369 KB
+nodes expanded = 30
+max stack/queue size = 25
+max depth of the stack/ queue 15
+
+IDASTAR search
+--- 1.65104866028 milliseconds --
+n = 3
+path to solution is ['DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'UP']
+Cost of path = 14
+Memory Usage: 369 KB
+nodes expanded = 34
+max stack/queue size = 4
+max depth of the stack/ queue 15
+
+
+TEST CASE 46
+ 1 5   
+ 3 2 7 
+ 6 8 4 
+
+BFS search
+--- 10.6120109558 milliseconds --
+n = 3
+path to solution is ['LEFT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'UP', 'LEFT', 'LEFT']
+Cost of path = 10
+Memory Usage: 369 KB
+nodes expanded = 365
+max stack/queue size = 237
+max depth of the stack/ queue 11
+
+DFS search
+--- 2285.83598137 milliseconds --
+n = 3
+Cost of path = 60248
+Memory Usage: 369 KB
+nodes expanded = 73564
+max stack/queue size = 39910
+max depth of the stack/ queue 60249
+
+ASTAR search
+--- 1.10197067261 milliseconds --
+n = 3
+path to solution is ['LEFT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'UP', 'LEFT', 'LEFT']
+Cost of path = 10
+Memory Usage: 369 KB
+nodes expanded = 14
+max stack/queue size = 12
+max depth of the stack/ queue 11
+
+IDASTAR search
+--- 0.803232192993 milliseconds --
+n = 3
+path to solution is ['LEFT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'UP', 'LEFT', 'LEFT']
+Cost of path = 10
+Memory Usage: 369 KB
+nodes expanded = 14
+max stack/queue size = 2
+max depth of the stack/ queue 11
+
+
+TEST CASE 47
+ 1 4 2 
+ 3   5 
+ 6 7 8 
+
+BFS search
+--- 0.148057937622 milliseconds --
+n = 3
+path to solution is ['UP', 'LEFT']
+Cost of path = 2
+Memory Usage: 369 KB
+nodes expanded = 4
+max stack/queue size = 8
+max depth of the stack/ queue 3
+
+DFS search
+--- 2274.03497696 milliseconds --
+n = 3
+Cost of path = 59294
+Memory Usage: 369 KB
+nodes expanded = 71606
+max stack/queue size = 39393
+max depth of the stack/ queue 59295
+
+ASTAR search
+--- 0.245094299316 milliseconds --
+n = 3
+path to solution is ['UP', 'LEFT']
+Cost of path = 2
+Memory Usage: 369 KB
+nodes expanded = 2
+max stack/queue size = 5
+max depth of the stack/ queue 3
+
+IDASTAR search
+--- 0.167846679688 milliseconds --
+n = 3
+path to solution is ['UP', 'LEFT']
+Cost of path = 2
+Memory Usage: 369 KB
+nodes expanded = 2
+max stack/queue size = 1
+max depth of the stack/ queue 3
+
+
+TEST CASE 48
+   5 8 
+ 1 6 2 
+ 4 3 7 
+
+BFS search
+--- 303.770065308 milliseconds --
+n = 3
+path to solution is ['DOWN', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'UP', 'LEFT', 'LEFT']
+Cost of path = 16
+Memory Usage: 369 KB
+nodes expanded = 5017
+max stack/queue size = 2722
+max depth of the stack/ queue 17
+
+DFS search
+--- 184.818029404 milliseconds --
+n = 3
+Cost of path = 7354
+Memory Usage: 369 KB
+nodes expanded = 7683
+max stack/queue size = 5830
+max depth of the stack/ queue 7355
+
+ASTAR search
+--- 5.60998916626 milliseconds --
+n = 3
+path to solution is ['DOWN', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'UP', 'LEFT', 'LEFT']
+Cost of path = 16
+Memory Usage: 369 KB
+nodes expanded = 78
+max stack/queue size = 50
+max depth of the stack/ queue 17
+
+IDASTAR search
+--- 4.24313545227 milliseconds --
+n = 3
+path to solution is ['DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'LEFT']
+Cost of path = 16
+Memory Usage: 369 KB
+nodes expanded = 86
+max stack/queue size = 6
+max depth of the stack/ queue 17
+
+
+TEST CASE 49
+ 5 1 6 
+ 2   4 
+ 3 7 8 
+
+BFS search
+--- 1228.55901718 milliseconds --
+n = 3
+path to solution is ['LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'UP', 'LEFT']
+Cost of path = 20
+Memory Usage: 369 KB
+nodes expanded = 43965
+max stack/queue size = 18303
+max depth of the stack/ queue 21
+
+DFS search
+--- 664.594888687 milliseconds --
+n = 3
+Cost of path = 21822
+Memory Usage: 369 KB
+nodes expanded = 22853
+max stack/queue size = 16550
+max depth of the stack/ queue 21823
+
+ASTAR search
+--- 163.479804993 milliseconds --
+n = 3
+path to solution is ['LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'UP', 'LEFT']
+Cost of path = 20
+Memory Usage: 369 KB
+nodes expanded = 472
+max stack/queue size = 294
+max depth of the stack/ queue 21
+
+IDASTAR search
+--- 46.1950302124 milliseconds --
+n = 3
+path to solution is ['LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'UP', 'LEFT']
+Cost of path = 20
+Memory Usage: 369 KB
+nodes expanded = 805
+max stack/queue size = 15
+max depth of the stack/ queue 21
+
+
+TEST CASE 50
+ 2 6 5 
+ 4   7 
+ 3 8 1 
+
+BFS search
+--- 1131.41012192 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'UP']
+Cost of path = 20
+Memory Usage: 369 KB
+nodes expanded = 37205
+max stack/queue size = 15039
+max depth of the stack/ queue 21
+
+DFS search
+--- 3190.91010094 milliseconds --
+n = 3
+Cost of path = 64696
+Memory Usage: 369 KB
+nodes expanded = 110391
+max stack/queue size = 42810
+max depth of the stack/ queue 64697
+
+ASTAR search
+--- 38.1631851196 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'UP']
+Cost of path = 20
+Memory Usage: 369 KB
+nodes expanded = 427
+max stack/queue size = 262
+max depth of the stack/ queue 21
+
+IDASTAR search
+--- 64.749956131 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'UP']
+Cost of path = 20
+Memory Usage: 369 KB
+nodes expanded = 1208
+max stack/queue size = 10
+max depth of the stack/ queue 21
+
+
+TEST CASE 51
+ 3 2 4 
+ 6 5 8 
+   7 1 
+
+BFS search
+--- 458.568096161 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'UP']
+Cost of path = 16
+Memory Usage: 369 KB
+nodes expanded = 4954
+max stack/queue size = 2671
+max depth of the stack/ queue 17
+
+DFS search
+--- 671.221971512 milliseconds --
+n = 3
+Cost of path = 23860
+Memory Usage: 369 KB
+nodes expanded = 24971
+max stack/queue size = 17876
+max depth of the stack/ queue 23861
+
+ASTAR search
+--- 9.38510894775 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'UP']
+Cost of path = 16
+Memory Usage: 369 KB
+nodes expanded = 119
+max stack/queue size = 86
+max depth of the stack/ queue 17
+
+IDASTAR search
+--- 11.323928833 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'UP']
+Cost of path = 16
+Memory Usage: 369 KB
+nodes expanded = 238
+max stack/queue size = 7
+max depth of the stack/ queue 17
+
+
+TEST CASE 52
+ 3 2 5 
+ 4 8 7 
+ 6 1   
+
+BFS search
+--- 7.82489776611 milliseconds --
+n = 3
+path to solution is ['UP', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP']
+Cost of path = 10
+Memory Usage: 369 KB
+nodes expanded = 302
+max stack/queue size = 180
+max depth of the stack/ queue 11
+
+DFS search
+--- 11.0278129578 milliseconds --
+n = 3
+Cost of path = 470
+Memory Usage: 369 KB
+nodes expanded = 485
+max stack/queue size = 372
+max depth of the stack/ queue 471
+
+ASTAR search
+--- 0.954151153564 milliseconds --
+n = 3
+path to solution is ['UP', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP']
+Cost of path = 10
+Memory Usage: 369 KB
+nodes expanded = 14
+max stack/queue size = 13
+max depth of the stack/ queue 11
+
+IDASTAR search
+--- 0.611066818237 milliseconds --
+n = 3
+path to solution is ['UP', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP']
+Cost of path = 10
+Memory Usage: 369 KB
+nodes expanded = 12
+max stack/queue size = 3
+max depth of the stack/ queue 11
+
+
+TEST CASE 53
+   2 4 
+ 7 3 5 
+ 1 8 6 
+
+BFS search
+--- 1493.59607697 milliseconds --
+n = 3
+path to solution is ['DOWN', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'UP']
+Cost of path = 22
+Memory Usage: 369 KB
+nodes expanded = 55149
+max stack/queue size = 17288
+max depth of the stack/ queue 23
+
+DFS search
+--- 800.354003906 milliseconds --
+n = 3
+Cost of path = 21564
+Memory Usage: 369 KB
+nodes expanded = 22638
+max stack/queue size = 16568
+max depth of the stack/ queue 21565
+
+ASTAR search
+--- 37.0349884033 milliseconds --
+n = 3
+path to solution is ['DOWN', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'UP']
+Cost of path = 22
+Memory Usage: 369 KB
+nodes expanded = 424
+max stack/queue size = 258
+max depth of the stack/ queue 23
+
+IDASTAR search
+--- 96.4031219482 milliseconds --
+n = 3
+path to solution is ['DOWN', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'UP']
+Cost of path = 22
+Memory Usage: 369 KB
+nodes expanded = 1832
+max stack/queue size = 12
+max depth of the stack/ queue 23
+
+
+TEST CASE 54
+ 3 2   
+ 4 1 5 
+ 6 7 8 
+
+BFS search
+--- 0.359058380127 milliseconds --
+n = 3
+path to solution is ['LEFT', 'DOWN', 'LEFT', 'UP']
+Cost of path = 4
+Memory Usage: 369 KB
+nodes expanded = 15
+max stack/queue size = 15
+max depth of the stack/ queue 5
+
+DFS search
+--- 0.244855880737 milliseconds --
+n = 3
+path to solution is ['LEFT', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT']
+Cost of path = 10
+Memory Usage: 369 KB
+nodes expanded = 11
+max stack/queue size = 12
+max depth of the stack/ queue 11
+
+ASTAR search
+--- 0.289916992188 milliseconds --
+n = 3
+path to solution is ['LEFT', 'DOWN', 'LEFT', 'UP']
+Cost of path = 4
+Memory Usage: 369 KB
+nodes expanded = 4
+max stack/queue size = 6
+max depth of the stack/ queue 5
+
+IDASTAR search
+--- 0.221014022827 milliseconds --
+n = 3
+path to solution is ['LEFT', 'DOWN', 'LEFT', 'UP']
+Cost of path = 4
+Memory Usage: 369 KB
+nodes expanded = 4
+max stack/queue size = 1
+max depth of the stack/ queue 5
+
+
+TEST CASE 55
+ 1 2   
+ 3 4 5 
+ 6 7 8 
+
+BFS search
+--- 0.0841617584229 milliseconds --
+n = 3
+path to solution is ['LEFT', 'LEFT']
+Cost of path = 2
+Memory Usage: 369 KB
+nodes expanded = 3
+max stack/queue size = 5
+max depth of the stack/ queue 3
+
+DFS search
+--- 0.0591278076172 milliseconds --
+n = 3
+path to solution is ['LEFT', 'LEFT']
+Cost of path = 2
+Memory Usage: 369 KB
+nodes expanded = 3
+max stack/queue size = 4
+max depth of the stack/ queue 3
+
+ASTAR search
+--- 0.127077102661 milliseconds --
+n = 3
+path to solution is ['LEFT', 'LEFT']
+Cost of path = 2
+Memory Usage: 369 KB
+nodes expanded = 2
+max stack/queue size = 3
+max depth of the stack/ queue 3
+
+IDASTAR search
+--- 0.1060962677 milliseconds --
+n = 3
+path to solution is ['LEFT', 'LEFT']
+Cost of path = 2
+Memory Usage: 369 KB
+nodes expanded = 2
+max stack/queue size = 1
+max depth of the stack/ queue 3
+
+
+TEST CASE 56
+ 6 4 3 
+ 7 1 2 
+   8 5 
+
+BFS search
+--- 66.780090332 milliseconds --
+n = 3
+path to solution is ['UP', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'LEFT', 'UP', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'UP']
+Cost of path = 14
+Memory Usage: 369 KB
+nodes expanded = 2840
+max stack/queue size = 1861
+max depth of the stack/ queue 15
+
+DFS search
+--- 3517.17996597 milliseconds --
+n = 3
+Cost of path = 59708
+Memory Usage: 369 KB
+nodes expanded = 121873
+max stack/queue size = 42683
+max depth of the stack/ queue 59709
+
+ASTAR search
+--- 1.65390968323 milliseconds --
+n = 3
+path to solution is ['UP', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'LEFT', 'UP', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'UP']
+Cost of path = 14
+Memory Usage: 369 KB
+nodes expanded = 23
+max stack/queue size = 19
+max depth of the stack/ queue 15
+
+IDASTAR search
+--- 0.972032546997 milliseconds --
+n = 3
+path to solution is ['UP', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'LEFT', 'UP', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'UP']
+Cost of path = 14
+Memory Usage: 369 KB
+nodes expanded = 20
+max stack/queue size = 4
+max depth of the stack/ queue 15
+
+
+TEST CASE 57
+ 3 5   
+ 1 8 2 
+ 6 4 7 
+
+BFS search
+--- 1029.20985222 milliseconds --
+n = 3
+path to solution is ['DOWN', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT']
+Cost of path = 20
+Memory Usage: 369 KB
+nodes expanded = 30179
+max stack/queue size = 12968
+max depth of the stack/ queue 21
+
+DFS search
+--- 1730.22794724 milliseconds --
+n = 3
+Cost of path = 48410
+Memory Usage: 369 KB
+nodes expanded = 54237
+max stack/queue size = 33610
+max depth of the stack/ queue 48411
+
+ASTAR search
+--- 85.743188858 milliseconds --
+n = 3
+path to solution is ['DOWN', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'UP']
+Cost of path = 20
+Memory Usage: 369 KB
+nodes expanded = 937
+max stack/queue size = 579
+max depth of the stack/ queue 21
+
+IDASTAR search
+--- 151.850938797 milliseconds --
+n = 3
+path to solution is ['DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'UP', 'LEFT']
+Cost of path = 20
+Memory Usage: 369 KB
+nodes expanded = 2804
+max stack/queue size = 12
+max depth of the stack/ queue 21
+
+
+TEST CASE 58
+ 6 3 7 
+ 1 8 4 
+ 5   2 
+
+BFS search
+--- 2739.02702332 milliseconds --
+n = 3
+path to solution is ['UP', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'UP', 'LEFT']
+Cost of path = 23
+Memory Usage: 369 KB
+nodes expanded = 94377
+max stack/queue size = 24248
+max depth of the stack/ queue 24
+
+DFS search
+--- 3546.00596428 milliseconds --
+n = 3
+Cost of path = 61191
+Memory Usage: 437 KB
+nodes expanded = 119369
+max stack/queue size = 42684
+max depth of the stack/ queue 61192
+
+ASTAR search
+--- 67.7659511566 milliseconds --
+n = 3
+path to solution is ['UP', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'UP', 'LEFT']
+Cost of path = 23
+Memory Usage: 437 KB
+nodes expanded = 719
+max stack/queue size = 452
+max depth of the stack/ queue 24
+
+IDASTAR search
+--- 88.3531570435 milliseconds --
+n = 3
+path to solution is ['UP', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'UP', 'LEFT']
+Cost of path = 23
+Memory Usage: 437 KB
+nodes expanded = 1608
+max stack/queue size = 12
+max depth of the stack/ queue 24
+
+
+TEST CASE 59
+ 1   5 
+ 3 2 4 
+ 6 7 8 
+
+BFS search
+--- 0.535011291504 milliseconds --
+n = 3
+path to solution is ['DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT']
+Cost of path = 5
+Memory Usage: 437 KB
+nodes expanded = 24
+max stack/queue size = 18
+max depth of the stack/ queue 6
+
+DFS search
+--- 2598.63805771 milliseconds --
+n = 3
+Cost of path = 61575
+Memory Usage: 485 KB
+nodes expanded = 76418
+max stack/queue size = 40562
+max depth of the stack/ queue 61576
+
+ASTAR search
+--- 0.475168228149 milliseconds --
+n = 3
+path to solution is ['DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT']
+Cost of path = 5
+Memory Usage: 485 KB
+nodes expanded = 6
+max stack/queue size = 7
+max depth of the stack/ queue 6
+
+IDASTAR search
+--- 0.296115875244 milliseconds --
+n = 3
+path to solution is ['DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT']
+Cost of path = 5
+Memory Usage: 485 KB
+nodes expanded = 6
+max stack/queue size = 2
+max depth of the stack/ queue 6
+
+
+TEST CASE 60
+ 8 5 7 
+ 2 4 6 
+   3 1 
+
+BFS search
+--- 3873.98695946 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'LEFT']
+Cost of path = 26
+Memory Usage: 485 KB
+nodes expanded = 142452
+max stack/queue size = 24050
+max depth of the stack/ queue 27
+
+DFS search
+--- 3281.30602837 milliseconds --
+n = 3
+Cost of path = 65822
+Memory Usage: 485 KB
+nodes expanded = 107720
+max stack/queue size = 42683
+max depth of the stack/ queue 65823
+
+ASTAR search
+--- 84.0349197388 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'LEFT']
+Cost of path = 26
+Memory Usage: 485 KB
+nodes expanded = 836
+max stack/queue size = 524
+max depth of the stack/ queue 27
+
+IDASTAR search
+--- 131.749153137 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'UP', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP']
+Cost of path = 26
+Memory Usage: 485 KB
+nodes expanded = 2333
+max stack/queue size = 11
+max depth of the stack/ queue 27
+
+
+TEST CASE 61
+ 3 1 2 
+   4 5 
+ 6 7 8 
+
+BFS search
+--- 0.0410079956055 milliseconds --
+n = 3
+path to solution is ['UP']
+Cost of path = 1
+Memory Usage: 485 KB
+nodes expanded = 1
+max stack/queue size = 3
+max depth of the stack/ queue 2
+
+DFS search
+--- 0.0360012054443 milliseconds --
+n = 3
+path to solution is ['UP']
+Cost of path = 1
+Memory Usage: 485 KB
+nodes expanded = 2
+max stack/queue size = 3
+max depth of the stack/ queue 2
+
+ASTAR search
+--- 0.0948905944824 milliseconds --
+n = 3
+path to solution is ['UP']
+Cost of path = 1
+Memory Usage: 485 KB
+nodes expanded = 1
+max stack/queue size = 3
+max depth of the stack/ queue 2
+
+IDASTAR search
+--- 0.0779628753662 milliseconds --
+n = 3
+path to solution is ['UP']
+Cost of path = 1
+Memory Usage: 485 KB
+nodes expanded = 1
+max stack/queue size = 1
+max depth of the stack/ queue 2
+
+
+TEST CASE 62
+ 3 7 1 
+ 6 2 8 
+ 4 5   
+
+BFS search
+--- 315.54889679 milliseconds --
+n = 3
+path to solution is ['UP', 'LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'DOWN', 'LEFT', 'UP', 'UP']
+Cost of path = 18
+Memory Usage: 496 KB
+nodes expanded = 14055
+max stack/queue size = 7335
+max depth of the stack/ queue 19
+
+DFS search
+--- 2745.27788162 milliseconds --
+n = 3
+Cost of path = 60884
+Memory Usage: 516 KB
+nodes expanded = 74981
+max stack/queue size = 39935
+max depth of the stack/ queue 60885
+
+ASTAR search
+--- 29.2129516602 milliseconds --
+n = 3
+path to solution is ['UP', 'LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'DOWN', 'LEFT', 'UP', 'UP']
+Cost of path = 18
+Memory Usage: 516 KB
+nodes expanded = 334
+max stack/queue size = 211
+max depth of the stack/ queue 19
+
+IDASTAR search
+--- 33.9939594269 milliseconds --
+n = 3
+path to solution is ['UP', 'LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'DOWN', 'LEFT', 'UP', 'UP']
+Cost of path = 18
+Memory Usage: 516 KB
+nodes expanded = 681
+max stack/queue size = 9
+max depth of the stack/ queue 19
+
+
+TEST CASE 63
+ 4 5 7 
+ 2 1 8 
+ 6 3   
+
+BFS search
+--- 1717.21816063 milliseconds --
+n = 3
+path to solution is ['UP', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'UP']
+Cost of path = 22
+Memory Usage: 516 KB
+nodes expanded = 57266
+max stack/queue size = 18298
+max depth of the stack/ queue 23
+
+DFS search
+--- 2678.02405357 milliseconds --
+n = 3
+Cost of path = 65856
+Memory Usage: 516 KB
+nodes expanded = 88677
+max stack/queue size = 42181
+max depth of the stack/ queue 65857
+
+ASTAR search
+--- 76.1091709137 milliseconds --
+n = 3
+path to solution is ['UP', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP']
+Cost of path = 22
+Memory Usage: 516 KB
+nodes expanded = 799
+max stack/queue size = 482
+max depth of the stack/ queue 23
+
+IDASTAR search
+--- 157.356977463 milliseconds --
+n = 3
+path to solution is ['UP', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP']
+Cost of path = 22
+Memory Usage: 516 KB
+nodes expanded = 2765
+max stack/queue size = 13
+max depth of the stack/ queue 23
+
+
+TEST CASE 64
+ 1 4 2 
+ 3 8 7 
+   6 5 
+
+BFS search
+--- 2.53486633301 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'UP', 'LEFT']
+Cost of path = 8
+Memory Usage: 516 KB
+nodes expanded = 102
+max stack/queue size = 72
+max depth of the stack/ queue 9
+
+DFS search
+--- 1917.50907898 milliseconds --
+n = 3
+Cost of path = 48186
+Memory Usage: 516 KB
+nodes expanded = 53900
+max stack/queue size = 33281
+max depth of the stack/ queue 48187
+
+ASTAR search
+--- 0.872850418091 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'UP', 'LEFT']
+Cost of path = 8
+Memory Usage: 516 KB
+nodes expanded = 10
+max stack/queue size = 11
+max depth of the stack/ queue 9
+
+IDASTAR search
+--- 0.54407119751 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'UP', 'LEFT']
+Cost of path = 8
+Memory Usage: 516 KB
+nodes expanded = 10
+max stack/queue size = 2
+max depth of the stack/ queue 9
+
+
+TEST CASE 65
+ 1 4 2 
+   7 5 
+ 3 6 8 
+
+BFS search
+--- 0.511169433594 milliseconds --
+n = 3
+path to solution is ['DOWN', 'RIGHT', 'UP', 'UP', 'LEFT']
+Cost of path = 5
+Memory Usage: 516 KB
+nodes expanded = 23
+max stack/queue size = 17
+max depth of the stack/ queue 6
+
+DFS search
+--- 2970.28112411 milliseconds --
+n = 3
+Cost of path = 67103
+Memory Usage: 516 KB
+nodes expanded = 100081
+max stack/queue size = 42814
+max depth of the stack/ queue 67104
+
+ASTAR search
+--- 0.400066375732 milliseconds --
+n = 3
+path to solution is ['DOWN', 'RIGHT', 'UP', 'UP', 'LEFT']
+Cost of path = 5
+Memory Usage: 516 KB
+nodes expanded = 5
+max stack/queue size = 7
+max depth of the stack/ queue 6
+
+IDASTAR search
+--- 0.271081924438 milliseconds --
+n = 3
+path to solution is ['DOWN', 'RIGHT', 'UP', 'UP', 'LEFT']
+Cost of path = 5
+Memory Usage: 516 KB
+nodes expanded = 5
+max stack/queue size = 1
+max depth of the stack/ queue 6
+
+
+TEST CASE 66
+   4 2 
+ 1 6 5 
+ 7 3 8 
+
+BFS search
+--- 2.45785713196 milliseconds --
+n = 3
+path to solution is ['DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'UP', 'LEFT']
+Cost of path = 8
+Memory Usage: 516 KB
+nodes expanded = 107
+max stack/queue size = 77
+max depth of the stack/ queue 9
+
+DFS search
+--- 3052.81686783 milliseconds --
+n = 3
+Cost of path = 66488
+Memory Usage: 516 KB
+nodes expanded = 102181
+max stack/queue size = 42923
+max depth of the stack/ queue 66489
+
+ASTAR search
+--- 0.730037689209 milliseconds --
+n = 3
+path to solution is ['DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'UP', 'LEFT']
+Cost of path = 8
+Memory Usage: 516 KB
+nodes expanded = 10
+max stack/queue size = 11
+max depth of the stack/ queue 9
+
+IDASTAR search
+--- 0.519037246704 milliseconds --
+n = 3
+path to solution is ['DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'UP', 'LEFT']
+Cost of path = 8
+Memory Usage: 516 KB
+nodes expanded = 10
+max stack/queue size = 2
+max depth of the stack/ queue 9
+
+
+TEST CASE 67
+ 7 4   
+ 8 1 2 
+ 3 5 6 
+
+BFS search
+--- 621.197938919 milliseconds --
+n = 3
+path to solution is ['LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT']
+Cost of path = 18
+Memory Usage: 516 KB
+nodes expanded = 16452
+max stack/queue size = 8977
+max depth of the stack/ queue 19
+
+DFS search
+--- 1674.65996742 milliseconds --
+n = 3
+Cost of path = 46638
+Memory Usage: 516 KB
+nodes expanded = 51842
+max stack/queue size = 32602
+max depth of the stack/ queue 46639
+
+ASTAR search
+--- 7.48705863953 milliseconds --
+n = 3
+path to solution is ['LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT']
+Cost of path = 18
+Memory Usage: 516 KB
+nodes expanded = 94
+max stack/queue size = 67
+max depth of the stack/ queue 19
+
+IDASTAR search
+--- 3.19290161133 milliseconds --
+n = 3
+path to solution is ['LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT']
+Cost of path = 18
+Memory Usage: 516 KB
+nodes expanded = 69
+max stack/queue size = 7
+max depth of the stack/ queue 19
+
+
+TEST CASE 68
+ 1 4 2 
+ 3 5   
+ 6 7 8 
+
+BFS search
+--- 0.218868255615 milliseconds --
+n = 3
+path to solution is ['LEFT', 'UP', 'LEFT']
+Cost of path = 3
+Memory Usage: 516 KB
+nodes expanded = 9
+max stack/queue size = 9
+max depth of the stack/ queue 4
+
+DFS search
+--- 2373.11601639 milliseconds --
+n = 3
+Cost of path = 59295
+Memory Usage: 516 KB
+nodes expanded = 71606
+max stack/queue size = 39394
+max depth of the stack/ queue 59296
+
+ASTAR search
+--- 0.281095504761 milliseconds --
+n = 3
+path to solution is ['LEFT', 'UP', 'LEFT']
+Cost of path = 3
+Memory Usage: 516 KB
+nodes expanded = 3
+max stack/queue size = 6
+max depth of the stack/ queue 4
+
+IDASTAR search
+--- 0.188112258911 milliseconds --
+n = 3
+path to solution is ['LEFT', 'UP', 'LEFT']
+Cost of path = 3
+Memory Usage: 516 KB
+nodes expanded = 3
+max stack/queue size = 1
+max depth of the stack/ queue 4
+
+
+TEST CASE 69
+ 7 1 8 
+   2 3 
+ 5 4 6 
+
+BFS search
+--- 2414.68501091 milliseconds --
+n = 3
+path to solution is ['DOWN', 'RIGHT', 'UP', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'UP']
+Cost of path = 23
+Memory Usage: 516 KB
+nodes expanded = 82949
+max stack/queue size = 21827
+max depth of the stack/ queue 24
+
+DFS search
+--- 606.384992599 milliseconds --
+n = 3
+Cost of path = 16905
+Memory Usage: 516 KB
+nodes expanded = 17643
+max stack/queue size = 12859
+max depth of the stack/ queue 16906
+
+ASTAR search
+--- 82.3719501495 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'UP']
+Cost of path = 23
+Memory Usage: 516 KB
+nodes expanded = 882
+max stack/queue size = 541
+max depth of the stack/ queue 24
+
+IDASTAR search
+--- 81.0458660126 milliseconds --
+n = 3
+path to solution is ['UP', 'RIGHT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'UP']
+Cost of path = 23
+Memory Usage: 516 KB
+nodes expanded = 1448
+max stack/queue size = 12
+max depth of the stack/ queue 24
+
+
+TEST CASE 70
+ 2 5   
+ 6 7 8 
+ 1 4 3 
+
+BFS search
+--- 1086.42888069 milliseconds --
+n = 3
+path to solution is ['LEFT', 'DOWN', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'UP', 'LEFT', 'LEFT']
+Cost of path = 20
+Memory Usage: 516 KB
+nodes expanded = 33483
+max stack/queue size = 14842
+max depth of the stack/ queue 21
+
+DFS search
+--- 1430.70316315 milliseconds --
+n = 3
+Cost of path = 37750
+Memory Usage: 516 KB
+nodes expanded = 40600
+max stack/queue size = 27246
+max depth of the stack/ queue 37751
+
+ASTAR search
+--- 22.8638648987 milliseconds --
+n = 3
+path to solution is ['LEFT', 'DOWN', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'UP', 'LEFT', 'LEFT']
+Cost of path = 20
+Memory Usage: 516 KB
+nodes expanded = 252
+max stack/queue size = 177
+max depth of the stack/ queue 21
+
+IDASTAR search
+--- 21.2299823761 milliseconds --
+n = 3
+path to solution is ['LEFT', 'DOWN', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'UP', 'LEFT', 'LEFT']
+Cost of path = 20
+Memory Usage: 516 KB
+nodes expanded = 415
+max stack/queue size = 8
+max depth of the stack/ queue 21
+
+
+TEST CASE 71
+ 1 3 7 
+ 8 5 4 
+ 2 6   
+
+BFS search
+--- 3873.73399734 milliseconds --
+n = 3
+path to solution is ['UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'UP', 'LEFT']
+Cost of path = 26
+Memory Usage: 516 KB
+nodes expanded = 146581
+max stack/queue size = 24049
+max depth of the stack/ queue 27
+
+DFS search
+--- 52.6788234711 milliseconds --
+n = 3
+Cost of path = 1944
+Memory Usage: 516 KB
+nodes expanded = 2029
+max stack/queue size = 1557
+max depth of the stack/ queue 1945
+
+ASTAR search
+--- 606.49394989 milliseconds --
+n = 3
+path to solution is ['UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'UP', 'LEFT']
+Cost of path = 26
+Memory Usage: 516 KB
+nodes expanded = 3263
+max stack/queue size = 1873
+max depth of the stack/ queue 27
+
+IDASTAR search
+--- 551.665067673 milliseconds --
+n = 3
+path to solution is ['UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT']
+Cost of path = 26
+Memory Usage: 516 KB
+nodes expanded = 8869
+max stack/queue size = 15
+max depth of the stack/ queue 27
+
+
+TEST CASE 72
+ 1 2 8 
+ 3 5   
+ 6 7 4 
+
+BFS search
+--- 29.8299789429 milliseconds --
+n = 3
+path to solution is ['DOWN', 'LEFT', 'UP', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'UP', 'LEFT']
+Cost of path = 13
+Memory Usage: 516 KB
+nodes expanded = 1308
+max stack/queue size = 737
+max depth of the stack/ queue 14
+
+DFS search
+--- 3283.20503235 milliseconds --
+n = 3
+Cost of path = 66183
+Memory Usage: 516 KB
+nodes expanded = 104679
+max stack/queue size = 42811
+max depth of the stack/ queue 66184
+
+ASTAR search
+--- 4.87089157104 milliseconds --
+n = 3
+path to solution is ['UP', 'LEFT', 'LEFT', 'DOWN', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'UP']
+Cost of path = 13
+Memory Usage: 516 KB
+nodes expanded = 66
+max stack/queue size = 51
+max depth of the stack/ queue 14
+
+IDASTAR search
+--- 7.59315490723 milliseconds --
+n = 3
+path to solution is ['UP', 'LEFT', 'LEFT', 'DOWN', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'UP']
+Cost of path = 13
+Memory Usage: 516 KB
+nodes expanded = 165
+max stack/queue size = 6
+max depth of the stack/ queue 14
+
+
+TEST CASE 73
+   1 2 
+ 3 4 5 
+ 6 7 8 
+
+BFS search
+--- 0.00882148742676 milliseconds --
+n = 3
+path to solution is []
+Cost of path = 0
+Memory Usage: 516 KB
+nodes expanded = 0
+max stack/queue size = 1
+max depth of the stack/ queue 1
+
+DFS search
+--- 0.00596046447754 milliseconds --
+n = 3
+path to solution is []
+Cost of path = 0
+Memory Usage: 516 KB
+nodes expanded = 1
+max stack/queue size = 1
+max depth of the stack/ queue 1
+
+ASTAR search
+--- 0.00500679016113 milliseconds --
+n = 3
+path to solution is []
+Cost of path = 0
+Memory Usage: 516 KB
+nodes expanded = 0
+max stack/queue size = 1
+max depth of the stack/ queue 1
+
+IDASTAR search
+--- 0.0209808349609 milliseconds --
+n = 3
+path to solution is []
+Cost of path = 0
+Memory Usage: 516 KB
+nodes expanded = 0
+max stack/queue size = 1
+max depth of the stack/ queue 1
+
+
+TEST CASE 74
+ 3 1 5 
+ 2 7 4 
+   6 8 
+
+BFS search
+--- 7.48682022095 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'UP', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT']
+Cost of path = 10
+Memory Usage: 516 KB
+nodes expanded = 342
+max stack/queue size = 216
+max depth of the stack/ queue 11
+
+DFS search
+--- 891.290903091 milliseconds --
+n = 3
+Cost of path = 23422
+Memory Usage: 516 KB
+nodes expanded = 24502
+max stack/queue size = 17585
+max depth of the stack/ queue 23423
+
+ASTAR search
+--- 1.2378692627 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'UP', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT']
+Cost of path = 10
+Memory Usage: 516 KB
+nodes expanded = 19
+max stack/queue size = 15
+max depth of the stack/ queue 11
+
+IDASTAR search
+--- 1.20711326599 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'UP', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT']
+Cost of path = 10
+Memory Usage: 516 KB
+nodes expanded = 26
+max stack/queue size = 5
+max depth of the stack/ queue 11
+
+
+TEST CASE 75
+ 1 4 2 
+ 7 3   
+ 5 8 6 
+
+BFS search
+--- 520.241975784 milliseconds --
+n = 3
+path to solution is ['DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'UP', 'LEFT']
+Cost of path = 19
+Memory Usage: 516 KB
+nodes expanded = 19983
+max stack/queue size = 8604
+max depth of the stack/ queue 20
+
+DFS search
+--- 2348.45399857 milliseconds --
+n = 3
+Cost of path = 59687
+Memory Usage: 516 KB
+nodes expanded = 72315
+max stack/queue size = 39572
+max depth of the stack/ queue 59688
+
+ASTAR search
+--- 18.7199115753 milliseconds --
+n = 3
+path to solution is ['DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'UP', 'LEFT']
+Cost of path = 19
+Memory Usage: 516 KB
+nodes expanded = 226
+max stack/queue size = 151
+max depth of the stack/ queue 20
+
+IDASTAR search
+--- 31.996011734 milliseconds --
+n = 3
+path to solution is ['LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'UP', 'LEFT']
+Cost of path = 19
+Memory Usage: 516 KB
+nodes expanded = 622
+max stack/queue size = 10
+max depth of the stack/ queue 20
+
+
+TEST CASE 76
+ 2 3 1 
+ 6 5 8 
+   7 4 
+
+BFS search
+--- 394.749164581 milliseconds --
+n = 3
+path to solution is ['UP', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'DOWN', 'LEFT', 'UP', 'UP']
+Cost of path = 18
+Memory Usage: 516 KB
+nodes expanded = 16993
+max stack/queue size = 9305
+max depth of the stack/ queue 19
+
+DFS search
+--- 2692.70896912 milliseconds --
+n = 3
+Cost of path = 62852
+Memory Usage: 516 KB
+nodes expanded = 79344
+max stack/queue size = 40885
+max depth of the stack/ queue 62853
+
+ASTAR search
+--- 30.4930210114 milliseconds --
+n = 3
+path to solution is ['UP', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'DOWN', 'LEFT', 'UP', 'UP']
+Cost of path = 18
+Memory Usage: 516 KB
+nodes expanded = 354
+max stack/queue size = 216
+max depth of the stack/ queue 19
+
+IDASTAR search
+--- 28.7380218506 milliseconds --
+n = 3
+path to solution is ['UP', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'DOWN', 'LEFT', 'UP', 'UP']
+Cost of path = 18
+Memory Usage: 516 KB
+nodes expanded = 540
+max stack/queue size = 10
+max depth of the stack/ queue 19
+
+
+TEST CASE 77
+ 1 4   
+ 3 7 2 
+ 6 8 5 
+
+BFS search
+--- 0.922918319702 milliseconds --
+n = 3
+path to solution is ['DOWN', 'DOWN', 'LEFT', 'UP', 'UP', 'LEFT']
+Cost of path = 6
+Memory Usage: 516 KB
+nodes expanded = 34
+max stack/queue size = 22
+max depth of the stack/ queue 7
+
+DFS search
+--- 1110.98194122 milliseconds --
+n = 3
+Cost of path = 30996
+Memory Usage: 516 KB
+nodes expanded = 32875
+max stack/queue size = 22923
+max depth of the stack/ queue 30997
+
+ASTAR search
+--- 0.427961349487 milliseconds --
+n = 3
+path to solution is ['DOWN', 'DOWN', 'LEFT', 'UP', 'UP', 'LEFT']
+Cost of path = 6
+Memory Usage: 516 KB
+nodes expanded = 6
+max stack/queue size = 7
+max depth of the stack/ queue 7
+
+IDASTAR search
+--- 0.311136245728 milliseconds --
+n = 3
+path to solution is ['DOWN', 'DOWN', 'LEFT', 'UP', 'UP', 'LEFT']
+Cost of path = 6
+Memory Usage: 516 KB
+nodes expanded = 6
+max stack/queue size = 1
+max depth of the stack/ queue 7
+
+
+TEST CASE 78
+ 6 3 2 
+ 1 7 5 
+ 8   4 
+
+BFS search
+--- 314.960002899 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'UP', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'UP']
+Cost of path = 17
+Memory Usage: 516 KB
+nodes expanded = 9531
+max stack/queue size = 5016
+max depth of the stack/ queue 18
+
+DFS search
+--- 3849.4451046 milliseconds --
+n = 3
+Cost of path = 42387
+Memory Usage: 516 KB
+nodes expanded = 144961
+max stack/queue size = 42684
+max depth of the stack/ queue 42388
+
+ASTAR search
+--- 8.94594192505 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'UP', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'UP']
+Cost of path = 17
+Memory Usage: 516 KB
+nodes expanded = 113
+max stack/queue size = 80
+max depth of the stack/ queue 18
+
+IDASTAR search
+--- 26.0889530182 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'UP', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'UP']
+Cost of path = 17
+Memory Usage: 516 KB
+nodes expanded = 448
+max stack/queue size = 11
+max depth of the stack/ queue 18
+
+
+TEST CASE 79
+ 8 1 7 
+ 2 4 5 
+   3 6 
+
+BFS search
+--- 1886.43503189 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'UP', 'LEFT']
+Cost of path = 22
+Memory Usage: 516 KB
+nodes expanded = 58608
+max stack/queue size = 18932
+max depth of the stack/ queue 23
+
+DFS search
+--- 3300.52900314 milliseconds --
+n = 3
+Cost of path = 62140
+Memory Usage: 516 KB
+nodes expanded = 117460
+max stack/queue size = 42683
+max depth of the stack/ queue 62141
+
+ASTAR search
+--- 30.2929878235 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'UP', 'LEFT']
+Cost of path = 22
+Memory Usage: 516 KB
+nodes expanded = 344
+max stack/queue size = 234
+max depth of the stack/ queue 23
+
+IDASTAR search
+--- 35.9010696411 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'UP', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'UP', 'LEFT']
+Cost of path = 22
+Memory Usage: 516 KB
+nodes expanded = 712
+max stack/queue size = 10
+max depth of the stack/ queue 23
+
+
+TEST CASE 80
+ 4 2 7 
+ 1 8 3 
+ 6   5 
+
+BFS search
+--- 37.5690460205 milliseconds --
+n = 3
+path to solution is ['UP', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'UP', 'LEFT']
+Cost of path = 13
+Memory Usage: 516 KB
+nodes expanded = 1598
+max stack/queue size = 993
+max depth of the stack/ queue 14
+
+DFS search
+--- 1173.4380722 milliseconds --
+n = 3
+Cost of path = 27241
+Memory Usage: 516 KB
+nodes expanded = 28628
+max stack/queue size = 20201
+max depth of the stack/ queue 27242
+
+ASTAR search
+--- 1.39808654785 milliseconds --
+n = 3
+path to solution is ['UP', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'UP', 'LEFT']
+Cost of path = 13
+Memory Usage: 516 KB
+nodes expanded = 19
+max stack/queue size = 18
+max depth of the stack/ queue 14
+
+IDASTAR search
+--- 0.915765762329 milliseconds --
+n = 3
+path to solution is ['UP', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'UP', 'LEFT']
+Cost of path = 13
+Memory Usage: 516 KB
+nodes expanded = 17
+max stack/queue size = 3
+max depth of the stack/ queue 14
+
+
+TEST CASE 81
+ 3   7 
+ 8 1 2 
+ 5 6 4 
+
+BFS search
+--- 1409.51418877 milliseconds --
+n = 3
+path to solution is ['DOWN', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'UP', 'LEFT', 'LEFT']
+Cost of path = 21
+Memory Usage: 516 KB
+nodes expanded = 49601
+max stack/queue size = 18194
+max depth of the stack/ queue 22
+
+DFS search
+--- 352.386951447 milliseconds --
+n = 3
+Cost of path = 9661
+Memory Usage: 516 KB
+nodes expanded = 10062
+max stack/queue size = 7628
+max depth of the stack/ queue 9662
+
+ASTAR search
+--- 32.8378677368 milliseconds --
+n = 3
+path to solution is ['DOWN', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'UP', 'LEFT', 'LEFT']
+Cost of path = 21
+Memory Usage: 516 KB
+nodes expanded = 386
+max stack/queue size = 239
+max depth of the stack/ queue 22
+
+IDASTAR search
+--- 67.0700073242 milliseconds --
+n = 3
+path to solution is ['DOWN', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'UP', 'LEFT', 'LEFT']
+Cost of path = 21
+Memory Usage: 516 KB
+nodes expanded = 1217
+max stack/queue size = 12
+max depth of the stack/ queue 22
+
+
+TEST CASE 82
+ 3 5   
+ 6 2 1 
+ 8 7 4 
+
+BFS search
+--- 798.924207687 milliseconds --
+n = 3
+path to solution is ['DOWN', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP']
+Cost of path = 20
+Memory Usage: 516 KB
+nodes expanded = 26952
+max stack/queue size = 10891
+max depth of the stack/ queue 21
+
+DFS search
+--- 3095.23701668 milliseconds --
+n = 3
+Cost of path = 66106
+Memory Usage: 516 KB
+nodes expanded = 105111
+max stack/queue size = 42871
+max depth of the stack/ queue 66107
+
+ASTAR search
+--- 37.2550487518 milliseconds --
+n = 3
+path to solution is ['DOWN', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP']
+Cost of path = 20
+Memory Usage: 516 KB
+nodes expanded = 416
+max stack/queue size = 271
+max depth of the stack/ queue 21
+
+IDASTAR search
+--- 83.0209255219 milliseconds --
+n = 3
+path to solution is ['LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'UP', 'LEFT', 'LEFT']
+Cost of path = 20
+Memory Usage: 516 KB
+nodes expanded = 1513
+max stack/queue size = 10
+max depth of the stack/ queue 21
+
+
+TEST CASE 83
+ 3   2 
+ 7 1 5 
+ 6 8 4 
+
+BFS search
+--- 38.4500026703 milliseconds --
+n = 3
+path to solution is ['DOWN', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'UP', 'LEFT', 'LEFT']
+Cost of path = 13
+Memory Usage: 516 KB
+nodes expanded = 1651
+max stack/queue size = 1037
+max depth of the stack/ queue 14
+
+DFS search
+--- 1633.466959 milliseconds --
+n = 3
+Cost of path = 43459
+Memory Usage: 516 KB
+nodes expanded = 47740
+max stack/queue size = 30745
+max depth of the stack/ queue 43460
+
+ASTAR search
+--- 6.59799575806 milliseconds --
+n = 3
+path to solution is ['DOWN', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'UP', 'LEFT', 'LEFT']
+Cost of path = 13
+Memory Usage: 516 KB
+nodes expanded = 91
+max stack/queue size = 65
+max depth of the stack/ queue 14
+
+IDASTAR search
+--- 6.97422027588 milliseconds --
+n = 3
+path to solution is ['DOWN', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'UP', 'LEFT', 'LEFT']
+Cost of path = 13
+Memory Usage: 516 KB
+nodes expanded = 149
+max stack/queue size = 5
+max depth of the stack/ queue 14
+
+
+TEST CASE 84
+ 3   5 
+ 2 7 4 
+ 6 8 1 
+
+BFS search
+--- 376.367092133 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT']
+Cost of path = 17
+Memory Usage: 516 KB
+nodes expanded = 10735
+max stack/queue size = 5933
+max depth of the stack/ queue 18
+
+DFS search
+--- 800.312995911 milliseconds --
+n = 3
+Cost of path = 25585
+Memory Usage: 516 KB
+nodes expanded = 26912
+max stack/queue size = 19254
+max depth of the stack/ queue 25586
+
+ASTAR search
+--- 14.6930217743 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT']
+Cost of path = 17
+Memory Usage: 516 KB
+nodes expanded = 168
+max stack/queue size = 111
+max depth of the stack/ queue 18
+
+IDASTAR search
+--- 15.9130096436 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT']
+Cost of path = 17
+Memory Usage: 516 KB
+nodes expanded = 245
+max stack/queue size = 8
+max depth of the stack/ queue 18
+
+
+TEST CASE 85
+ 1 4 2 
+ 3 7 5 
+   6 8 
+
+BFS search
+--- 0.304937362671 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'UP', 'UP', 'LEFT']
+Cost of path = 4
+Memory Usage: 516 KB
+nodes expanded = 11
+max stack/queue size = 11
+max depth of the stack/ queue 5
+
+DFS search
+--- 2488.14201355 milliseconds --
+n = 3
+Cost of path = 62990
+Memory Usage: 516 KB
+nodes expanded = 79608
+max stack/queue size = 40951
+max depth of the stack/ queue 62991
+
+ASTAR search
+--- 0.319004058838 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'UP', 'UP', 'LEFT']
+Cost of path = 4
+Memory Usage: 516 KB
+nodes expanded = 4
+max stack/queue size = 6
+max depth of the stack/ queue 5
+
+IDASTAR search
+--- 0.26798248291 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'UP', 'UP', 'LEFT']
+Cost of path = 4
+Memory Usage: 516 KB
+nodes expanded = 4
+max stack/queue size = 1
+max depth of the stack/ queue 5
+
+
+TEST CASE 86
+   1 2 
+ 3 4 5 
+ 6 7 8 
+
+BFS search
+--- 0.00905990600586 milliseconds --
+n = 3
+path to solution is []
+Cost of path = 0
+Memory Usage: 516 KB
+nodes expanded = 0
+max stack/queue size = 1
+max depth of the stack/ queue 1
+
+DFS search
+--- 0.00691413879395 milliseconds --
+n = 3
+path to solution is []
+Cost of path = 0
+Memory Usage: 516 KB
+nodes expanded = 1
+max stack/queue size = 1
+max depth of the stack/ queue 1
+
+ASTAR search
+--- 0.00691413879395 milliseconds --
+n = 3
+path to solution is []
+Cost of path = 0
+Memory Usage: 516 KB
+nodes expanded = 0
+max stack/queue size = 1
+max depth of the stack/ queue 1
+
+IDASTAR search
+--- 0.0259876251221 milliseconds --
+n = 3
+path to solution is []
+Cost of path = 0
+Memory Usage: 516 KB
+nodes expanded = 0
+max stack/queue size = 1
+max depth of the stack/ queue 1
+
+
+TEST CASE 87
+ 1 2 5 
+ 3 7 4 
+ 6 8   
+
+BFS search
+--- 1.12795829773 milliseconds --
+n = 3
+path to solution is ['LEFT', 'UP', 'RIGHT', 'UP', 'LEFT', 'LEFT']
+Cost of path = 6
+Memory Usage: 516 KB
+nodes expanded = 44
+max stack/queue size = 31
+max depth of the stack/ queue 7
+
+DFS search
+--- 2063.89498711 milliseconds --
+n = 3
+Cost of path = 53128
+Memory Usage: 516 KB
+nodes expanded = 60953
+max stack/queue size = 36025
+max depth of the stack/ queue 53129
+
+ASTAR search
+--- 0.428915023804 milliseconds --
+n = 3
+path to solution is ['LEFT', 'UP', 'RIGHT', 'UP', 'LEFT', 'LEFT']
+Cost of path = 6
+Memory Usage: 516 KB
+nodes expanded = 6
+max stack/queue size = 7
+max depth of the stack/ queue 7
+
+IDASTAR search
+--- 0.303983688354 milliseconds --
+n = 3
+path to solution is ['LEFT', 'UP', 'RIGHT', 'UP', 'LEFT', 'LEFT']
+Cost of path = 6
+Memory Usage: 516 KB
+nodes expanded = 6
+max stack/queue size = 1
+max depth of the stack/ queue 7
+
+
+TEST CASE 88
+ 3 2 7 
+ 4 5   
+ 6 1 8 
+
+BFS search
+--- 38.5828018188 milliseconds --
+n = 3
+path to solution is ['LEFT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'UP']
+Cost of path = 13
+Memory Usage: 516 KB
+nodes expanded = 1690
+max stack/queue size = 1067
+max depth of the stack/ queue 14
+
+DFS search
+--- 1293.18284988 milliseconds --
+n = 3
+Cost of path = 37053
+Memory Usage: 516 KB
+nodes expanded = 39826
+max stack/queue size = 26837
+max depth of the stack/ queue 37054
+
+ASTAR search
+--- 3.78799438477 milliseconds --
+n = 3
+path to solution is ['LEFT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'UP']
+Cost of path = 13
+Memory Usage: 516 KB
+nodes expanded = 54
+max stack/queue size = 40
+max depth of the stack/ queue 14
+
+IDASTAR search
+--- 4.19902801514 milliseconds --
+n = 3
+path to solution is ['LEFT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'UP']
+Cost of path = 13
+Memory Usage: 516 KB
+nodes expanded = 92
+max stack/queue size = 7
+max depth of the stack/ queue 14
+
+
+TEST CASE 89
+ 3 2 4 
+ 6   1 
+ 8 5 7 
+
+BFS search
+--- 293.277978897 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'UP']
+Cost of path = 16
+Memory Usage: 516 KB
+nodes expanded = 7440
+max stack/queue size = 4199
+max depth of the stack/ queue 17
+
+DFS search
+--- 1632.24101067 milliseconds --
+n = 3
+Cost of path = 49392
+Memory Usage: 516 KB
+nodes expanded = 55447
+max stack/queue size = 34168
+max depth of the stack/ queue 49393
+
+ASTAR search
+--- 13.9989852905 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'UP']
+Cost of path = 16
+Memory Usage: 516 KB
+nodes expanded = 168
+max stack/queue size = 114
+max depth of the stack/ queue 17
+
+IDASTAR search
+--- 11.9788646698 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'UP']
+Cost of path = 16
+Memory Usage: 516 KB
+nodes expanded = 244
+max stack/queue size = 7
+max depth of the stack/ queue 17
+
+
+TEST CASE 90
+ 1 4   
+ 3 5 2 
+ 6 7 8 
+
+BFS search
+--- 0.312089920044 milliseconds --
+n = 3
+path to solution is ['DOWN', 'LEFT', 'UP', 'LEFT']
+Cost of path = 4
+Memory Usage: 516 KB
+nodes expanded = 11
+max stack/queue size = 11
+max depth of the stack/ queue 5
+
+DFS search
+--- 2444.21195984 milliseconds --
+n = 3
+Cost of path = 61578
+Memory Usage: 516 KB
+nodes expanded = 76429
+max stack/queue size = 40563
+max depth of the stack/ queue 61579
+
+ASTAR search
+--- 0.365018844604 milliseconds --
+n = 3
+path to solution is ['DOWN', 'LEFT', 'UP', 'LEFT']
+Cost of path = 4
+Memory Usage: 516 KB
+nodes expanded = 4
+max stack/queue size = 6
+max depth of the stack/ queue 5
+
+IDASTAR search
+--- 0.262975692749 milliseconds --
+n = 3
+path to solution is ['DOWN', 'LEFT', 'UP', 'LEFT']
+Cost of path = 4
+Memory Usage: 516 KB
+nodes expanded = 4
+max stack/queue size = 1
+max depth of the stack/ queue 5
+
+
+TEST CASE 91
+ 3 1 2 
+ 8 5 7 
+ 6   4 
+
+BFS search
+--- 98.0799198151 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'UP', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'LEFT']
+Cost of path = 15
+Memory Usage: 516 KB
+nodes expanded = 3844
+max stack/queue size = 2208
+max depth of the stack/ queue 16
+
+DFS search
+--- 3346.30393982 milliseconds --
+n = 3
+Cost of path = 63725
+Memory Usage: 516 KB
+nodes expanded = 113947
+max stack/queue size = 42684
+max depth of the stack/ queue 63726
+
+ASTAR search
+--- 10.7419490814 milliseconds --
+n = 3
+path to solution is ['UP', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'UP']
+Cost of path = 15
+Memory Usage: 516 KB
+nodes expanded = 126
+max stack/queue size = 87
+max depth of the stack/ queue 16
+
+IDASTAR search
+--- 14.8439407349 milliseconds --
+n = 3
+path to solution is ['UP', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'UP']
+Cost of path = 15
+Memory Usage: 516 KB
+nodes expanded = 297
+max stack/queue size = 7
+max depth of the stack/ queue 16
+
+
+TEST CASE 92
+ 3 2   
+ 6 1 5 
+ 7 4 8 
+
+BFS search
+--- 0.942945480347 milliseconds --
+n = 3
+path to solution is ['LEFT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'UP']
+Cost of path = 6
+Memory Usage: 516 KB
+nodes expanded = 44
+max stack/queue size = 32
+max depth of the stack/ queue 7
+
+DFS search
+--- 1329.03504372 milliseconds --
+n = 3
+Cost of path = 36710
+Memory Usage: 516 KB
+nodes expanded = 39372
+max stack/queue size = 26588
+max depth of the stack/ queue 36711
+
+ASTAR search
+--- 0.424861907959 milliseconds --
+n = 3
+path to solution is ['LEFT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'UP']
+Cost of path = 6
+Memory Usage: 516 KB
+nodes expanded = 6
+max stack/queue size = 7
+max depth of the stack/ queue 7
+
+IDASTAR search
+--- 0.303983688354 milliseconds --
+n = 3
+path to solution is ['LEFT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'UP']
+Cost of path = 6
+Memory Usage: 516 KB
+nodes expanded = 6
+max stack/queue size = 1
+max depth of the stack/ queue 7
+
+
+TEST CASE 93
+ 8 2 1 
+ 5 3   
+ 6 7 4 
+
+BFS search
+--- 3558.62402916 milliseconds --
+n = 3
+path to solution is ['UP', 'LEFT', 'DOWN', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'UP']
+Cost of path = 25
+Memory Usage: 516 KB
+nodes expanded = 134511
+max stack/queue size = 25133
+max depth of the stack/ queue 26
+
+DFS search
+--- 1172.81198502 milliseconds --
+n = 3
+Cost of path = 28333
+Memory Usage: 516 KB
+nodes expanded = 29947
+max stack/queue size = 21097
+max depth of the stack/ queue 28334
+
+ASTAR search
+--- 197.69692421 milliseconds --
+n = 3
+path to solution is ['UP', 'LEFT', 'DOWN', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'UP']
+Cost of path = 25
+Memory Usage: 516 KB
+nodes expanded = 1986
+max stack/queue size = 1195
+max depth of the stack/ queue 26
+
+IDASTAR search
+--- 676.56493187 milliseconds --
+n = 3
+path to solution is ['UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'DOWN', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'DOWN', 'LEFT', 'UP', 'UP']
+Cost of path = 25
+Memory Usage: 516 KB
+nodes expanded = 11016
+max stack/queue size = 18
+max depth of the stack/ queue 26
+
+
+TEST CASE 94
+ 4 3 2 
+ 6   5 
+ 7 1 8 
+
+BFS search
+--- 3.751039505 milliseconds --
+n = 3
+path to solution is ['DOWN', 'LEFT', 'UP', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'UP']
+Cost of path = 8
+Memory Usage: 516 KB
+nodes expanded = 147
+max stack/queue size = 89
+max depth of the stack/ queue 9
+
+DFS search
+--- 7.83014297485 milliseconds --
+n = 3
+Cost of path = 278
+Memory Usage: 516 KB
+nodes expanded = 291
+max stack/queue size = 232
+max depth of the stack/ queue 279
+
+ASTAR search
+--- 0.691175460815 milliseconds --
+n = 3
+path to solution is ['DOWN', 'LEFT', 'UP', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'UP']
+Cost of path = 8
+Memory Usage: 516 KB
+nodes expanded = 10
+max stack/queue size = 11
+max depth of the stack/ queue 9
+
+IDASTAR search
+--- 0.499963760376 milliseconds --
+n = 3
+path to solution is ['DOWN', 'LEFT', 'UP', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'UP']
+Cost of path = 8
+Memory Usage: 516 KB
+nodes expanded = 10
+max stack/queue size = 2
+max depth of the stack/ queue 9
+
+
+TEST CASE 95
+ 3 1 2 
+ 6   4 
+ 7 8 5 
+
+BFS search
+--- 1.23500823975 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'UP']
+Cost of path = 6
+Memory Usage: 516 KB
+nodes expanded = 50
+max stack/queue size = 43
+max depth of the stack/ queue 7
+
+DFS search
+--- 4059.60988998 milliseconds --
+n = 3
+Cost of path = 52642
+Memory Usage: 516 KB
+nodes expanded = 132556
+max stack/queue size = 42810
+max depth of the stack/ queue 52643
+
+ASTAR search
+--- 0.447988510132 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'UP']
+Cost of path = 6
+Memory Usage: 516 KB
+nodes expanded = 6
+max stack/queue size = 7
+max depth of the stack/ queue 7
+
+IDASTAR search
+--- 0.302076339722 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'UP']
+Cost of path = 6
+Memory Usage: 516 KB
+nodes expanded = 6
+max stack/queue size = 1
+max depth of the stack/ queue 7
+
+
+TEST CASE 96
+ 3 2 7 
+   5 6 
+ 4 1 8 
+
+BFS search
+--- 824.793100357 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'UP']
+Cost of path = 19
+Memory Usage: 516 KB
+nodes expanded = 22653
+max stack/queue size = 10297
+max depth of the stack/ queue 20
+
+DFS search
+--- 1509.83595848 milliseconds --
+n = 3
+Cost of path = 42951
+Memory Usage: 516 KB
+nodes expanded = 46974
+max stack/queue size = 30188
+max depth of the stack/ queue 42952
+
+ASTAR search
+--- 17.8649425507 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'UP']
+Cost of path = 19
+Memory Usage: 516 KB
+nodes expanded = 215
+max stack/queue size = 145
+max depth of the stack/ queue 20
+
+IDASTAR search
+--- 16.7260169983 milliseconds --
+n = 3
+path to solution is ['RIGHT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'UP']
+Cost of path = 19
+Memory Usage: 516 KB
+nodes expanded = 346
+max stack/queue size = 8
+max depth of the stack/ queue 20
+
+
+TEST CASE 97
+ 2 7 8 
+ 5 3 6 
+ 4 1   
+
+BFS search
+--- 4024.01590347 milliseconds --
+n = 3
+path to solution is ['UP', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'DOWN', 'RIGHT', 'UP', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP']
+Cost of path = 26
+Memory Usage: 516 KB
+nodes expanded = 144504
+max stack/queue size = 24049
+max depth of the stack/ queue 27
+
+DFS search
+--- 167.850017548 milliseconds --
+n = 3
+Cost of path = 6668
+Memory Usage: 516 KB
+nodes expanded = 6925
+max stack/queue size = 5226
+max depth of the stack/ queue 6669
+
+ASTAR search
+--- 158.587932587 milliseconds --
+n = 3
+path to solution is ['UP', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'DOWN', 'RIGHT', 'UP', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'DOWN', 'RIGHT', 'UP', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP']
+Cost of path = 26
+Memory Usage: 516 KB
+nodes expanded = 1484
+max stack/queue size = 959
+max depth of the stack/ queue 27
+
+IDASTAR search
+--- 188.601970673 milliseconds --
+n = 3
+path to solution is ['LEFT', 'LEFT', 'UP', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP', 'UP']
+Cost of path = 26
+Memory Usage: 516 KB
+nodes expanded = 3326
+max stack/queue size = 12
+max depth of the stack/ queue 27
+
+
+TEST CASE 98
+ 3 1 2 
+   4 5 
+ 6 7 8 
+
+BFS search
+--- 0.186920166016 milliseconds --
+n = 3
+path to solution is ['UP']
+Cost of path = 1
+Memory Usage: 516 KB
+nodes expanded = 1
+max stack/queue size = 3
+max depth of the stack/ queue 2
+
+DFS search
+--- 0.0419616699219 milliseconds --
+n = 3
+path to solution is ['UP']
+Cost of path = 1
+Memory Usage: 516 KB
+nodes expanded = 2
+max stack/queue size = 3
+max depth of the stack/ queue 2
+
+ASTAR search
+--- 0.112056732178 milliseconds --
+n = 3
+path to solution is ['UP']
+Cost of path = 1
+Memory Usage: 516 KB
+nodes expanded = 1
+max stack/queue size = 3
+max depth of the stack/ queue 2
+
+IDASTAR search
+--- 0.0929832458496 milliseconds --
+n = 3
+path to solution is ['UP']
+Cost of path = 1
+Memory Usage: 516 KB
+nodes expanded = 1
+max stack/queue size = 1
+max depth of the stack/ queue 2
+
+
+TEST CASE 99
+ 2 1 4 
+ 3 5 8 
+ 6 7   
+
+BFS search
+--- 112.471103668 milliseconds --
+n = 3
+path to solution is ['UP', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP']
+Cost of path = 16
+Memory Usage: 516 KB
+nodes expanded = 4967
+max stack/queue size = 2683
+max depth of the stack/ queue 17
+
+DFS search
+--- 74.5539665222 milliseconds --
+n = 3
+Cost of path = 3014
+Memory Usage: 516 KB
+nodes expanded = 3146
+max stack/queue size = 2415
+max depth of the stack/ queue 3015
+
+ASTAR search
+--- 10.2069377899 milliseconds --
+n = 3
+path to solution is ['UP', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP']
+Cost of path = 16
+Memory Usage: 516 KB
+nodes expanded = 135
+max stack/queue size = 90
+max depth of the stack/ queue 17
+
+IDASTAR search
+--- 29.4399261475 milliseconds --
+n = 3
+path to solution is ['UP', 'LEFT', 'UP', 'RIGHT', 'DOWN', 'LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'DOWN', 'LEFT', 'UP']
+Cost of path = 16
+Memory Usage: 516 KB
+nodes expanded = 554
+max stack/queue size = 9
+max depth of the stack/ queue 17
+
+
+TEST CASE 100
+ 6 2 4 
+ 7 5   
+ 1 8 3 
+
+BFS search
+--- 1645.84898949 milliseconds --
+n = 3
+path to solution is ['DOWN', 'LEFT', 'LEFT', 'UP', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'LEFT']
+Cost of path = 21
+Memory Usage: 516 KB
+nodes expanded = 46984
+max stack/queue size = 16961
+max depth of the stack/ queue 22
+
+DFS search
+--- 2568.2220459 milliseconds --
+n = 3
+Cost of path = 65531
+Memory Usage: 516 KB
+nodes expanded = 87809
+max stack/queue size = 42220
+max depth of the stack/ queue 65532
+
+ASTAR search
+--- 29.4961929321 milliseconds --
+n = 3
+path to solution is ['DOWN', 'LEFT', 'LEFT', 'UP', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'LEFT']
+Cost of path = 21
+Memory Usage: 516 KB
+nodes expanded = 340
+max stack/queue size = 223
+max depth of the stack/ queue 22
+
+IDASTAR search
+--- 275.617837906 milliseconds --
+n = 3
+path to solution is ['DOWN', 'LEFT', 'LEFT', 'UP', 'UP', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'UP', 'LEFT', 'LEFT']
+Cost of path = 21
+Memory Usage: 516 KB
+nodes expanded = 1054
+max stack/queue size = 11
+max depth of the stack/ queue 22
+

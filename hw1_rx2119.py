@@ -1,4 +1,3 @@
-import copy
 import random
 import time
 import math
@@ -7,13 +6,16 @@ import sys
 from collections import deque
 from sets import Set
 import heapq
+import resource
 
 def Exit_gracefully(signal, frame):
     print
     sys.exit(0)
 
 DIRECTION = Set(("UP", "DOWN", "LEFT", "RIGHT"))
-METHODS = ["BFS", "DFS","ASTAR"]
+METHODS = ["BFS", "DFS","ASTAR", "IDASTAR"]
+OPDIRECT = { "DOWN":"UP", "UP":"DOWN", "RIGHT":"LEFT","LEFT":"RIGHT"}
+
 
 class State:
     def __init__(self, n, original=None, parent=None, move=None):
@@ -112,8 +114,9 @@ class State:
 
 
     # do bfs search on current instance using deque
-    # returns triple tuple of goal state, max size of queue, and num of nodes expanded
+    # returns tuple of found goal, goal state, max size of queue, and num of nodes expanded
     def bfs(self):
+        #mem = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1000
         # record visited configuration
         visitedStates = Set()
         # max size of the stack/queue
@@ -125,7 +128,8 @@ class State:
         foundGoal = False
 
         if current.isGoalState():
-            return True, current, maxSize, nodeExpand
+            mem  = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1000
+            return True, current, maxSize, nodeExpand, mem
 
         while len(que) != 0:
             current = que.popleft()
@@ -146,11 +150,12 @@ class State:
             # compare for max size of the queue
             if foundGoal:
                 break
-        return foundGoal, current, maxSize, nodeExpand
+        mem  = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1000
+        return foundGoal, current, maxSize, nodeExpand, mem
 
 
-    # do bfs search on current instance using a list implemented as a stack
-    # returns triple tuple of goal state, max size of queue, and num of nodes expanded
+    # do dfs search on current instance using a list implemented as a stack
+    # returns tuple found goal, goal state, max size of queue, and num of nodes expanded
     def dfs(self):
         visitedStates= Set()
         stack = []
@@ -161,7 +166,8 @@ class State:
         foundGoal = False
 
         if current.isGoalState():
-            return True, current, maxSize, nodeExpand
+            mem  = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1000
+            return True, current, maxSize, nodeExpand, mem
 
         while len(stack) != 0:
             current = stack.pop()
@@ -181,8 +187,8 @@ class State:
             # compare for max size of the queue
             if foundGoal:
                 break
-
-        return foundGoal, current, maxSize, nodeExpand
+        mem  = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1000
+        return foundGoal, current, maxSize, nodeExpand, mem
 
 
     # moves made from original state to current state
@@ -209,7 +215,7 @@ class State:
 
     # do A* search on current instance using list implemented as a heap
     # and hFun as heuristic function and gFun as previous cost function
-    # returns triple tuple of goal state, max size of queue, and num of nodes expanded
+    # returns tuple of found goal, goal state, max size of queue, and num of nodes expanded
     def astar(self):
         visitedStates = Set()
         maxSize = 1
@@ -219,7 +225,8 @@ class State:
         foundGoal = False
 
         if current.isGoalState():
-            return True, current, maxSize, nodeExpand
+            mem  = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1000
+            return True, current, maxSize, nodeExpand, mem
 
         f = self.hFun()+self.gFun()
         heapq.heappush(heap, (f, self))
@@ -242,7 +249,8 @@ class State:
             if foundGoal:
                 break
 
-        return foundGoal, current, maxSize, nodeExpand
+        mem  = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1000
+        return foundGoal, current, maxSize, nodeExpand, mem
 
 
 
@@ -262,11 +270,11 @@ class State:
             Node = Node.parent
         return count
 
-    # do A* search on current instance using list implemented as a heap
+    # do iterative deepening A* search on current instance using list implemented as a heap
     # and hFun as heuristic function and gFun as previous cost function
-    # returns triple tuple of goal state, max size of queue, and num of nodes expanded
+    # returns a tuple of found goal, goal state, max size of queue, and num of nodes expanded
     def idastar(self):
-        depth = 0
+        depth = self.hFun() + self.gFun()
         found = False
         expand = 0
         while not found:
@@ -274,7 +282,8 @@ class State:
             found, current, size, expand = current.dastar(depth, expand)
             depth += 1
             if found:
-                return True, current, size, expand
+                 mem  = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1000
+        return True, current, size, expand, mem
 
     def dastar(self, depth, nodeExpand):
         maxSize = 1
@@ -287,22 +296,22 @@ class State:
 
         stack.append(current)
         while len(stack) > 0:
+            maxSize = max(len(stack),maxSize)
             current = stack.pop()
             nodeExpand += 1
             for direct in DIRECTION:
-                childList = current.simulateMove(direct)
-                if childList !=  None:
-                    current.child.append(State(self.n, childList, current, direct))
-                    if current.child[-1].gFun() + current.child[-1].hFun() <= depth:
-                        stack.append(current.child[-1])
-                        maxSize = max(len(stack),maxSize)
-                        if current.child[-1].isGoalState():
-                            current = current.child[-1]
-                            foundGoal = True
-                            break
+                if current.move == None or direct != OPDIRECT[current.move]:
+                    childlist = current.simulateMove(direct)
+                    if childlist !=  None:
+                        current.child.append(State(self.n, childlist, current, direct))
+                        if current.child[-1].gFun() + current.child[-1].hFun() <= depth:
+                            stack.append(current.child[-1])
+                            if current.child[-1].isGoalState():
+                                current = current.child[-1]
+                                foundGoal = True
+                                break
             if foundGoal:
                 break
-
         return foundGoal, current, maxSize, nodeExpand
 
 
@@ -311,13 +320,13 @@ class State:
     def solving(self, method):
         startTime =time.time()
         if method.upper() == "BFS":
-            found, current, size, nodeExpand = self.bfs()
+            found, current, size, nodeExpand, memory = self.bfs()
         elif method.upper() == "DFS":
-            found, current, size, nodeExpand = self.dfs()
+            found, current, size, nodeExpand, memory = self.dfs()
         elif method.upper() == "ASTAR":
-            found, current, size, nodeExpand = self.astar()
+            found, current, size, nodeExpand, memory = self.astar()
         elif method.upper() == "IDASTAR":
-            found, current, size, nodeExpand = self.idastar()
+            found, current, size, nodeExpand, memory = self.idastar()
         else:
             return
 
@@ -328,13 +337,14 @@ class State:
             if len(path)< 50:
                 print "path to solution is " + str(path)
             print "Cost of path = " + str(len(path))
+            print "Memory Usage: " + str(memory)+" KB"
             print "nodes expanded = "+ str(nodeExpand)
             print "max stack/queue size = "+str(size)
             print "max depth of the stack/ queue "+ str(len(path)+1)
         else:
             print "Solution not found"
             sys.exit(0)
-        return found, size, nodeExpand, path,
+        return found, size, nodeExpand, path
 
     # validates the solution produced
     def validateSolution(a, path):
@@ -365,8 +375,7 @@ def main():
                 sys.exit(0)
         # testing option
         elif sys.argv[1] in ["-test", "-t"] and (sys.argv[2].upper()[1:] in
-                                                 METHODS or sys.argv[2] == "-a"
-                                                or sys.argv[2] == '-idastar'):
+                                                 METHODS or sys.argv[2] == "-a"):
             test = True
             try:
                 temp = map(int, sys.argv[3].split(","))
@@ -382,14 +391,13 @@ def main():
             print "invalid input"
             sys.exit(0)
     else:
-        print "usage: python hw1_rx2119.py [-help] [-random N-size R-num | -test -method LIST]"
+        print "usage: python hw1_rx2119.py (-random N-size R-num | -test -method LIST)"
         sys.exit(0)
 
     # random trials
     if random:
         n = arguments["random"][0]
         r = arguments["random"][1]
-        print r
         for i in range(r):
             stats = {}
             print "\nTEST CASE "+str(i+1)
@@ -413,6 +421,8 @@ def main():
             # asserting A* solution has the same cost as BFS
             assert stats["BFS"][0] <= stats["DFS"][0]
             assert stats["BFS"][0] == stats["ASTAR"][0]
+            assert stats["IDASTAR"][0] == stats["BFS"][0]
+            assert stats["ASTAR"][1] >= stats["IDASTAR"][1]
             del a
     # controlled tests
     elif test:
