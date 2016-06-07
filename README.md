@@ -33,7 +33,7 @@ I implemented BFS using a `deque` as the queue for nodes, I also have a visisted
 The implementation for DFS is similar to BFS, the only difference is, it is implemented with a list as stack, to release FIFO.
 
 3. **A\* is implemented according to the specification**: 
-A* like the previous two methods had similar optimzation with visited set and goal state check. It uses `list` and `heapq` as it's priority queue and it's value is the f function (= cost from the origin state + heuriostic cost which is the manhattan distance for all tiles except Zero, the empty cell)
+A* like the previous two methods had similar optimzation with visited set and goal state check. It uses `list` and `heapq` as it's priority queue and it's value is the f function (= cost from the origin state + heuriostic cost which is the manhattan distance for all tiles except Zero, the empty cell).
 
 4. **Smmmarize and compare**
 ```
@@ -77,7 +77,7 @@ max depth of the stack/ queue 18
 ```
 
 **Cost of the path**
- * **BFS**: It always returns the shortest which is also the optimal solution, in test case it's no different with path of 17
+ * **BFS**: It always returns the shortest which is also the optimal solution, in test case it's no different with path of 17.
  * **DFS**: Unusually returns some deep and long solution in this case 66491, which it not printed out for obvious reason.
  * **A***: Return the shortest and optimal solution like BFS in this case also it's 17. 
   
@@ -89,9 +89,9 @@ max depth of the stack/ queue 18
 **Max depth of the stack/queue**
     
     As the TA explained it on Piazza, it is the depth of the tree when a solution is found. It's related to the tree path. I will talk more about it related to memory later.
-  * **BFS**: the depth of the tree 18
-  * **DFS**: the depth of the tree 66,492
-  * **A***: the depth of the tree 18
+  * **BFS**: the depth of the tree 18.
+  * **DFS**: the depth of the tree 66,492.
+  * **A***: the depth of the tree 18.
 
 **Memory requirements of each approach** 
   
@@ -103,13 +103,14 @@ max depth of the stack/ queue 18
 **Running time**
   * **BFS**: Since the solution is not very deep in the tree and branch factor is controlled through a set for duplicated states, the runtime is as below.
   `--- 246.860027313 milliseconds --`
-  * **DFS**: Because it charges straight down, regardless of the direction that will lead to optimal results. It is slower than the other two methods
+  * **DFS**: Because it charges straight down, regardless of the direction that will lead to optimal results. It is slower than the other two methods. 
   `--- 2745.47219276 milliseconds --`
-  * **A***: Because it's using rule of thumb and duplicated check it will run in shortest time
+  * **A***: Because it's using rule of thumb and duplicated check it will run in shortest time. 
   `--- 11.3000869751 milliseconds --`
-5. Justify your choice of a heuristic
+
+**Justify your choice of a heuristic**
 I chose to calculate manhattan distance for each element in the table from its current position to the its goal state position except the empty cell as the heuristic class. This heuristic is admissible because, The to reach the goal state this is the least number of move we have to make, and in most cases we have to make more move that this, because we can only swap empty cell and it's adjacent cell to change configuration. This mean it underestimate the cost to reach goal state and thus lead to optimal solution by A* search.
 
-6. IDA* is implemented according to the specification
+**IDA* is implemented according to the specification**
 Essentially it's and a DFS that iterate on the f function of the node that it traverse. I didn't use a visited set for duplication, because it may lead to suboptimal solution. However I did optimzate it by using prevent node to go the direct that it cames from, and start iteration from F value of the node. These two method speed up IDA\* quite a lot. It's at least on par if not faster that the A\*, the `output.txt` file also included it's test reuslts as well.
 
