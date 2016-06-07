@@ -76,32 +76,34 @@ max stack/queue size = 75
 max depth of the stack/ queue 18
 ```
 
-  a. **cost of the path**
-    BFS: It always returns the shortest which is also the optimal solution, in test case it's no different with path of 17
-    DFS: Unusually returns some deep and long solution in this case 66491, which it not printed out for obvious reason.
-    A*: Return the shortest and optimal solution like BFS in this case also it's 17
+ 1. **cost of the path**
+    **BFS**: It always returns the shortest which is also the optimal solution, in test case it's no different with path of 17
+    **DFS**: Unusually returns some deep and long solution in this case 66491, which it not printed out for obvious reason.
+    **A\***: Return the shortest and optimal solution like BFS in this case also it's 17
 
-  b. **number of nodes expanded**
-    BFS: It expands nodes layer by layer, in this case because the goal state is not very deep, it only transversed 10,674 nodes which is almost half of all configuration, theoretical speaking it has to transverse B**M but since I implemented duplicate check, it just have to find check all unique configurations up until level 17.
-    DFS: It goes straight down which expanded 91,946 nodes before reached goal state
-    A*: Using rules of thumb it is able to find the optimal solution only expanding 120 nodes, because it expands the promising direction first because on it's distance from origin and manhattan distance to goal state.
+ 2. **number of nodes expanded**
+    **BFS**: It expands nodes layer by layer, in this case because the goal state is not very deep, it only transversed 10,674 nodes, theoretical speaking it has to transverse B**M but since I implemented duplicate check, it just have to find check all unique configurations (for 8-puzzle is 9!) up until level 17.
+    **DFS**: It goes straight down which expanded 91,946 nodes before reached goal state. It's not the most efficient way to solve the problem, obviouly.
+    **A***: Using rule of thumb it is able to find the optimal solution only expanding 126 nodes, because it expands the most promising direction first based on it's distance from origin and manhattan distance to goal state.
 
-  c. max depth of the stack/queue
-    As the TA explained it on Piazza, it is the depth of the tree when a solution is found. It's related to the tree path.
-    BFS: the depth of the tree 18
-    DFS: the depth of the tree 66,492
-    A*: the depth of the tree 18
+ 3. **max depth of the stack/queue**
+    As the TA explained it on Piazza, it is the depth of the tree when a solution is found. It's related to the tree path. I will talk more about it related to memory later.
+    **BFS**: the depth of the tree 18
+    **DFS**: the depth of the tree 66,492
+    **A\***: the depth of the tree 18
 
-  d. memory requirements of each approach
-
-  e. running time
-
-    BFS: Since the solution is not every deep in the tree and branch factor is controlled through a set for duplicated states, the runtime as below.
-    --- 179.074048996 milliseconds --
-    DFS: Because it charges straight down, regardless of the direction that will lead to optimal results. It is slower that all other methods
-    --- 1917.3719883 milliseconds --
-    A*: Because it's using rule of thumb and duplicated check it will run in shortest time
-    --- 8.06093215942 milliseconds --
+ 4. **memory requirements of each approach** 
+ The methods are run seperately to monitor their memory usage. The memory usage is related to the number of nodes expanded and the max stack/queue size, the exact number are hard to caculate because because python's automatic garbage collector, and type inference, but the general view is that the more node expand and large max stack/queue size is the more memory it will comsume. On that note, we can assumme that in a DFS for an average configuration board will consume most memory and expand most node and have a sigficant size stack, and A\* being the most efficent in note expanded and and heap size, while BFS being the middle, however we should be aware that DFS is acctually quite efficient im memory usage with Space of O(B\*M) much better that the other two, however because it usually extends quite deep into the tree, so in practice space perfamce is not as it looks on paper.
+ **BFS**: 37KB 
+ **DFS**: 227KB
+ **A\***: 10KB
+ 5. running time
+ **BFS**: Since the solution is not every deep in the tree and branch factor is controlled through a set for duplicated states, the runtime as below.
+ `--- 179.074048996 milliseconds --`
+ **DFS**: Because it charges straight down, regardless of the direction that will lead to optimal results. It is slower that all other methods
+ `--- 1917.3719883 milliseconds --`
+ **A\***: Because it's using rule of thumb and duplicated check it will run in shortest time
+ --- 8.06093215942 milliseconds --
 
 5. Justify your choice of a heuristic
 I chose to calculate manhattan distance for each element in the table from its current position to the its goal state position except the empty cell as the heuristic class. This heuristic is admissible because, The to reach the goal state this is the least number of move we have to make, and in most cases we have to make more move that this, because we can only swap empty cell and it's adjacent cell to change configuration. This mean it underestimate the cost to reach goal state and thus lead to optimal solution by A* search
