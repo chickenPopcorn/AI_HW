@@ -7,15 +7,13 @@ import sys
 from collections import deque
 from sets import Set
 import heapq
-import resource
-# from memory_profiler import profile, memory_usage
 
 def Exit_gracefully(signal, frame):
     print
     sys.exit(0)
 
 DIRECTION = Set(("UP", "DOWN", "LEFT", "RIGHT"))
-METHODS = ["BFS", "DFS","ASTAR", "IDASTAR"]
+METHODS = ["BFS", "DFS","ASTAR"]
 
 class State:
     def __init__(self, n, original=None, parent=None, move=None):
@@ -108,7 +106,7 @@ class State:
 
     # randomly shuffle board for a move for 100 times
     def shuffle(self):
-        moves = random.random()*500
+        moves = random.random()*200
         for i in range (int(moves)):
             self.makeMove(random.sample(DIRECTION.difference(self.move), 1)[0])
 
@@ -148,7 +146,6 @@ class State:
             # compare for max size of the queue
             if foundGoal:
                 break
-        print str(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss/8000000) +" MB"
         return foundGoal, current, maxSize, nodeExpand
 
 
@@ -268,7 +265,6 @@ class State:
     # do A* search on current instance using list implemented as a heap
     # and hFun as heuristic function and gFun as previous cost function
     # returns triple tuple of goal state, max size of queue, and num of nodes expanded
-
     def idastar(self):
         depth = 0
         found = False
@@ -281,7 +277,6 @@ class State:
                 return True, current, size, expand
 
     def dastar(self, depth, nodeExpand):
-        visitedStates = Set()
         maxSize = 1
         stack = []
         current = self
@@ -297,16 +292,14 @@ class State:
             for direct in DIRECTION:
                 childList = current.simulateMove(direct)
                 if childList !=  None:
-                    if tuple(childList) not in visitedStates:
-                        current.child.append(State(self.n, childList, current, direct))
-                        if current.child[-1].gFun() + current.child[-1].hFun() <= depth:
-                            stack.append(current.child[-1])
-                            visitedStates.add(tuple(current.list))
-                            maxSize = max(len(stack),maxSize)
-                            if current.child[-1].isGoalState():
-                                current = current.child[-1]
-                                foundGoal = True
-                                break
+                    current.child.append(State(self.n, childList, current, direct))
+                    if current.child[-1].gFun() + current.child[-1].hFun() <= depth:
+                        stack.append(current.child[-1])
+                        maxSize = max(len(stack),maxSize)
+                        if current.child[-1].isGoalState():
+                            current = current.child[-1]
+                            foundGoal = True
+                            break
             if foundGoal:
                 break
 
@@ -371,7 +364,9 @@ def main():
                 print "argument for random is invalid"
                 sys.exit(0)
         # testing option
-        elif sys.argv[1] in ["-test", "-t"] and (sys.argv[2].upper()[1:] in METHODS or sys.argv[2] == "-a"):
+        elif sys.argv[1] in ["-test", "-t"] and (sys.argv[2].upper()[1:] in
+                                                 METHODS or sys.argv[2] == "-a"
+                                                or sys.argv[2] == '-idastar'):
             test = True
             try:
                 temp = map(int, sys.argv[3].split(","))
@@ -414,12 +409,10 @@ def main():
                     assert current.isGoalState() == True
                     stats[method] = (len(path), size, nodeExpand)
                     del current
+            # asserting BFS has better or equivalent solution
             # asserting A* solution has the same cost as BFS
             assert stats["BFS"][0] <= stats["DFS"][0]
             assert stats["BFS"][0] == stats["ASTAR"][0]
-            assert stats["IDASTAR"][0] == stats["BFS"][0]
-            assert stats["ASTAR"][1] >= stats["IDASTAR"][1]
-            assert stats["IDASTAR"][2] >= stats["ASTAR"][2]
             del a
     # controlled tests
     elif test:
@@ -440,7 +433,6 @@ def main():
                 # validate solution through the game
                 assert a.isGoalState() == True
 
-# memory_usage((main, [], {}))
 
 if __name__ == "__main__":
     signal.signal(signal.SIGINT, Exit_gracefully)
