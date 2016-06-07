@@ -111,5 +111,9 @@ max depth of the stack/ queue 18
 **Justify your choice of a heuristic**
 I chose to calculate manhattan distance for each element in the table from its current position to the its goal state position except the empty cell as the heuristic class. This heuristic is admissible because, The to reach the goal state this is the least number of move we have to make, and in most cases we have to make more move that this, because we can only swap empty cell and it's adjacent cell to change configuration. This mean it underestimate the cost to reach goal state and thus lead to optimal solution by A* search.
 
+**Discuss your knowledge representation**
+board configuration are kept as a `list` in side State class. It has n as in n-puzzle, `full_size` for the length of the list, which is asserted to be the n**2, `move` which is the last move make default the be `None`, `child` is a list of adjacent list used for simulation, while `makeMove(direct)` actually moves the node for validation(`validate`) and testing purpose. `parent` specifies the parent of each node and default to be `None` for root node. Users can also specify a configuration with argument `original`. A State class instance in this case represent a node and are simulated for variable of methods that solved n-puzzles.
+
+
 **IDA* is implemented according to the specification**
 Essentially it's and a DFS that iterate on the f function of the node that it traverse. I didn't use a visited set for duplication, because it may lead to suboptimal solution. However I did optimize it by using prevent node to go the direct that it comes from, and start iteration from F value of the node. These two method speed up IDA\* quite a lot. It's at least on par if not faster that the A\*, the `output.txt` file also included it's test results as well.
