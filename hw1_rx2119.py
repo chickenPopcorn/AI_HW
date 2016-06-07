@@ -334,8 +334,7 @@ class State:
         if found:
             print "n = "+ str(self.n)
             path = State.getPath(current)
-            if len(path)< 50:
-                print "path to solution is " + str(path)
+            print "path to solution is " + str(path)
             print "Cost of path = " + str(len(path))
             print "Memory Usage: " + str(memory)+" KB"
             print "nodes expanded = "+ str(nodeExpand)
