@@ -148,7 +148,7 @@ class State:
             # compare for max size of the queue
             if foundGoal:
                 break
-        print (resource.getrusage(resource.RUSAGE_SELF).ru_maxrss/8000000)
+        print str(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss/8000000) +" MB"
         return foundGoal, current, maxSize, nodeExpand
 
 
@@ -297,15 +297,16 @@ class State:
             for direct in DIRECTION:
                 childList = current.simulateMove(direct)
                 if childList !=  None:
-                    if tuple(childList) not in visitedStates and current.countDepth()+current.hFun() < depth:
+                    if tuple(childList) not in visitedStates:
                         current.child.append(State(self.n, childList, current, direct))
-                        stack.append(current.child[-1])
-                        visitedStates.add(tuple(current.list))
-                        maxSize = max(len(stack),maxSize)
-                        if current.child[-1].isGoalState():
-                            current = current.child[-1]
-                            foundGoal = True
-                            break
+                        if current.child[-1].gFun() + current.child[-1].hFun() <= depth:
+                            stack.append(current.child[-1])
+                            visitedStates.add(tuple(current.list))
+                            maxSize = max(len(stack),maxSize)
+                            if current.child[-1].isGoalState():
+                                current = current.child[-1]
+                                foundGoal = True
+                                break
             if foundGoal:
                 break
 
@@ -336,6 +337,7 @@ class State:
             print "Cost of path = " + str(len(path))
             print "nodes expanded = "+ str(nodeExpand)
             print "max stack/queue size = "+str(size)
+            print "max depth of the stack/ queue "+ str(len(path)+1)
         else:
             print "Solution not found"
             sys.exit(0)
@@ -356,12 +358,7 @@ def main():
     arguments = {}
     random = False
     test = True
-    if len(sys.argv) == 2 and sys.argv[1] in  ["-help", "-h"]:
-        print "This is help for N-puzzle solver"
-        print "Optional Options"
-        print "-help: print this help prompt"
-        print "Required "
-    elif len(sys.argv) == 4:
+    if len(sys.argv) == 4:
         # random option
         if sys.argv[1] in [ "-random", "-r"]:
             try:
