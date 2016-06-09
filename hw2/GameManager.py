@@ -9,7 +9,7 @@ from random import randint
 import time
 
 defaultInitialTiles = 2
-defaultPossibility = 0.7
+defaultPossibility = 0.9
 (PLAYER_TURN, COMPUTER_TURN) = (0, 1)
 actionDic = {0:"UP", 1:'DOWN', 2:'LEFT', 3:'RIGHT'}
 # time limit for guess time of each step
@@ -56,7 +56,7 @@ class GameManager:
 		maxTile = 0
 
 		# set init alarm
-		self.lastTime = time.time()
+		self.lastTime = time.clock()
 
 		# check game over conditions
 		while not self.isGameOver() and not self.over:
@@ -85,7 +85,7 @@ class GameManager:
 				print "Computer's turn"
 				move = self.computerAI.getMove(gridCopy)
 				#validate move
-				if self.grid.canInsert(move):
+				if move and self.grid.canInsert(move):
 					self.grid.setCellValue(move, self.getNewTileValue())
 				else:
 					print "Invalid Computer AI Move"
@@ -95,7 +95,7 @@ class GameManager:
 				self.displayer.display(self.grid)
 
 			# once you exceeds the time limit, previous action will be your last action
-			self.updateAlarm(time.time())
+			self.updateAlarm(time.clock())
 			turn = 1 - turn
 		print maxTile
 
