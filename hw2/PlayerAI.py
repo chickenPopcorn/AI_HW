@@ -15,6 +15,6 @@ class PlayerAI(BaseAI):
         return moves[randint(0, len(moves) - 1)] if moves else None
         '''
         start = time.time()
-        move = MinMaxNode.getBestMove(grid, 9)
+        move = MinMaxNode.getBestMove(grid, 4)
         print "------"+ str(time.time()-start) +" seconds-----\n"
         return move
