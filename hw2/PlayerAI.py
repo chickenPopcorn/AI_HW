@@ -7,6 +7,7 @@ from MinMaxNode import MinMaxNode
 import time
 
 
+
 class PlayerAI(BaseAI):
     def getMove(self, grid):
         '''        
@@ -15,6 +16,7 @@ class PlayerAI(BaseAI):
         return moves[randint(0, len(moves) - 1)] if moves else None
         '''
         start = time.time()
-        move = MinMaxNode.getBestMove(grid, 4)
+        move, score = MinMaxNode.getBestMove(grid, 4)
         print "------"+ str(time.time()-start) +" seconds-----\n"
+        print "Boardscore chose is ", score
         return move

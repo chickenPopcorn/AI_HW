@@ -4,12 +4,15 @@ import math
 import time
 from Heuristic import Heuristic
 import random
-from random import randint
+
 BOARDSIZE = 4
 PLAYER = True
 COMPUTER = False
 POSIBILETILEVALUE= [2, 4]
 
+import sys
+
+sys.setrecursionlimit(400)
 class MinMaxNode:
 
     @staticmethod
@@ -34,6 +37,7 @@ class MinMaxNode:
             string += "\n"
         return string
 
+
     @staticmethod
     def alphabeta(grid, depth, alpha, beta, player):
         direct = -1
@@ -43,7 +47,7 @@ class MinMaxNode:
         if player:
             moves = grid.getAvailableMoves()
             if len(moves) == 0:
-                direct, score
+                return direct, Heuristic.calculateHeuristic(grid)
 
             for d in moves:
                 child = MinMaxNode.makeGridDirect(grid, d)
@@ -57,12 +61,17 @@ class MinMaxNode:
 
         else:
             # cell = random.choice( grid.getAvailableCells())
-            for cell in grid.getAvailableCells():
-                if not cell:
-                    return -1, score
+            cells = grid.getAvailableCells()
+            if len(cells) > 2:
+                depth -= 1
+            '''
+            elif len(cells) == 0:
+                    return -1, Heuristic.calculateHeuristic(grid)
+            '''
+            for cell in cells:
                 for value in POSIBILETILEVALUE :
                     child = MinMaxNode.makeGridCell(grid, cell, value)
-                    score = MinMaxNode.alphabeta(child, depth-1, alpha, beta,
+                    score = MinMaxNode.alphabeta(child, depth, alpha, beta,
                                                      True)[1]
 
                     beta = min(beta, score)
@@ -72,17 +81,17 @@ class MinMaxNode:
     @staticmethod
     def getBestMove(grid, depth):
          result = MinMaxNode.alphabeta(grid, depth, -float('inf'), float('inf'), True)
-         return result[0]
+         return result
 
 if __name__ == "__main__":
     g = Grid()
     g.map[0] = [0, 0, 0, 0]
     g.map[1] = [0, 2, 0, 0]
-    g.map[2] = [0, 0, 0, 0]
-    g.map[3] = [0, 0, 0, 0]
+    g.map[2] = [0, 2, 0, 32]
+    g.map[3] = [2, 4, 2, 16]
 
     start = time.time()
-    print MinMaxNode.getBestMove(g, 4)
+    print MinMaxNode.getBestMove(g, 5)
 
     print time.time()-start
 

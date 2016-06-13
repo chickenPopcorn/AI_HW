@@ -119,7 +119,7 @@ class GameManager:
 def main():
     stats = {}
     startTime = time.time()
-    numOfTrials = 10
+    numOfTrials = 3
     for g in range(numOfTrials):
         print "test ",g+1
         gameManager = GameManager()

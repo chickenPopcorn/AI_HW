@@ -3,28 +3,118 @@ from Grid import Grid
 
 BOARDSIZE = 4
 directionVectors = (UP_VEC, DOWN_VEC, LEFT_VEC, RIGHT_VEC) = ((-1, 0), (1, 0), (0, -1), (0, 1))
+'''
+GRADIENT = [
+    [[ 3,  2,  1,  0],
+     [ 2,  1,  0, -1],
+     [ 1,  0, -1, -2],
+     [ 0, -1, -2, -3]],
+    [[ 0,  1,  2,  3],
+     [-1,  0,  1,  2],
+     [-2, -1,  0,  1],
+     [-3, -2, -1, -0]],
+    [[ 0, -1, -2, -3],
+     [ 1,  0, -1, -2],
+     [ 2,  1,  0, -1],
+     [ 0, -1, -2, -3]],
+    [[-3, -2, -1,  0],
+     [-2, -1,  0,  1],
+     [-1,  0,  1,  2],
+     [ 0,  1,  2,  3]]
+    ]
+'''
+GRADIENT = [
+    [[ 0.135759,  0.121925,  0.102812,  0.099937],
+     [ 0.09997992,  0.0888405,  0.076711, 0.0724143],
+     [ 0.060654,  0.0562579, 0.037116, 0.0161889],
+     [ 0.0125498, 0.00992495, 0.00575871, 0.00335193]]]
+
+'''
+    [[0.0125498, 0.060654, 0.09997992, 0.135759],
+     [0.00992495, 0.0562579, 0.0888405, 0.121925],
+     [0.00575871, 0.037116, 0.076711, 0.102812],
+     [0.00335193, 0.0161889, 0.0724143, 0.099937]],
+
+    [[0.00335193, 0.00575871, 0.00992495, 0.0125498],
+     [0.0161889, 0.037116, 0.0562579, 0.060654],
+     [0.0724143, 0.076711, 0.0888405, 0.09997992],
+     [0.099937, 0.102812, 0.121925, 0.135759]],
+
+    [[0.099937, 0.0724143, 0.0161889, 0.00335193],
+     [0.102812, 0.076711, 0.037116, 0.00575871],
+     [0.121925, 0.0888405, 0.0562579, 0.00992495],
+     [0.135759, 0.09997992, 0.060654, 0.0125498]]
+    ]
+    '''
+
+
 
 class Heuristic:
 
     @staticmethod
     def calculateHeuristic(grid):
 
+        '''
         smoothWeight = 0.1
-        mono2Weight = 1.0
+        monoWeight = 1.0
         emptyWeight = 2.7
         maxWeight = 1.0
-
+        maxEdgeWeight = 1.0
         numOfEmptyCells = Heuristic.countAvailableCells(grid)
+
+        if numOfEmptyCells != 0:
+            emptyValue =math.log(numOfEmptyCells)
+        else:
+            emptyValue = 0
+
         calculatedScore = Heuristic.smoothness(grid) * smoothWeight + \
-                          Heuristic.monotonicytiy2(grid) * mono2Weight + \
-                          math.log(numOfEmptyCells) if numOfEmptyCells != 0 \
-                          else 0 * emptyWeight+ \
-                          grid.getMaxTile() * maxWeight
+                          Heuristic.monotonicity(grid) * monoWeight + \
+                          emptyValue * emptyWeight+ \
+                          grid.getMaxTile() * maxWeight + \
+                          Heuristic.maxOnEdge(grid) * maxEdgeWeight
 
         return calculatedScore
+        return  Heuristic.monotonicity(grid) * monoWeight +\
+        Heuristic.gradient(grid)* 0.1
+        '''
+        return Heuristic.gradient(grid)
 
     @staticmethod
-    def monotonicytiy2(grid):
+    def gradient(grid):
+        values = [0, 0, 0, 0]
+        for i in range(len(GRADIENT)):
+            for row in range(BOARDSIZE):
+                for column in range(BOARDSIZE):
+                    cell = grid.map[row][column]
+                    if cell != 0:
+                        values[i] += GRADIENT[i][row][column] * cell
+        return max(values)
+
+
+    @staticmethod
+    def maxOnEdge(grid):
+        ls = [cell for row in grid.map for cell in row]
+        ls.sort()
+        ls = ls[-2:]
+        edge = [0, 3]
+        count = 2
+        for row in edge:
+            for cell in grid.map[row]:
+                if cell == ls[1]:
+                    count += 1
+                elif cell == ls[0]:
+                    count += 0.3
+
+        for column in edge:
+            for row in grid.map:
+                if row[column] == ls[1]:
+                    count += 1
+                elif row[column] == ls[0]:
+                    count += 0.5
+        return math.log(count * sum(ls))/math.log(2)-1
+
+    @staticmethod
+    def monotonicity(grid):
         totals = [0,0,0,0]
         for row in range(BOARDSIZE):
             current = 0
@@ -87,33 +177,6 @@ class Heuristic:
                         smoothvalue = smoothvalue-abs(v1-v)
         return smoothvalue
 
-        '''
-        smoothness = 0
-        for rown in range(BOARDSIZE):
-            for column in range(BOARDSIZE):
-                cell = grid.map[row][column]
-                if cell > 0:
-                    value = math.log(cell) / math.log(2)
-                    target = directionVectors[1]
-                    targetCell = Heuristic.findFarthestAway()
-
-                    if target > 0:
-                        smoothness -= abs(value - math.log(target)/math.log(2))
-        return smoothness
-        '''
-
-    @staticmethod
-    def findFarthestAway(grid, cell, vector):
-        previous = cell
-        cell = [previous[0] + vector[0], previous[1] + vector[1]]
-        while grid.gridInsertOk(cell) and grid.map[cell[0]][cell[1]] == 0:
-            previous = cell
-            cell = [previous[0] + vector[0], previous[1] + vector[1]]
-
-        if self.gridInsertOk(cell) == False:
-            cell = previous
-
-        return cell
 
     @staticmethod
     def countAvailableCells(grid):
@@ -126,17 +189,24 @@ class Heuristic:
 
 if __name__=="__main__":
     g = Grid()
-    g.map[0] = [0, 0, 64, 0]
-    g.map[1] = [0, 128, 0, 0]
-    g.map[2] = [0, 2, 0, 0]
-    g.map[3] = [32, 0, 0, 0]
+    g.map[0] = [16, 2, 8, 1024]
+    g.map[1] = [8, 4, 64, 2]
+    g.map[2] = [4, 2, 32, 64]
+    g.map[3] = [0, 4, 2, 8]
 
+    # had score 3194
+    print Heuristic.calculateHeuristic(g)
+
+    g.map[0] = [128, 0, 0, 0]
+    g.map[1] = [64, 0, 0, 0]
+    g.map[2] = [2, 0, 0, 0]
+    g.map[3] = [0, 0, 0, 32]
 
     print Heuristic.calculateHeuristic(g)
 
-    g.map[0] = [128, 64, 0, 0]
-    g.map[1] = [32, 0, 0, 0]
-    g.map[2] = [2, 0, 0, 0]
-    g.map[3] = [0, 0, 0, 0]
+    g.map[0] = [512, 0, 0, 0]
+    g.map[1] = [128, 128, 0, 0]
+    g.map[2] = [0, 0, 64, 0]
+    g.map[3] = [0, 0, 0, 32]
 
     print Heuristic.calculateHeuristic(g)
