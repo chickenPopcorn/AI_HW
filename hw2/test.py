@@ -90,10 +90,6 @@ class GameManager:
 				else:
 					# print "Invalid Computer AI Move"
 					self.over = True
- 			'''
-			if not self.over:
-				self.displayer.display(self.grid)
-			'''
 			# once you exceeds the time limit, previous action will be your last action
 			self.updateAlarm(time.clock())
 			turn = 1 - turn
@@ -117,43 +113,14 @@ class GameManager:
 
 
 def main():
-    stats = {}
-    startTime = time.time()
-    numOfTrials = 3
-    for g in range(numOfTrials):
-        print "test ",g+1
-        gameManager = GameManager()
-        playerAI = PlayerAI()
-        computerAI  = ComputerAI()
-        '''
-        displayer = Displayer()
-        #set AIs and displayer
-        gameManager.setDisplayer(displayer)
-        '''
-        gameManager.setPlayerAI(playerAI)
-        gameManager.setComputerAI(computerAI)
-        # start the game!
-        result = gameManager.start()
-
-        if result in stats.keys():
-            stats[result] += 1
-        else:
-            stats[result] = 1
-    print str(numOfTrials) +" test run stats"
-    print "-------" + str(time.time()-startTime) + "seconds------"
-    accumStats = []
-    l =  stats.keys()
-    l.sort()
-    for i in l:
-        accumStats.append([i, stats[i]])
-
-    for i in range(len(accumStats)):
-        for n in range(i+1, len(accumStats)):
-            accumStats[i][1] += accumStats[n][1]
-
-    for i in accumStats:
-        print "% above including "+ str(i[0])+": "+str(i[1]/float(numOfTrials)*100.0)+"%"
-
+    gameManager = GameManager()
+    playerAI = PlayerAI()
+    computerAI  = ComputerAI()
+    gameManager.setPlayerAI(playerAI)
+    gameManager.setComputerAI(computerAI)
+    # start the game!
+    result = gameManager.start()
+    print result
 
 if __name__ == '__main__':
 	main()
