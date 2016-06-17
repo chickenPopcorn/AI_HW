@@ -3,7 +3,7 @@
 
 from random import randint
 from BaseAI import BaseAI
-from MinMaxNode import MinMaxNode
+from MiniMax import MiniMax
 import time
 
 
@@ -16,4 +16,4 @@ class PlayerAI(BaseAI):
         return moves[randint(0, len(moves) - 1)] if moves else None
         '''
         start = time.time()
-        return MinMaxNode.getBestMove(grid)[0]
+        return MiniMax.getBestMove(grid)[0]
