@@ -10,10 +10,5 @@ import time
 
 class PlayerAI(BaseAI):
     def getMove(self, grid):
-        '''        
-        # I'm too naive, please change me!
-        moves = grid.getAvailableMoves()
-        return moves[randint(0, len(moves) - 1)] if moves else None
-        '''
         start = time.time()
         return MiniMax.getBestMove(grid)[0]

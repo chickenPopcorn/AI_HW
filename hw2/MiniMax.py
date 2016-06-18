@@ -74,10 +74,13 @@ class MiniMax:
     def alphabeta(grid, depth, alpha, beta, player, timeLimit):
         direct = -1
         score = 0
+        # check time limit inside each node
         if time.time() >= timeLimit:
             return -1, None
+        # leaves nodes returns direction -1 and its heuristic
         if depth == 0:
             return direct, Heuristic.calculateHeuristic(grid)
+
         if player:
             moves = grid.getAvailableMoves()
             if len(moves) == 0:
@@ -91,47 +94,50 @@ class MiniMax:
                     return direct, None
                 if alpha < score or score == -float('inf'):
                     direct = d
-                alpha = max(alpha,score )
+                alpha = max(alpha, score)
                 if beta <= alpha:
                     break
             score = alpha
 
         else:
             cells = grid.getAvailableCells()
-            depth -= 1
             if len(cells) == 0:
-                    return -1, Heuristic.calculateHeuristic(grid)
+                return -1, Heuristic.calculateHeuristic(grid)
             for cell in cells:
                 for value in POSSIBILETILEVALUE :
                     child = MiniMax.makeGridCell(grid, cell, value)
-                    score = MiniMax.alphabeta(child, depth, alpha, beta,
+                    score = MiniMax.alphabeta(child, depth-1, alpha, beta,
                                                      True, timeLimit)[1]
                     if score == None:
                         return direct, None
                     beta = min(beta, score)
+                    if beta <= alpha:
+                        break
             score = beta
+
         return direct, score
 
     @staticmethod
     def getBestMove(grid):
-        depth = 4
+        depth = 2
         timeLimit = time.time() + 0.99
         lastRound = None
 
-        while time.time()<timeLimit:
-            result = MiniMax.alphabeta(grid, depth, -float('inf'), float('inf'), PLAYER, timeLimit)
-            if result[1] == None:
-                return lastRound
-            else:
-                lastRound = result
-            depth += 1
-
+        # while time.time()<timeLimit:
+        result = MiniMax.alphabeta(grid, depth, -float('inf'), float('inf'), PLAYER, timeLimit)
+        '''
+        if result[1] == None:
+            return lastRound
+        else:
+            lastRound = result
+        #depth += 1
+        '''
         return result
 
     # testing if minimax and alphbeta pruning produce the same result
     @staticmethod
     def testMiniMaxAlphabeta(g):
-        for depth in range (1,5):
+        for depth in range (1, 5):
             start = time.time()
             alphabeta= MiniMax.alphabeta(g, depth, -float('inf'),
                                          float('inf'), True, time.time()+1)
