@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+#coding:utf-8
+
 from Grid import Grid
 import copy
 import math
@@ -66,7 +69,7 @@ class MiniMax:
                     child = MiniMax.makeGridCell(grid, cell, value)
                     childScore = MiniMax.minimax(child, depth-1, PLAYER)[1]
                     if score > childScore:
-                        score = childScore
+                       score = childScore
             return direct, score
 
 
@@ -123,15 +126,15 @@ class MiniMax:
         timeLimit = time.time() + 0.99
         lastRound = None
 
-        # while time.time()<timeLimit:
-        result = MiniMax.alphabeta(grid, depth, -float('inf'), float('inf'), PLAYER, timeLimit)
-        '''
-        if result[1] == None:
-            return lastRound
-        else:
-            lastRound = result
-        #depth += 1
-        '''
+        while time.time()<timeLimit:
+            result = MiniMax.alphabeta(grid, depth, -float('inf'), float('inf'), PLAYER, timeLimit)
+
+            if result[1] == None:
+                return lastRound
+            else:
+                lastRound = result
+            depth += 1
+
         return result
 
     # testing if minimax and alphbeta pruning produce the same result

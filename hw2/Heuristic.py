@@ -1,11 +1,32 @@
+#!/usr/bin/env python
+#coding:utf-8
+
 import math
 from Grid import Grid
 
 BOARDSIZE = 4
 
 
-# This is the gradient I started with
-# however It's performance was subpar
+# Improved ripple gradient
+# The one I ended up using
+
+GRADIENT = [
+    [(3, 5, 7, 9), (2, 4, 6, 8), (1, 3, 5, 7), (0, 2, 4, 6)],
+    [(0, 1, 2, 3), (2, 3, 4, 5), (4, 5, 6, 7), (6, 7, 8, 9)],
+    [(6, 4, 2, 0), (7, 5, 3, 1), (8, 6, 4, 2), (9, 7, 5, 3)],
+    [(9, 8, 7, 6), (7, 6, 5, 4), (5, 4, 3, 2), (3, 2, 1, 0)],
+
+    [(0, 2, 4, 6), (1, 3, 5, 7), (2, 4, 6, 8), (3, 5, 7, 9)],
+    [(3, 2, 1, 0), (5, 4, 3, 2), (7, 6, 5, 4), (9, 8, 7, 6)],
+    [(9, 7, 5, 3), (8, 6, 4, 2), (7, 5, 3, 1), (6, 4, 2, 0)],
+    [(6, 7, 8, 9), (4, 5, 6, 7), (2, 3, 4, 5), (0, 1, 2, 3)]
+]
+
+
+'''
+# This is the gradient from
+# https://codemyroad.wordpress.com/2014/05/14/2048-ai-the-intelligent-bot/
+# which is heavly optimized, and has the best performance over all.
 
 GRADIENT =  [
     [(0.0125498, 0.060654, 0.0997992, 0.135759),
@@ -49,36 +70,19 @@ GRADIENT =  [
      (0.060654, 0.0562579, 0.037116, 0.0161889),
      (0.0997992, 0.0888405, 0.076711, 0.0724143),
      (0.135759, 0.121925, 0.102812, 0.099937)]
-
 ]
 
-'''
-GRADIENT = [
-    [(9, 8, 7, 6), (2, 3, 4, 5), (1, 2, 3, 4), (0, 1, 2, 3)],
-
-    [(0, 1, 2, 9), (1, 2, 3, 8), (2, 3, 4, 7), (3, 4, 5, 6)],
-
-    [(3, 2, 1, 0), (4, 3, 2, 1), (5, 4, 3, 2), (6, 7, 8, 9)],
-
-    [(6, 5, 4, 3), (7, 4, 3, 2), (8, 3, 2, 1), (9, 2, 1, 0)],
-
-    [(6, 7, 8, 9), (5, 4, 3, 2), (4, 3, 2, 1), (3, 2, 1, 0)],
-
-    [(3, 4, 5, 6), (2, 3, 4, 7), (1, 2, 3, 8), (0, 1, 2, 9)],
-
-    [(0, 1, 2, 3), (1, 2, 3, 4), (2, 3, 4, 5), (9, 8, 7, 6)],
-
-    [(9, 2, 1, 0), (8, 3, 2, 1), (7, 4, 3, 2), (6, 5, 4, 3)]
-]
 '''
 
 class Heuristic:
 
     @staticmethod
     def calculateHeuristic(grid):
-
+	
         '''
-        smoothWeight = 0.1
+        # The heuristic I started with
+        # It has the poorest performance       
+	smoothWeight = 0.1
         monoWeight = 1.0
         emptyWeight = 2.7
         maxWeight = 1.0
@@ -106,11 +110,11 @@ class Heuristic:
                 for column in range(BOARDSIZE):
                     cell = grid.map[row][column]
                     if cell != 0:
-                        # values[i] +=  cell << GRADIENT[i][row][column]
                         values[i] +=  cell * GRADIENT[i][row][column]
         return max(values)
 
     '''
+    # My inital heuristic functions
     @staticmethod
     def maxOnEdge(grid):
         ls = [cell for row in grid.map for cell in row]
@@ -215,7 +219,6 @@ if __name__=="__main__":
     g.map[2] = [4, 2, 32, 64]
     g.map[3] = [0, 4, 2, 8]
 
-    # had score 3194
     print Heuristic.calculateHeuristic(g)
 
     g.map[0] = [128, 0, 0, 0]
