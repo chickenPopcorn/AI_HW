@@ -70,22 +70,23 @@ def gradientDescent(data, dataStats):
             beta0 -= alpha/n * sum0
             beta1 -= alpha/n * sum1
             beta2 -= alpha/n * sum2
+
             leastSq = 0
             for i in range(n):
                 leastSq += (data["height"][i] - (beta0 + beta1 * data["ageScaled"][i] + beta2 * \
                             data["weightScaled"][1])) ** 2
-            print leastSq/(2*n)
             costFunc[alphaValues.index(alpha)].append(leastSq/(2*n))
-        print "next iter"
+
     x = [i for i in range(iteration)]
     a = [0] * len(alphaValues)
     for i in range(len(alphaValues)):
         plt.plot(x, costFunc[i])
-        a[i], = plt.plot(x,costFunc[i])
-    plt.legend(a,["alpha = 0.005","alpha = 0.001","alpha = 0.05","alpha = 0.1","alpha = 0.5","alpha = 1.0"])
-    plt.title('risk function at different learning rates')
+        a[i] = plt.plot(x,costFunc[i])[0]
+    plt.legend(a, ["alpha = 0.005","alpha = 0.001","alpha = 0.05","alpha = 0.1","alpha = 0.5","alpha = 1.0"])
+    plt.title('risk/cost function vs iteration at diff learning rates')
     plt.xlabel('iteration')
-    plt.ylabel('risk')
+    plt.ylabel('risk/costFunc')
+    plt.axis([0, 50, 0, 0.7])
     plt.show()
 
     # problem 2 part d
