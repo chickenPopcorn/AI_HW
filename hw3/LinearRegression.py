@@ -33,6 +33,7 @@ def dataPrep(path):
     print "Std of  weight is ", dataStats["weightStd"]
 
     # problem 1 part 1 b
+    # scaling data
     for index in range(len(data["age"])):
         data["ageScaled"].append((data["age"][index]-dataStats["ageMean"])/dataStats["ageStd"])
 
@@ -44,7 +45,7 @@ def dataPrep(path):
 
 def gradientDescent(data, dataStats):
     # problem 2 part a
-    alphaValues = [0.005, 0.001, 0.05, 0.1, 0.5, 1.0]
+    alphaValues = [0.001, 0.005, 0.05, 0.1, 0.5, 1.0]
     iteration = 50
     costFunc = [[], [], [], [], [], []]
     n = len(data["age"])
@@ -57,6 +58,7 @@ def gradientDescent(data, dataStats):
             sum0 = 0.0
             sum1 = 0.0
             sum2 = 0.0
+
             for i in range(n):
                 divation =  (beta0 + beta1 * data["ageScaled"][i] +\
                 beta2 * data["weightScaled"][i] - \
@@ -66,7 +68,7 @@ def gradientDescent(data, dataStats):
                 sum1 += divation * data["ageScaled"][i]
                 sum2 += divation * data["weightScaled"][i]
 
-            # simultaneous update
+            # simultaneous update beta
             beta0 -= alpha/n * sum0
             beta1 -= alpha/n * sum1
             beta2 -= alpha/n * sum2
@@ -77,16 +79,21 @@ def gradientDescent(data, dataStats):
                             data["weightScaled"][1])) ** 2
             costFunc[alphaValues.index(alpha)].append(leastSq/(2*n))
 
+    print "\nat learning rate of 1 "
+    print "beta0 =", beta0
+    print "beta1 =", beta1
+    print "beta2 =", beta2
     x = [i for i in range(iteration)]
     a = [0] * len(alphaValues)
     for i in range(len(alphaValues)):
         plt.plot(x, costFunc[i])
         a[i] = plt.plot(x,costFunc[i])[0]
-    plt.legend(a, ["alpha = 0.005","alpha = 0.001","alpha = 0.05","alpha = 0.1","alpha = 0.5","alpha = 1.0"])
+
+    plt.legend(a, ["alpha = 0.001", "alpha = 0.005","alpha = 0.05","alpha = 0.1","alpha = 0.5","alpha = 1.0"])
     plt.title('risk/cost function vs iteration at diff learning rates')
     plt.xlabel('iteration')
     plt.ylabel('risk/costFunc')
-    plt.axis([0, 50, 0, 0.7])
+    plt.axis([0, 50, 0, 1])
     plt.show()
 
     # problem 2 part d
@@ -95,7 +102,8 @@ def gradientDescent(data, dataStats):
     ageScaled = (age - dataStats["ageMean"])/dataStats["ageStd"]
     weightScaled = (weight - dataStats["weightMean"])/dataStats["weightStd"]
     Ans = beta0 + beta1 * ageScaled + beta2 * weightScaled
-    print "A "+str(age)+" years old girl weighing "+str(weight)+" kilos should have height "+str(Ans)+" meters"
+    print "\nUsing the beta vector from part c for a 5-years old weighing 20 kilos"
+    print str(Ans) + " meters"
 
 if __name__ == "__main__":
     data, stats = dataPrep("girls_age_weight_height_2_8.csv")

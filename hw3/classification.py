@@ -45,7 +45,7 @@ def splitData(AB, label):
     y_train = []
     y_test = []
     X_train, X_test, y_train, y_test = \
-        cross_validation.train_test_split(AB, label, test_size=0.4, random_state=42)
+        cross_validation.train_test_split(AB, label, test_size=0.4, random_state=42, stratify=label)
 
     print "Total data entries", len(label)
     print "X training entries: ", len(X_train), " "
@@ -63,9 +63,7 @@ def plotData(A0, A1, B0, B1):
     plt.ylabel('B')
     plt.show()
 
-def plotDB(svmModel, A0, B0, A1, B1, label, x_train, y_train, title):
-
-
+def plotDB(svmModel, A0, B0, A1, B1, title):
     xx, yy = numpy.meshgrid(numpy.arange(0, 4.2, 0.02), numpy.arange(0, 4.2, 0.02))
     plt.subplots_adjust(wspace=0.4, hspace=0.4)
     Z = svmModel.predict(numpy.c_[xx.ravel(), yy.ravel()])
@@ -80,59 +78,93 @@ def plotDB(svmModel, A0, B0, A1, B1, label, x_train, y_train, title):
     plt.show()
 
 
-
 if __name__ == "__main__":
     A0, A1, B0, B1, AB, label, A, B = loadData("chessboard.csv")
-    plotData(A0, A1, B0, B1)
+    # plotData(A0, A1, B0, B1)
     X_train, X_test, y_train, y_test = splitData(AB, label)
 
     cValue = [1.0, 10.0, 100.0]
 
-    
     print "-------------linear-------------------"
+    bestC = 0
+    bestScore = 0
     for c in cValue:
         print "linear SVM c = ", c
-        clf = svm.SVC(kernel='linear', C=c).fit(X_train, y_train)
-        print "Model accuracy ", accuracy_score(y_test, clf.predict(X_test)) * 100, "%"
-    clf = linear_model.LogisticRegression(C=1).fit(X_train, y_train)
-    plotDB(clf, A0, B0, A1, B1, label, X_train, y_train, "linear")
+        clf = svm.SVC(kernel='linear', C=c)
+        score = numpy.mean(cross_validation.cross_val_score(clf, X_train, y_train, cv=5))
+        print "Average Score is ", score
+        if score > bestScore:
+            bestScore = score
+            bestC = c
+    clf = linear_model.LogisticRegression(C=bestC).fit(X_train, y_train)
+    print "When c = ", bestC, "the linear kernel on test data accuracy:", accuracy_score(y_test, clf.predict(X_test))
+    plotDB(clf, A0, B0, A1, B1, "linear")
 
     print "------------polynomial----------------"
+    bestC = 0
+    bestD = 0
+    bestScore = 0
     degree = [2, 3, 4, 5]
     for c in cValue:
         for d in degree:
             print "poly SVM c = ", c, " degree = ", d
-            clf = svm.SVC(C=c, kernel="poly", degree=d).fit(X_train, y_train)
-            print "Model accuracy ", accuracy_score(y_test, clf.predict(X_test)) * 100, "%"
-    clf = svm.SVC(C=10, kernel="poly", degree=5).fit(X_train, y_train)
-    plotDB(clf, A0, B0, A1, B1, label, X_train, y_train, "poly")
+            clf = svm.SVC(C=c, kernel="poly", degree=d)
+            score = numpy.mean(cross_validation.cross_val_score(clf, X_train, y_train, cv=5))
+            print "Average Score is ", score
+            if score > bestScore:
+                bestScore = score
+                bestC = c
+                bestD = d
+    clf = svm.SVC(C=bestC, kernel="poly", degree=bestD).fit(X_train, y_train)
+    print "When c = ", bestC, "degree =", bestD, "the poly kernel on test data accuracy:", accuracy_score(y_test, clf.predict(X_test))
+    plotDB(clf, A0, B0, A1, B1, "poly")
 
     print "---------------rbf--------------------"
+    bestC = 0
+    bestG = 0
+    bestScore = 0
     gamma = [0.1, 1.0, 5.0, 10.0]
     for c in cValue:
         for g in gamma:
             print "rbf SVM c = ", c, " gamma = ", g
-            clf = svm.SVC(C=c, kernel='rbf', gamma=g).fit(X_train, y_train)
-            print "Model accuracy ", accuracy_score(y_test, clf.predict(X_test)) * 100, "%"
-    # c = 100 , g = 1
-    clf = svm.SVC(C=100, kernel='rbf', gamma=1).fit(X_train, y_train)
-    plotDB(clf, A0, B0, A1, B1, label, X_train, y_train, "RBF")
+            clf = svm.SVC(C=c, kernel='rbf', gamma=g)
+            score = numpy.mean(cross_validation.cross_val_score(clf, X_train, y_train, cv=5))
+            print "Average Score is ", score
+            if score > bestScore:
+                bestScore = score
+                bestC = c
+                bestG = g
+    clf = svm.SVC(C=bestC, kernel='rbf', gamma=bestG).fit(X_train, y_train)
+    print "When c = ", bestC, "gamma =", bestG, "the rbf kernel on test data accuracy:", accuracy_score(y_test, clf.predict(X_test))
+    plotDB(clf, A0, B0, A1, B1, "RBF")
 
     print "--------logistic regression-----------"
+    bestC = 0
+    bestScore = 0
     for c in cValue:
         print "logistic regression c = ", c
-        clf = linear_model.LogisticRegression(C=c).fit(X_train, y_train)
-        print "Model accuracy ", accuracy_score(y_test, clf.predict(X_test)) * 100, "%"
-    # c = 1
-    clf = linear_model.LogisticRegression(C=1).fit(X_train, y_train)
-    plotDB(clf, A0, B0, A1, B1, label, X_train, y_train, "Logistic Regression")
+        clf = linear_model.LogisticRegression(C=c)
+        score = numpy.mean(cross_validation.cross_val_score(clf, X_train, y_train, cv=5))
+        print "Average Score is ", score
+        if score > bestScore:
+            bestScore = score
+            bestC = c
+    clf = linear_model.LogisticRegression(C=bestC).fit(X_train, y_train)
+    print "When c = ", bestC, "the logistic regression model on test data accuracy:", accuracy_score(y_test, clf.predict(X_test))
+    plotDB(clf, A0, B0, A1, B1, "Logistic Regression")
 
     print "--------decision tree-----------"
+    bestDepth = 0
+    bestScore = 0
     depths = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0]
     for depth in depths:
         print "decision tree depth = ", depth
-        clf = tree.DecisionTreeClassifier(max_depth=depth).fit(X_train, y_train)
-        print "Model accuracy ", accuracy_score(y_test, clf.predict(X_test)) * 100, "%"
-    # 1
-    clf = tree.DecisionTreeClassifier(max_depth=5).fit(X_train, y_train)
-    plotDB(clf, A0, B0, A1, B1, label, X_train, y_train, "Decision Tree")
+        clf = tree.DecisionTreeClassifier(max_depth=depth)
+        score = numpy.mean(cross_validation.cross_val_score(clf, X_train, y_train, cv=5))
+        print "Average Score is ", score
+        if score > bestScore:
+            bestScore = score
+            bestDepth = depth
+    clf = tree.DecisionTreeClassifier(max_depth=bestDepth).fit(X_train, y_train)
+    print "When depth = ", bestDepth, "the decision tree model on test data accuracy:", accuracy_score(y_test, clf.predict(X_test))
+    plotDB(clf, A0, B0, A1, B1, "Decision Tree")
